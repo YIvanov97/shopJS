@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: rgba(30, 113, 141, 0.3);;
+}
+
+@font-face {
+font-family: 'SF-UI-Display-Bold';
+src: local('SF-UI-Display-Bold'), url(./assets/fonts/SF-UI-Display-Bold.ttf) format('truetype');
+}
+
+@font-face {
+font-family: 'SF-UI-Display-Heavy';
+src: local('SF-UI-Display-Heavy'), url(./assets/fonts/SF-UI-Display-Heavy.ttf) format('truetype');
+}
+
+@font-face {
+font-family: 'SF-UI-Display-Light';
+src: local('SF-UI-Display-Light'), url(./assets/fonts/SF-UI-Display-Light.ttf) format('truetype');
+}
+
+@font-face {
+font-family: 'SF-UI-Display-Medium';
+src: local('SF-UI-Display-Medium'), url(./assets/fonts/SF-UI-Display-Medium.ttf) format('truetype');
+}
+
+@font-face {
+font-family: 'SF-UI-Display-Regular';
+src: local('SF-UI-Display-Regular'), url(./assets/fonts/SF-UI-Display-Regular.ttf) format('truetype');
+}
+
+@font-face {
+font-family: 'SF-UI-Display-Thin';
+src: local('SF-UI-Display-Thin'), url(./assets/fonts/SF-UI-Display-Thin.ttf) format('truetype');
+}

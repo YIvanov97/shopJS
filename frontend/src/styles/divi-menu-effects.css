@@ -1,0 +1,4082 @@
+/*
+ * Free Divi Menu Effects by Pee-Aye Creative
+ *
+ * ===== NOTES ==================================================================
+ * 
+ * New to Divi and website design? Take our full course: https://www.peeayecreative.com/product/beyond-the-builder-the-ultimate-divi-website-course/
+ * 
+ * Learn cool tricks and features with our Divi tutorials: https://www.peeayecreative.com/blog/
+ * 
+ * Discover our premium Divi products: https://www.peeayecreative.com/shop/
+ * 
+ * =============================================================================== */
+
+
+/*==== add some spacing around menu items ====*/
+
+.et_pb_menu ul>li>a {
+   padding: 14px 20px!important;
+}
+
+
+/*==== elimitate opacitcy change on hover ====*/
+
+.et_pb_menu ul>li>a:hover {
+   opacity: 1!important;
+}
+
+
+/*==== Start Underline Fade ====*/
+
+.pa-underline-fade nav ul li a {
+   position: relative;
+}
+
+.pa-underline-fade nav ul li a::before {
+   content: "";
+   position: absolute;
+   left: 0;
+   bottom: 0;
+   height: 2px;
+   width: 100%;
+   background-color: #2cba6c;
+   z-index: 2;
+   opacity: 0;
+   display: block;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-underline-fade nav ul li a:hover::before {
+   opacity: 1;
+}
+
+
+/*==== End Underline Fade ====*/
+
+
+/*==== Start Underline Slide ====*/
+
+.pa-underline-slide nav ul li a {
+   position: relative;
+}
+
+.pa-underline-slide nav ul li a::before {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   height: 2px;
+   width: 10px;
+   left: calc(100% + 20px);
+   opacity: 0;
+   background-color: #2cba6c;
+   z-index: 2;
+   display: block;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-underline-slide nav ul li a:hover::before {
+   width: 100%;
+   left: 0;
+   opacity: 1;
+}
+
+
+/*==== End Underline Slide ====*/
+
+
+/*==== Start Underline Grow ====*/
+
+.pa-underline-grow nav ul li a {
+   position: relative;
+}
+
+.pa-underline-grow nav ul li a::before {
+   content: "";
+   position: absolute;
+   bottom: 0;
+   height: 0;
+   width: 0;
+   left: 50%;
+   opacity: 0;
+   background-color: #2cba6c;
+   z-index: 2;
+   display: block;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-underline-grow nav ul li a:hover::before {
+   width: 100%;
+   left: 0;
+   opacity: 1;
+   height: 2px;
+}
+
+
+/*==== End Underline Grow ====*/
+
+
+/*==== Start Underline Center ====*/
+
+.pa-underline-center nav ul li {
+   position: relative;
+}
+
+.pa-underline-center nav ul li a {
+   position: relative;
+   -webkit-transition: -webkit-transform 0.5s;
+   transition: transform 0.5s;
+   -webkit-transition-timing-function: cubic-bezier(1, 0.01, 0, 1);
+   -webkit-transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
+   transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
+}
+
+.pa-underline-center nav ul li a::before {
+   content: '';
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   margin-left: -22px;
+   width: 0px;
+   height: 2px;
+   background: #2cba6c;
+   -webkit-transition: -webkit-transform 0.5s;
+   transition: 0.5s;
+   -webkit-transition-timing-function: cubic-bezier(1, 0.01, 0, 1);
+   -webkit-transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
+   transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
+}
+
+.pa-underline-center nav ul li:hover a::before {
+   width: 45px;
+   -webkit-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+}
+
+
+/*==== End Underline Center ====*/
+
+
+/*==== Start Underline Drop-In ====*/
+
+.pa-underline-dropin nav ul li a {
+   position: relative;
+}
+
+.pa-underline-dropin nav ul li a::before {
+   content: "";
+   position: absolute;
+   bottom: -10px;
+   height: 2px;
+   width: 100%;
+   left: 0;
+   opacity: 0;
+   background-color: #2cba6c;
+   z-index: 2;
+   display: block;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-underline-dropin nav ul li a:hover::before {
+   bottom: 0;
+   opacity: 1;
+}
+
+
+/*==== End Underline Drop-In ====*/
+
+
+/*==== Start Underline Drop-Out ====*/
+
+.pa-underline-dropout nav ul li a {
+   position: relative;
+}
+
+.pa-underline-dropout nav ul li a::before {
+   content: "";
+   position: absolute;
+   bottom: 10px;
+   height: 2px;
+   width: 100%;
+   left: 0;
+   opacity: 0;
+   background-color: #2cba6c;
+   z-index: 2;
+   display: block;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-underline-dropout nav ul li a:hover::before {
+   bottom: 0;
+   opacity: 1;
+}
+
+
+/*==== End Underline Drop-Out ====*/
+
+
+/*==== Start Underline From Left  ====*/
+
+.pa-underline-from-left nav ul li a {
+   position: relative;
+   overflow: hidden;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-underline-from-left nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: 2;
+   left: 0;
+   right: 100%;
+   bottom: 0;
+   background: #2cba6c;
+   height: 2px;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-underline-from-left nav ul li a:hover::before {
+   right: 0;
+}
+
+
+/*==== End Underline From Left ====*/
+
+
+/*==== Start Underline From Center ====*/
+
+.pa-underline-from-center nav ul li a {
+   position: relative;
+   overflow: hidden;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-underline-from-center nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: 2;
+   left: 51%;
+   right: 51%;
+   bottom: 0;
+   background: #2cba6c;
+   height: 2px;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-underline-from-center nav ul li a:hover::before {
+   left: 0;
+   right: 0;
+}
+
+
+/*==== End Underline From Center ====*/
+
+
+/*==== Start Underline From Right ====*/
+
+.pa-underline-from-right nav ul li a {
+   position: relative;
+   overflow: hidden;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-underline-from-right nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: 2;
+   left: 100%;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   height: 2px;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-underline-from-right nav ul li a:hover::before {
+   left: 0;
+}
+
+
+/*==== End Border Underline From Right ====*/
+
+
+/*==== Start Underline Reveal ====*/
+
+.pa-underline-reveal nav ul li a {
+   position: relative;
+   overflow: hidden;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-underline-reveal nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: 2;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   height: 2px;
+   -webkit-transform: translateY(4px);
+   transform: translateY(4px);
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-underline-reveal nav ul li a:hover::before {
+   -webkit-transform: translateY(0);
+   transform: translateY(0);
+}
+
+
+/*==== End Underline Reveal ====*/
+
+
+/*==== Start Underline Color Swipe ====*/
+
+.pa-underline-color-swipe nav ul li a {
+   position: relative;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-image: linear-gradient(to right, #2cba6c, #2cba6c 50%, #333333 50%);
+   background-size: 200% 100%;
+   background-position: 100%;
+   -webkit-transition: all 0.35s ease;
+   transition: all 0.35s ease;
+}
+
+.pa-underline-color-swipe nav ul li a::before {
+   position: absolute;
+   bottom: 0;
+   display: block;
+   height: 2px;
+   width: 0%;
+   content: "";
+   background-color: #2cba6c;
+   -webkit-transition: all 0.35s ease;
+   transition: all 0.35s ease;
+}
+
+.pa-underline-color-swipe nav ul li a:hover::before {
+   opacity: 1;
+   width: 100%;
+}
+
+.pa-underline-color-swipe nav ul li a:hover {
+   transition: all 0.3s cubic-bezier(0, 0, 0.23, 1);
+   background-position: 0%;
+}
+
+
+/*==== End Underline Color Swipe ====*/
+
+
+/*==== Start Overline Fade ====*/
+
+.pa-overline-fade nav ul li a {
+   position: relative;
+}
+
+.pa-overline-fade nav ul li a::before {
+   content: "";
+   position: absolute;
+   height: 2px;
+   width: 100%;
+   top: 0;
+   left: 0;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-overline-fade nav ul li a:hover::before {
+   opacity: 1;
+}
+
+
+/*==== End Overline Fade ====*/
+
+
+/*==== Start Overline Slide ====*/
+
+.pa-overline-slide nav ul li a {
+   position: relative;
+}
+
+.pa-overline-slide nav ul li a::before {
+   content: "";
+   position: absolute;
+   height: 2px;
+   width: 10px;
+   left: -20px;
+   top: 0;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-overline-slide nav ul li a:hover::before {
+   opacity: 1;
+   width: 100%;
+   left: 0;
+}
+
+
+/*==== End Overline Slide ====*/
+
+
+/*==== Start Overline Grow ====*/
+
+.pa-overline-grow nav ul li a {
+   position: relative;
+}
+
+.pa-overline-grow nav ul li a::before {
+   content: "";
+   position: absolute;
+   height: 0;
+   width: 0;
+   left: 50%;
+   top: 0;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-overline-grow nav ul li a:hover::before {
+   opacity: 1;
+   width: 100%;
+   left: 0;
+   height: 2px;
+}
+
+
+/*==== End Overline Grow ====*/
+
+
+/*==== Start Overline Drop-In ====*/
+
+.pa-overline-dropin nav ul li a {
+   position: relative;
+}
+
+.pa-overline-dropin nav ul li a::before {
+   content: "";
+   position: absolute;
+   height: 2px;
+   width: 100%;
+   left: 0;
+   top: -10px;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-overline-dropin nav ul li a:hover::before {
+   opacity: 1;
+   top: 0;
+}
+
+
+/*==== End Overline Drop-In ====*/
+
+
+/*==== Start Overline Drop-Out ====*/
+
+.pa-overline-dropout nav ul li a {
+   position: relative;
+}
+
+.pa-overline-dropout nav ul li a::before {
+   content: "";
+   position: absolute;
+   height: 2px;
+   width: 100%;
+   left: 0;
+   top: 10px;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-overline-dropout nav ul li a:hover::before {
+   opacity: 1;
+   top: 0;
+}
+
+
+/*==== End Overline Drop-Out ====*/
+
+
+/*==== Start Overline From Left ====*/
+
+.pa-overline-from-left nav ul li a {
+   position: relative;
+   overflow: hidden;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-overline-from-left nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: 2;
+   left: 0;
+   right: 100%;
+   top: 0;
+   background: #2cba6c;
+   height: 2px;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-overline-from-left nav ul li a:hover::before {
+   right: 0;
+}
+
+
+/*==== End Overline From Left ====*/
+
+
+/*==== Start Overline From Center ====*/
+
+.pa-overline-from-center nav ul li a {
+   position: relative;
+   overflow: hidden;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-overline-from-center nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: 2;
+   left: 51%;
+   right: 51%;
+   top: 0;
+   background: #2cba6c;
+   height: 2px;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-overline-from-center nav ul li a:hover::before {
+   left: 0;
+   right: 0;
+}
+
+
+/*==== End Overline From Center ====*/
+
+
+/*==== Start Overline From Right ====*/
+
+.pa-overline-from-right nav ul li a {
+   position: relative;
+   overflow: hidden;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-overline-from-right nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: 2;
+   left: 100%;
+   right: 0;
+   top: 0;
+   background: #2cba6c;
+   height: 2px;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-overline-from-right nav ul li a:hover::before {
+   left: 0;
+}
+
+
+/*==== End Overline From Right ====*/
+
+
+/*==== Start Overline Reveal ====*/
+
+.pa-overline-reveal nav ul li a {
+   position: relative;
+   overflow: hidden;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-overline-reveal nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: 2;
+   left: 0;
+   right: 0;
+   top: 0;
+   background: #2cba6c;
+   height: 2px;
+   -webkit-transform: translateY(-4px);
+   transform: translateY(-4px);
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-overline-reveal nav ul li a:hover::before {
+   -webkit-transform: translateY(0);
+   transform: translateY(0);
+}
+
+
+/*==== End Overline Reveal ====*/
+
+
+/*==== Start Overline Color Swipe ====*/
+
+.pa-overline-color-swipe nav ul li a {
+   position: relative;
+   -webkit-background-clip: text;
+   -webkit-text-fill-color: transparent;
+   background-image: linear-gradient(to right, #2cba6c, #2cba6c 50%, #333333 50%);
+   background-size: 200% 100%;
+   background-position: 100%;
+   -webkit-transition: all 0.35s ease;
+   transition: all 0.35s ease;
+}
+
+.pa-overline-color-swipe nav ul li a::before {
+   position: absolute;
+   top: 0;
+   display: block;
+   height: 2px;
+   width: 0%;
+   content: "";
+   background-color: #2cba6c;
+   -webkit-transition: all 0.35s ease;
+   transition: all 0.35s ease;
+}
+
+.pa-overline-color-swipe nav ul li a:hover::before {
+   opacity: 1;
+   width: 100%;
+}
+
+.pa-overline-color-swipe nav ul li a:hover {
+   transition: all 0.3s cubic-bezier(0, 0, 0.23, 1);
+   background-position: 0%;
+}
+
+
+/*==== End Overline Color Swipe ====*/
+
+
+/*==== Start Double Line Fade====*/
+
+.pa-doubleline-fade nav ul li a {
+   position: relative;
+}
+
+.pa-doubleline-fade nav ul li a::before {
+   content: "";
+   position: absolute;
+   height: 2px;
+   width: 100%;
+   top: 0;
+   left: 0;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-doubleline-fade nav ul li a::after {
+   content: "";
+   position: absolute;
+   height: 2px;
+   width: 100%;
+   bottom: 0;
+   left: 0;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-doubleline-fade nav ul li a:hover::before {
+   opacity: 1;
+}
+
+.pa-doubleline-fade nav ul li a:hover::after {
+   opacity: 1;
+}
+
+
+/*==== End Double Line Fade====*/
+
+
+/*==== Start Double Line Slide====*/
+
+.pa-doubleline-slide nav ul li a {
+   position: relative;
+}
+
+.pa-doubleline-slide nav ul li a::before {
+   content: "";
+   position: absolute;
+   height: 2px;
+   width: 10px;
+   left: -20px;
+   top: 0;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-doubleline-slide nav ul li a::after {
+   content: "";
+   position: absolute;
+   height: 2px;
+   width: 10px;
+   left: calc(100% + 20px);
+   bottom: 0;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-doubleline-slide nav ul li a:hover::before {
+   opacity: 1;
+   left: 0;
+   width: 100%;
+}
+
+.pa-doubleline-slide nav ul li a:hover::after {
+   opacity: 1;
+   left: 0;
+   width: 100%;
+}
+
+
+/*==== End Double Line Slide====*/
+
+
+/*==== Start Double Line Grow====*/
+
+.pa-doubleline-grow nav ul li a {
+   position: relative;
+}
+
+.pa-doubleline-grow nav ul li a::before {
+   content: "";
+   position: absolute;
+   height: 0;
+   width: 0;
+   left: 50%;
+   top: 0;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-doubleline-grow nav ul li a::after {
+   content: "";
+   position: absolute;
+   height: 0;
+   width: 0;
+   left: 50%;
+   bottom: 0;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-doubleline-grow nav ul li a:hover::before {
+   opacity: 1;
+   height: 2px;
+   left: 0;
+   width: 100%;
+}
+
+.pa-doubleline-grow nav ul li a:hover::after {
+   opacity: 1;
+   height: 2px;
+   left: 0;
+   width: 100%;
+}
+
+
+/*==== End Double Line Grow====*/
+
+
+/*==== Start Double Line Drop-In====*/
+
+.pa-doubleline-dropin nav ul li a {
+   position: relative;
+}
+
+.pa-doubleline-dropin nav ul li a::before {
+   content: "";
+   position: absolute;
+   height: 2px;
+   width: 100%;
+   left: 0;
+   top: -10px;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-doubleline-dropin nav ul li a::after {
+   content: "";
+   position: absolute;
+   height: 2px;
+   width: 100%;
+   left: 0;
+   bottom: -10px;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-doubleline-dropin nav ul li a:hover::before {
+   opacity: 1;
+   top: 0;
+}
+
+.pa-doubleline-dropin nav ul li a:hover::after {
+   opacity: 1;
+   bottom: 0;
+}
+
+
+/*==== End Double Line Drop-In====*/
+
+
+/*==== Start Double Line Drop-Out====*/
+
+.pa-doubleline-dropout nav ul li a {
+   position: relative;
+}
+
+.pa-doubleline-dropout nav ul li a::before {
+   content: "";
+   position: absolute;
+   height: 2px;
+   width: 100%;
+   left: 0;
+   top: 10px;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-doubleline-dropout nav ul li a::after {
+   content: "";
+   position: absolute;
+   height: 2px;
+   width: 100%;
+   left: 0;
+   bottom: 10px;
+   background-color: #2cba6c;
+   display: block;
+   z-index: 2;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-doubleline-dropout nav ul li a:hover::before {
+   opacity: 1;
+   top: 0;
+}
+
+.pa-doubleline-dropout nav ul li a:hover::after {
+   opacity: 1;
+   bottom: 0;
+}
+
+
+/*==== End Double Line Drop-Out====*/
+
+
+/*==== Start Background Fade ====*/
+
+.pa-background-fade nav ul li a {
+   position: relative;
+   background: #e1e1e1;
+   z-index: 1;
+}
+
+.pa-background-fade nav ul li a::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   z-index: -1;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-background-fade nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-fade nav ul li a:hover::before {
+   opacity: 1;
+}
+
+
+/*==== End Background Fade ====*/
+
+
+/*==== Start Background Grow ====*/
+
+.pa-background-grow nav ul li a {
+   position: relative;
+   z-index: 1;
+   background: #e1e1e1;
+}
+
+.pa-background-grow nav ul li a::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   z-index: -1;
+   opacity: 0;
+   -webkit-transform: scale(.5);
+   -ms-transform: scale(.5);
+   transform: scale(.5);
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-background-grow nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-grow nav ul li a:hover::before {
+   opacity: 1;
+   -webkit-transform: scale(1);
+   -ms-transform: scale(1);
+   transform: scale(1);
+}
+
+
+/*==== End Background Grow ====*/
+
+
+/*==== Start Background Swipe ====*/
+
+.pa-background-swipe nav ul li a {
+   position: relative;
+   z-index: 1;
+   background: #e1e1e1;
+}
+
+.pa-background-swipe nav ul li a::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   left: 0;
+   right: 100%;
+   bottom: 0;
+   background: #2cba6c;
+   z-index: -1;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-background-swipe nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-swipe nav ul li a:hover::before {
+   opacity: 1;
+   right: 0;
+}
+
+
+/*==== End Background Swipe ====*/
+
+
+/*==== Start Background SwipeUp ====*/
+
+.pa-background-swipeup nav ul li a {
+   position: relative;
+   z-index: 1;
+   background: #e1e1e1;
+}
+
+.pa-background-swipeup nav ul li a::before {
+   content: "";
+   position: absolute;
+   top: 100%;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   z-index: -1;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-background-swipeup nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-swipeup nav ul li a:hover::before {
+   opacity: 1;
+   top: 0;
+}
+
+
+/*==== End Background SwipeUp ====*/
+
+
+/*==== Start Background Shutter ====*/
+
+.pa-background-shutter nav ul li a {
+   position: relative;
+   z-index: 1;
+   background: #e1e1e1;
+}
+
+.pa-background-shutter nav ul li a::before {
+   content: "";
+   position: absolute;
+   top: 0;
+   right: 50%;
+   left: 50%;
+   bottom: 0;
+   background: #2cba6c;
+   z-index: -1;
+   opacity: 0;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-background-shutter nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-shutter nav ul li a:hover::before {
+   opacity: 1;
+   left: 0;
+   right: 0;
+}
+
+
+/*==== End Background Shutter ====*/
+
+
+/*==== Start Background Sweep To Right  ====*/
+
+.pa-background-sweep-right nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #e1e1e1;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-background-sweep-right nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   -webkit-transform: scaleX(0);
+   transform: scaleX(0);
+   -webkit-transform-origin: 0 50%;
+   transform-origin: 0 50%;
+   -webkit-transition-property: transform;
+   transition-property: transform;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-background-sweep-right nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-sweep-right nav ul li a:hover:before {
+   -webkit-transform: scaleX(1);
+   transform: scaleX(1);
+}
+
+
+/*==== End Background Sweep To Right  ====*/
+
+
+/*==== Start Background Sweep To Left  ====*/
+
+.pa-background-sweep-left nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #e1e1e1;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-background-sweep-left nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   -webkit-transform: scaleX(0);
+   transform: scaleX(0);
+   -webkit-transform-origin: 100% 50%;
+   transform-origin: 100% 50%;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-background-sweep-left nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-sweep-left nav ul li a:hover:before {
+   -webkit-transform: scaleX(1);
+   transform: scaleX(1);
+}
+
+
+/*==== End Background Sweep To Left  ====*/
+
+
+/*==== Start Background Sweep To Bottom  ====*/
+
+.pa-background-sweep-bottom nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #e1e1e1;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-background-sweep-bottom nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   -webkit-transform: scaleY(0);
+   transform: scaleY(0);
+   -webkit-transform-origin: 50% 0;
+   transform-origin: 50% 0;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-background-sweep-bottom nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-sweep-bottom nav ul li a:hover:before {
+   -webkit-transform: scaleY(1);
+   transform: scaleY(1);
+}
+
+
+/*==== End Background Sweep To Bottom  ====*/
+
+
+/*==== Start Background Sweep To Top  ====*/
+
+.pa-background-sweep-top nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #e1e1e1;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-background-sweep-top nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   -webkit-transform: scaleY(0);
+   transform: scaleY(0);
+   -webkit-transform-origin: 50% 100%;
+   transform-origin: 50% 100%;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-background-sweep-top nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-sweep-top nav ul li a:hover:before {
+   -webkit-transform: scaleY(1);
+   transform: scaleY(1);
+}
+
+
+/*==== End Background Sweep To Top  ====*/
+
+
+/*==== Start Background Bounce To Right  ====*/
+
+.pa-background-bounce-right nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #e1e1e1;
+   transition: all 0.5s;
+   -webkit-transition: all 0.5s;
+   -moz-transition: all 0.5s;
+   -o-transition: all 0.5s;
+}
+
+.pa-background-bounce-right nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   -webkit-transform: scaleX(0);
+   transform: scaleX(0);
+   -webkit-transform-origin: 0 50%;
+   transform-origin: 0 50%;
+   -webkit-transition: all 0.5s ease-out;
+   -moz-transition: all 0.5s ease-out;
+   -o-transition: all 0.5s ease-out;
+}
+
+.pa-background-bounce-right nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-bounce-right nav ul li a:hover:before {
+   -webkit-transform: scaleX(1);
+   transform: scaleX(1);
+   -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+   transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+
+
+/*==== End Background Bounce To Right  ====*/
+
+
+/*==== Start Background Bounce To Left  ====*/
+
+.pa-background-bounce-left nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #e1e1e1;
+   transition: all 0.5s;
+   -webkit-transition: all 0.5s;
+   -moz-transition: all 0.5s;
+   -o-transition: all 0.5s;
+}
+
+.pa-background-bounce-left nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   -webkit-transform: scaleX(0);
+   transform: scaleX(0);
+   -webkit-transform-origin: 100% 50%;
+   transform-origin: 100% 50%;
+   -webkit-transition: all 0.5s ease-out;
+   -moz-transition: all 0.5s ease-out;
+   -o-transition: all 0.5s ease-out;
+}
+
+.pa-background-bounce-left nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-bounce-left nav ul li a:hover:before {
+   -webkit-transform: scaleX(1);
+   transform: scaleX(1);
+   -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+   transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+
+
+/*==== End Background Bounce To Left  ====*/
+
+
+/*==== Start Background Bounce To Bottom  ====*/
+
+.pa-background-bounce-bottom nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #e1e1e1;
+   transition: all 0.5s;
+   -webkit-transition: all 0.5s;
+   -moz-transition: all 0.5s;
+   -o-transition: all 0.5s;
+}
+
+.pa-background-bounce-bottom nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   -webkit-transform: scaleY(0);
+   transform: scaleY(0);
+   -webkit-transform-origin: 50% 0;
+   transform-origin: 50% 0;
+   -webkit-transition: all 0.5s ease-out;
+   -moz-transition: all 0.5s ease-out;
+   -o-transition: all 0.5s ease-out;
+}
+
+.pa-background-bounce-bottom nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-bounce-bottom nav ul li a:hover:before {
+   -webkit-transform: scaleY(1);
+   transform: scaleY(1);
+   -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+   transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+
+
+/*==== End Background Bounce To Bottom  ====*/
+
+
+/*==== Start Background Bounce To Top  ====*/
+
+.pa-background-bounce-top nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #e1e1e1;
+   transition: all 0.5s;
+   -webkit-transition: all 0.5s;
+   -moz-transition: all 0.5s;
+   -o-transition: all 0.5s;
+}
+
+.pa-background-bounce-top nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   -webkit-transform: scaleY(0);
+   transform: scaleY(0);
+   -webkit-transform-origin: 50% 100%;
+   transform-origin: 50% 100%;
+   -webkit-transition: all 0.5s ease-out;
+   -moz-transition: all 0.5s ease-out;
+   -o-transition: all 0.5s ease-out;
+}
+
+.pa-background-bounce-top nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-bounce-top nav ul li a:hover:before {
+   -webkit-transform: scaleY(1);
+   transform: scaleY(1);
+   -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+   transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+
+
+/*==== End Background Bounce To Top  ====*/
+
+
+/*==== Start Background Radial Out  ====*/
+
+.pa-background-radial-out nav ul li a {
+   position: relative;
+   z-index: 1;
+   overflow: hidden;
+   background-color: #e1e1e1;
+   transition: all 0.5s;
+   -webkit-transition: all 0.5s;
+   -moz-transition: all 0.5s;
+   -o-transition: all 0.5s;
+}
+
+.pa-background-radial-out nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   border-radius: 100%;
+   -webkit-transform: scale(0);
+   transform: scale(0);
+   -webkit-transition: all 0.5s ease-out;
+   -moz-transition: all 0.5s ease-out;
+   -o-transition: all 0.5s ease-out;
+}
+
+.pa-background-radial-out nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-radial-out nav ul li a:hover:before {
+   -webkit-transform: scale(2);
+   transform: scale(2);
+}
+
+
+/*==== End Background Radial Out  ====*/
+
+
+/*==== Start Background Radial In  ====*/
+
+.pa-background-radial-in nav ul li a {
+   position: relative;
+   z-index: 1;
+   overflow: hidden;
+   background-color: #2cba6c;
+   transition: all 0.5s;
+   -webkit-transition: all 0.5s;
+   -moz-transition: all 0.5s;
+   -o-transition: all 0.5s;
+}
+
+.pa-background-radial-in nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #e1e1e1;
+   border-radius: 100%;
+   -webkit-transform: scale(2);
+   transform: scale(2);
+   -webkit-transition: all 0.5s ease-out;
+   -moz-transition: all 0.5s ease-out;
+   -o-transition: all 0.5s ease-out;
+}
+
+.pa-background-radial-in nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-radial-in nav ul li a:hover:before {
+   -webkit-transform: scale(0);
+   transform: scale(0);
+}
+
+
+/*==== End Background Radial In  ====*/
+
+
+/*==== Start Background Rectangle Out  ====*/
+
+.pa-background-rectangle-out nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #e1e1e1;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-background-rectangle-out nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   -webkit-transform: scale(0);
+   transform: scale(0);
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-background-rectangle-out nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-rectangle-out nav ul li a:hover:before {
+   -webkit-transform: scale(1);
+   transform: scale(1);
+}
+
+
+/*==== End Background Rectangle Out  ====*/
+
+
+/*==== Start Background Rectangle In  ====*/
+
+.pa-background-rectangle-in nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #2cba6c;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-background-rectangle-in nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #e1e1e1;
+   -webkit-transform: scale(1);
+   transform: scale(1);
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-background-rectangle-in nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-rectangle-in nav ul li a:hover:before {
+   -webkit-transform: scale(0);
+   transform: scale(0);
+}
+
+
+/*==== End Background Rectangle In  ====*/
+
+
+/*==== Start Background Shutter In Horizontal  ====*/
+
+.pa-background-shutter-in-horizontal nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #2cba6c;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-background-shutter-in-horizontal nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #e1e1e1;
+   -webkit-transform: scaleX(1);
+   transform: scaleX(1);
+   -webkit-transform-origin: 50%;
+   transform-origin: 50%;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-background-shutter-in-horizontal nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-shutter-in-horizontal nav ul li a:hover:before {
+   -webkit-transform: scaleX(0);
+   transform: scaleX(0);
+}
+
+
+/*==== End Background Shutter In Horizontal ====*/
+
+
+/*==== Start Background Shutter Out Horizontal  ====*/
+
+.pa-background-shutter-out-horizontal nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #e1e1e1;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-background-shutter-out-horizontal nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   -webkit-transform: scaleX(0);
+   transform: scaleX(0);
+   -webkit-transform-origin: 50%;
+   transform-origin: 50%;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-background-shutter-out-horizontal nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-shutter-out-horizontal nav ul li a:hover:before {
+   -webkit-transform: scaleX(1);
+   transform: scaleX(1);
+}
+
+
+/*==== End Background Shutter Out Horizontal ====*/
+
+
+/*==== Start Background Shutter In Vertical  ====*/
+
+.pa-background-shutter-in-vertical nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #2cba6c;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-background-shutter-in-vertical nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #e1e1e1;
+   -webkit-transform: scaleY(1);
+   transform: scaleY(1);
+   -webkit-transform-origin: 50%;
+   transform-origin: 50%;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-background-shutter-in-vertical nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-shutter-in-vertical nav ul li a:hover:before {
+   -webkit-transform: scaleY(0);
+   transform: scaleY(0);
+}
+
+
+/*==== End Background Shutter In Vertical ====*/
+
+
+/*==== Start Background Shutter Out Vertical  ====*/
+
+.pa-background-shutter-out-vertical nav ul li a {
+   position: relative;
+   z-index: 1;
+   background-color: #e1e1e1;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-background-shutter-out-vertical nav ul li a::before {
+   content: "";
+   position: absolute;
+   z-index: -1;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background: #2cba6c;
+   -webkit-transform: scaleY(0);
+   transform: scaleY(0);
+   -webkit-transform-origin: 50%;
+   transform-origin: 50%;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-background-shutter-out-vertical nav ul li a:hover {
+   color: #ffffff!important;
+}
+
+.pa-background-shutter-out-vertical nav ul li a:hover:before {
+   -webkit-transform: scaleY(1);
+   transform: scaleY(1);
+}
+
+
+/*==== End Background Shutter Out Vertical ====*/
+
+
+/*==== Start Background Round Corners ====*/
+
+.pa-background-round-corners nav ul li a {
+   background-color: #e1e1e1;
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-background-round-corners nav ul li a:hover {
+   border-radius: 1em;
+   background-color: #2cba6c;
+}
+
+
+/*==== End Background Round Corners ====*/
+
+
+/*==== Start Background Square Corners ====*/
+
+.pa-background-square-corners nav ul li a {
+   background-color: #e1e1e1;
+	border-radius: 1em;
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-background-square-corners nav ul li a:hover {
+   border-radius: 0;
+   background-color: #2cba6c;
+}
+
+
+/*==== End Background Square Corners ====*/
+
+
+/*==== Start Background Crossover ====*/
+
+.pa-background-crossover nav ul li a {
+   transition: color 0.2s linear 0s;
+   z-index: 1;
+}
+
+.pa-background-crossover nav ul li a:before,
+.pa-background-crossover nav ul li a:after {
+   content: "";
+   display: block;
+   width: 100%;
+   height: 100%;
+   background-color: #2cba6c;
+   z-index: -1;
+   -webkit-transform: scale(0.1);
+   transform: scale(0.1);
+   opacity: 0;
+}
+
+.pa-background-crossover nav ul li a:before {
+   position: absolute;
+   top: 0;
+   left: 0;
+   -webkit-transform-origin: left top;
+   transform-origin: left top;
+}
+
+.pa-background-crossover nav ul li a:after {
+   position: absolute;
+   right: 0;
+   bottom: 0;
+   -webkit-transform-origin: right bottom;
+   transform-origin: right bottom;
+}
+
+.pa-background-crossover nav ul li a:hover:before,
+.pa-background-crossover nav ul li a:hover:after {
+   -webkit-transform: scale(1);
+   transform: scale(1);
+   opacity: 1;
+   transition: all 0.3s linear 0s;
+}
+
+
+/*==== End Background Crossover ====*/
+
+
+/*==== Start Background Skew  ====*/
+
+.pa-background-skew nav ul li a {
+   background-color: #e1e1e1;
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-background-skew nav ul li a:hover {
+   -webkit-transform: skew(-10deg);
+   transform: skew(-10deg);
+}
+
+
+/*==== End Background Skew  ====*/
+
+
+/*==== Start Background Skew Forward  ====*/
+
+.pa-background-skew-forward nav ul li a {
+   background-color: #e1e1e1;
+   -webkit-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -webkit-transition-property: transform;
+   transition-property: transform;
+   -webkit-transform-origin: 0 100%;
+   transform-origin: 0 100%;
+}
+
+.pa-background-skew-forward nav ul li a:hover {
+   -webkit-transform: skew(-10deg);
+   transform: skew(-10deg);
+}
+
+
+/*==== End Background Skew Forward  ====*/
+
+
+/*==== Start Background Skew Backward  ====*/
+
+.pa-background-skew-backward nav ul li a {
+   background-color: #e1e1e1;
+   -webkit-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -webkit-transition-property: transform;
+   transition-property: transform;
+   -webkit-transform-origin: 0 100%;
+   transform-origin: 0 100%;
+}
+
+.pa-background-skew-backward nav ul li a:hover {
+   -webkit-transform: skew(10deg);
+   transform: skew(10deg);
+}
+
+
+/*==== End Background Skew Backward  ====*/
+
+
+/*==== Start Background Wobble Skew  ====*/
+
+.pa-background-wobble-skew nav ul li a {
+   background-color: #e1e1e1;
+}
+
+.pa-background-wobble-skew nav ul li a:hover {
+   -webkit-animation: hvr-wobble-skew 1s ease-in-out;
+   animation: hvr-wobble-skew 1s ease-in-out;
+}
+
+@-webkit-keyframes hvr-wobble-skew {
+   16.65% {
+      -webkit-transform: skew(-12deg);
+      transform: skew(-12deg);
+   }
+   33.3% {
+      -webkit-transform: skew(10deg);
+      transform: skew(10deg);
+   }
+   49.95% {
+      -webkit-transform: skew(-6deg);
+      transform: skew(-6deg);
+   }
+   66.6% {
+      -webkit-transform: skew(4deg);
+      transform: skew(4deg);
+   }
+   83.25% {
+      -webkit-transform: skew(-2deg);
+      transform: skew(-2deg);
+   }
+   100% {
+      -webkit-transform: skew(0);
+      transform: skew(0);
+   }
+}
+
+@keyframes hvr-wobble-skew {
+   16.65% {
+      -webkit-transform: skew(-12deg);
+      transform: skew(-12deg);
+   }
+   33.3% {
+      -webkit-transform: skew(10deg);
+      transform: skew(10deg);
+   }
+   49.95% {
+      -webkit-transform: skew(-6deg);
+      transform: skew(-6deg);
+   }
+   66.6% {
+      -webkit-transform: skew(4deg);
+      transform: skew(4deg);
+   }
+   83.25% {
+      -webkit-transform: skew(-2deg);
+      transform: skew(-2deg);
+   }
+   100% {
+      -webkit-transform: skew(0);
+      transform: skew(0);
+   }
+}
+
+
+/*==== End Background Wobble Skew  ====*/
+
+
+/*==== Start Background Wobble Top  ====*/
+
+.pa-background-wobble-top nav ul li a {
+   background-color: #e1e1e1;
+   -webkit-transform-origin: 0 100%;
+   transform-origin: 0 100%;
+}
+
+.pa-background-wobble-top nav ul li a:hover {
+   -webkit-animation: hvr-wobble-top 1s ease-in-out;
+   animation: hvr-wobble-top 1s ease-in-out;
+}
+
+@-webkit-keyframes hvr-wobble-top {
+   16.65% {
+      -webkit-transform: skew(-12deg);
+      transform: skew(-12deg);
+   }
+   33.3% {
+      -webkit-transform: skew(10deg);
+      transform: skew(10deg);
+   }
+   49.95% {
+      -webkit-transform: skew(-6deg);
+      transform: skew(-6deg);
+   }
+   66.6% {
+      -webkit-transform: skew(4deg);
+      transform: skew(4deg);
+   }
+   83.25% {
+      -webkit-transform: skew(-2deg);
+      transform: skew(-2deg);
+   }
+   100% {
+      -webkit-transform: skew(0);
+      transform: skew(0);
+   }
+}
+
+@keyframes hvr-wobble-top {
+   16.65% {
+      -webkit-transform: skew(-12deg);
+      transform: skew(-12deg);
+   }
+   33.3% {
+      -webkit-transform: skew(10deg);
+      transform: skew(10deg);
+   }
+   49.95% {
+      -webkit-transform: skew(-6deg);
+      transform: skew(-6deg);
+   }
+   66.6% {
+      -webkit-transform: skew(4deg);
+      transform: skew(4deg);
+   }
+   83.25% {
+      -webkit-transform: skew(-2deg);
+      transform: skew(-2deg);
+   }
+   100% {
+      -webkit-transform: skew(0);
+      transform: skew(0);
+   }
+}
+
+
+/*==== Start Background Wobble Top  ====*/
+
+
+/*==== Start Background Wobble Bottom  ====*/
+
+.pa-background-wobble-bottom nav ul li a {
+   background-color: #e1e1e1;
+   -webkit-transform-origin: 100% 0;
+   transform-origin: 100% 0;
+}
+
+.pa-background-wobble-bottom nav ul li a:hover {
+   -webkit-animation: hvr-wobble-bottom 1s ease-in-out;
+   animation: hvr-wobble-bottom 1s ease-in-out;
+}
+
+@-webkit-keyframes hvr-wobble-bottom {
+   16.65% {
+      -webkit-transform: skew(-12deg);
+      transform: skew(-12deg);
+   }
+   33.3% {
+      -webkit-transform: skew(10deg);
+      transform: skew(10deg);
+   }
+   49.95% {
+      -webkit-transform: skew(-6deg);
+      transform: skew(-6deg);
+   }
+   66.6% {
+      -webkit-transform: skew(4deg);
+      transform: skew(4deg);
+   }
+   83.25% {
+      -webkit-transform: skew(-2deg);
+      transform: skew(-2deg);
+   }
+   100% {
+      -webkit-transform: skew(0);
+      transform: skew(0);
+   }
+}
+
+@keyframes hvr-wobble-bottom {
+   16.65% {
+      -webkit-transform: skew(-12deg);
+      transform: skew(-12deg);
+   }
+   33.3% {
+      -webkit-transform: skew(10deg);
+      transform: skew(10deg);
+   }
+   49.95% {
+      -webkit-transform: skew(-6deg);
+      transform: skew(-6deg);
+   }
+   66.6% {
+      -webkit-transform: skew(4deg);
+      transform: skew(4deg);
+   }
+   83.25% {
+      -webkit-transform: skew(-2deg);
+      transform: skew(-2deg);
+   }
+   100% {
+      -webkit-transform: skew(0);
+      transform: skew(0);
+   }
+}
+
+
+/*==== End Background Wobble Bottom  ====*/
+
+
+/*==== Start 2D Grow ====*/
+
+.pa-2d-grow nav ul li a {
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-2d-grow nav ul li a:hover {
+   -webkit-transform: scale(1.1);
+   -moz-transform: scale(1.1);
+   -o-transform: scale(1.1);
+   transform: scale(1.1);
+}
+
+
+/*==== End 2D Grow ====*/
+
+
+/*==== Start 2D Shrink ====*/
+
+.pa-2d-shrink nav ul li a {
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-2d-shrink nav ul li a:hover {
+   -webkit-transform: scale(0.9);
+   -moz-transform: scale(0.9);
+   -o-transform: scale(0.9);
+   transform: scale(0.9);
+}
+
+
+/*==== End 2D Shrink ====*/
+
+
+/*==== Start 2D Pulse ====*/
+
+.pa-2d-pulse nav ul li a {
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-2d-pulse nav ul li a:hover {
+   -webkit-animation: hvr-pulse 1s linear;
+   animation: hvr-pulse 1s infinite linear;
+}
+
+@-webkit-keyframes hvr-pulse {
+   25% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+   }
+   75% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+   }
+}
+
+@keyframes hvr-pulse {
+   25% {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+   }
+   75% {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+   }
+}
+
+
+/*==== End 2D Pulse ====*/
+
+
+/*==== Start 2D Pulse Grow ====*/
+
+.pa-2d-pulse-grow nav ul li a {
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-2d-pulse-grow nav ul li a:hover {
+   -webkit-animation: hvr-pulse-grow 0.3s infinite linear alternate;
+   animation: hvr-pulse-grow 0.3s infinite linear alternate;
+}
+
+@-webkit-keyframes hvr-pulse-grow {
+   to {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+   }
+}
+
+@keyframes hvr-pulse-grow {
+   to {
+      -webkit-transform: scale(1.1);
+      transform: scale(1.1);
+   }
+}
+
+
+/*==== End 2D Pulse Grow ====*/
+
+
+/*==== Start 2D Pulse Shrink ====*/
+
+.pa-2d-pulse-shrink nav ul li a {
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-2d-pulse-shrink nav ul li a:hover {
+   -webkit-animation: hvr-pulse-shrink 0.3s infinite linear alternate;
+   animation: hvr-pulse-shrink 0.3s infinite linear alternate;
+}
+
+@-webkit-keyframes hvr-pulse-shrink {
+   to {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+   }
+}
+
+@keyframes hvr-pulse-shrink {
+   to {
+      -webkit-transform: scale(0.9);
+      transform: scale(0.9);
+   }
+}
+
+
+/*==== End 2D Pulse Shrink ====*/
+
+
+/*==== Start 2D Push ====*/
+
+.pa-2d-push nav ul li a {
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-2d-push nav ul li a:hover {
+   -webkit-animation: hvr-push 0.3s linear;
+   animation: hvr-push 0.3s linear;
+}
+
+@-webkit-keyframes hvr-push {
+   50% {
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+   }
+   100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+   }
+}
+
+@keyframes hvr-push {
+   50% {
+      -webkit-transform: scale(0.8);
+      transform: scale(0.8);
+   }
+   100% {
+      -webkit-transform: scale(1);
+      transform: scale(1);
+   }
+}
+
+
+/*==== End 2D Push ====*/
+
+
+/*==== Start 2D Pop ====*/
+
+.pa-2d-pop nav ul li a {
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-2d-pop nav ul li a:hover {
+   -webkit-animation: hvr-pop 0.3s 1 linear;
+   animation: hvr-pop 0.3s 1 linear;
+}
+
+@-webkit-keyframes hvr-pop {
+   50% {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+   }
+}
+
+@keyframes hvr-pop {
+   50% {
+      -webkit-transform: scale(1.2);
+      transform: scale(1.2);
+   }
+}
+
+
+/*==== End 2D Pop ====*/
+
+
+/*==== Start 2D Bounce In ====*/
+
+.pa-2d-bounce-in nav ul li a {
+   -webkit-transition-duration: 0.5s;
+   transition-duration: 0.5s;
+   -o-transition-duration: 0.5s;
+}
+
+.pa-2d-bounce-in nav ul li a:hover {
+   -webkit-transform: scale(1.2);
+   transform: scale(1.2);
+   -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+   transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+
+/*==== End 2D Bounce In ====*/
+
+
+/*==== Start 2D Bounce Out ====*/
+
+.pa-2d-bounce-out nav ul li a {
+   -webkit-transition-duration: 0.5s;
+   transition-duration: 0.5s;
+   -o-transition-duration: 0.5s;
+}
+
+.pa-2d-bounce-out nav ul li a:hover {
+   -webkit-transform: scale(0.8);
+   transform: scale(0.8);
+   -webkit-transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+   transition-timing-function: cubic-bezier(0.47, 2.02, 0.31, -0.36);
+}
+
+
+/*==== End 2D Bounce Out ====*/
+
+
+/*==== Start 2D Rotate ====*/
+
+.pa-2d-rotate nav ul li a {
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-2d-rotate nav ul li a:hover {
+   -webkit-transform: rotate(4deg);
+   transform: rotate(4deg);
+}
+
+
+/*==== End 2D Rotate ====*/
+
+
+/*==== Start 2D Grow Rotate ====*/
+
+.pa-2d-grow-rotate nav ul li a {
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-2d-grow-rotate nav ul li a:hover {
+   -webkit-transform: scale(1.1) rotate(4deg);
+   transform: scale(1.1) rotate(4deg);
+}
+
+
+/*==== End 2D Grow Rotate ====*/
+
+
+/*==== Start 2D Float ====*/
+
+.pa-2d-float nav ul li a {
+   transition: all 0.3s ease-out;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-2d-float nav ul li a:hover {
+   -webkit-transform: translateY(-8px);
+   transform: translateY(-8px);
+}
+
+
+/*==== End 2D Float ====*/
+
+
+/*==== Start 2D Sink ====*/
+
+.pa-2d-sink nav ul li a {
+   transition: all 0.3s ease-out;
+   -webkit-transition: all 0.3s ease-out;
+   -moz-transition: all 0.3s ease-out;
+   -o-transition: all 0.3s ease-out;
+}
+
+.pa-2d-sink nav ul li a:hover {
+   -webkit-transform: translateY(8px);
+   transform: translateY(8px);
+}
+
+
+/*==== End 2D Sink ====*/
+
+
+/*==== Start 2D Bob ====*/
+
+.pa-2d-bob nav ul li a:hover {
+   -webkit-animation-name: hvr-bob-float, hvr-bob;
+   animation-name: hvr-bob-float, hvr-bob;
+   -webkit-animation-duration: .3s, 1.5s;
+   animation-duration: .3s, 1.5s;
+   -webkit-animation-delay: 0s, .3s;
+   animation-delay: 0s, .3s;
+   -webkit-animation-timing-function: ease-out, ease-in-out;
+   animation-timing-function: ease-out, ease-in-out;
+   -webkit-animation-iteration-count: 1, infinite;
+   animation-iteration-count: 1, infinite;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+   -webkit-animation-direction: normal, alternate;
+   animation-direction: normal, alternate;
+}
+
+@-webkit-keyframes hvr-bob {
+   0% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+   }
+   50% {
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+   }
+   100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+   }
+}
+
+@keyframes hvr-bob {
+   0% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+   }
+   50% {
+      -webkit-transform: translateY(-4px);
+      transform: translateY(-4px);
+   }
+   100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+   }
+}
+
+@-webkit-keyframes hvr-bob-float {
+   100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+   }
+}
+
+@keyframes hvr-bob-float {
+   100% {
+      -webkit-transform: translateY(-8px);
+      transform: translateY(-8px);
+   }
+}
+
+
+/*==== End 2D Bob ====*/
+
+
+/*==== Start 2D Hang ====*/
+
+.pa-2d-hang nav ul li a:hover {
+   -webkit-animation-name: hvr-hang-sink, hvr-hang;
+   animation-name: hvr-hang-sink, hvr-hang;
+   -webkit-animation-duration: .3s, 1.5s;
+   animation-duration: .3s, 1.5s;
+   -webkit-animation-delay: 0s, .3s;
+   animation-delay: 0s, .3s;
+   -webkit-animation-timing-function: ease-out, ease-in-out;
+   animation-timing-function: ease-out, ease-in-out;
+   -webkit-animation-iteration-count: 1, infinite;
+   animation-iteration-count: 1, infinite;
+   -webkit-animation-fill-mode: forwards;
+   animation-fill-mode: forwards;
+   -webkit-animation-direction: normal, alternate;
+   animation-direction: normal, alternate;
+}
+
+@-webkit-keyframes hvr-hang {
+   0% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+   }
+   50% {
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+   }
+   100% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+   }
+}
+
+@keyframes hvr-hang {
+   0% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+   }
+   50% {
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+   }
+   100% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+   }
+}
+
+@-webkit-keyframes hvr-hang-sink {
+   100% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+   }
+}
+
+@keyframes hvr-hang-sink {
+   100% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+   }
+}
+
+
+/*==== End 2D Hang ====*/
+
+
+/*==== Start 2D Wobble Horizontal ====*/
+
+.pa-2d-wobble-horizontal nav ul li a:hover {
+   -webkit-animation: hvr-wobble-horizontalzontal 1s ease-in-out;
+   animation: hvr-wobble-horizontalzontal 1s ease-in-out;
+}
+
+@-webkit-keyframes hvr-wobble-horizontalzontal {
+   16.65% {
+      -webkit-transform: translateX(8px);
+      transform: translateX(8px);
+   }
+   33.3% {
+      -webkit-transform: translateX(-6px);
+      transform: translateX(-6px);
+   }
+   49.95% {
+      -webkit-transform: translateX(4px);
+      transform: translateX(4px);
+   }
+   66.6% {
+      -webkit-transform: translateX(-2px);
+      transform: translateX(-2px);
+   }
+   83.25% {
+      -webkit-transform: translateX(1px);
+      transform: translateX(1px);
+   }
+   100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+   }
+}
+
+@keyframes hvr-wobble-horizontalzontal {
+   16.65% {
+      -webkit-transform: translateX(8px);
+      transform: translateX(8px);
+   }
+   33.3% {
+      -webkit-transform: translateX(-6px);
+      transform: translateX(-6px);
+   }
+   49.95% {
+      -webkit-transform: translateX(4px);
+      transform: translateX(4px);
+   }
+   66.6% {
+      -webkit-transform: translateX(-2px);
+      transform: translateX(-2px);
+   }
+   83.25% {
+      -webkit-transform: translateX(1px);
+      transform: translateX(1px);
+   }
+   100% {
+      -webkit-transform: translateX(0);
+      transform: translateX(0);
+   }
+}
+
+
+/*==== End 2D Wobble Horizontal ====*/
+
+
+/*==== Start 2D Wobble Vertical ====*/
+
+.pa-2d-wobble-vertical nav ul li a:hover {
+   -webkit-animation: hvr-wobble-verticaltical 1s ease-in-out;
+   animation: hvr-wobble-verticaltical 1s ease-in-out;
+}
+
+@-webkit-keyframes hvr-wobble-verticaltical {
+   16.65% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+   }
+   33.3% {
+      -webkit-transform: translateY(-6px);
+      transform: translateY(-6px);
+   }
+   49.95% {
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+   }
+   66.6% {
+      -webkit-transform: translateY(-2px);
+      transform: translateY(-2px);
+   }
+   83.25% {
+      -webkit-transform: translateY(1px);
+      transform: translateY(1px);
+   }
+   100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+   }
+}
+
+@keyframes hvr-wobble-verticaltical {
+   16.65% {
+      -webkit-transform: translateY(8px);
+      transform: translateY(8px);
+   }
+   33.3% {
+      -webkit-transform: translateY(-6px);
+      transform: translateY(-6px);
+   }
+   49.95% {
+      -webkit-transform: translateY(4px);
+      transform: translateY(4px);
+   }
+   66.6% {
+      -webkit-transform: translateY(-2px);
+      transform: translateY(-2px);
+   }
+   83.25% {
+      -webkit-transform: translateY(1px);
+      transform: translateY(1px);
+   }
+   100% {
+      -webkit-transform: translateY(0);
+      transform: translateY(0);
+   }
+}
+
+
+/*==== End 2D Wobble Vertical ====*/
+
+
+/*==== Start 2D Forward ====*/
+
+.pa-2d-forward nav ul li a {
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-2d-forward nav ul li a:hover {
+   -webkit-transform: translateX(8px);
+   transform: translateX(8px);
+}
+
+
+/*==== End 2D Forward ====*/
+
+
+/*==== Start 2D Backward ====*/
+
+.pa-2d-backward nav ul li a {
+   transition: all 0.3s;
+   -webkit-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+   -o-transition: all 0.3s;
+}
+
+.pa-2d-backward nav ul li a:hover {
+   -webkit-transform: translateX(-8px);
+   transform: translateX(-8px);
+}
+
+
+/*==== End 2D Backward ====*/
+
+
+/*==== Start Border Fade====*/
+
+.pa-border-fade nav ul li a {
+   position: relative;
+}
+
+.pa-border-fade nav ul li a::before {
+   content: "";
+   position: absolute;
+   background: transparent;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   border: 2px solid #2cba6c;
+   opacity: 0;
+   z-index: 2;
+   display: block;
+   -webkit-transition: .3s;
+   -o-transition: .3s;
+   transition: .3s;
+   -webkit-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   -o-transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+   transition-timing-function: cubic-bezier(.58, .3, .005, 1);
+}
+
+.pa-border-fade nav ul li a:hover::before {
+   opacity: 1;
+}
+
+
+/*==== End Border Fade====*/
+
+
+/*==== Start Border Grow====*/
+
+.pa-border-grow nav ul li a {
+   position: relative;
+}
+
+.pa-border-grow nav ul li a::before {
+   content: "";
+   position: absolute;
+   background: transparent;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   border: 2px solid #2cba6c;
+   opacity: 0;
+   z-index: 2;
+   display: block;
+   -webkit-transform: scale(.75);
+   -ms-transform: scale(.75);
+   transform: scale(.75);
+   -webkit-transition: opacity .2s, -webkit-transform .4s;
+   transition: opacity .2s, -webkit-transform .4s;
+   -o-transition: opacity .2s, transform .4s;
+}
+
+.pa-border-grow nav ul li a:hover::before {
+   opacity: 1;
+   -webkit-transform: scale(1);
+   -ms-transform: scale(1);
+   transform: scale(1);
+}
+
+
+/*==== End Border Grow====*/
+
+
+/*==== Start Border Shrink====*/
+
+.pa-border-shrink nav ul li a {
+   position: relative;
+}
+
+.pa-border-shrink nav ul li a::before {
+   content: "";
+   position: absolute;
+   background: transparent;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   border: 2px solid #2cba6c;
+   opacity: 0;
+   z-index: 2;
+   display: block;
+   -webkit-transform: scale(1.25);
+   -ms-transform: scale(1.25);
+   transform: scale(1.25);
+   -webkit-transition: opacity .2s, -webkit-transform .4s;
+   transition: opacity .2s, -webkit-transform .4s;
+   -o-transition: opacity .2s, transform .4s;
+}
+
+.pa-border-shrink nav ul li a:hover::before {
+   opacity: 1;
+   -webkit-transform: scale(1);
+   -ms-transform: scale(1);
+   transform: scale(1);
+}
+
+
+/*==== End Border Shrink====*/
+
+
+/*==== Start Border Draw====*/
+
+.pa-border-draw nav ul li a {
+   position: relative;
+}
+
+.pa-border-draw nav ul li a::before {
+   content: "";
+   position: absolute;
+   background: transparent;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   width: 2px;
+   height: 2px;
+   opacity: 0;
+   z-index: 2;
+   display: block;
+   border: 2px solid #2cba6c;
+   border-width: 0 0 2px 2px;
+   -webkit-transition: width .1s .2s, height .1s .3s, opacity .12s .22s;
+   -o-transition: width .1s .2s, height .1s .3s, opacity .12s .22s;
+   transition: width .1s .2s, height .1s .3s, opacity .12s .22s;
+}
+
+.pa-border-draw nav ul li a::after {
+   content: "";
+   display: block;
+   position: absolute;
+   top: auto;
+   bottom: 0;
+   left: auto;
+   right: 0;
+   opacity: 0;
+   width: 2px;
+   height: 2px;
+   border: 2px solid #2cba6c;
+   border-width: 2px 2px 0 0;
+   -webkit-transition: width .1s, height .1s .1s, opacity .02s .18s;
+   -o-transition: width .1s, height .1s .1s, opacity .02s .18s;
+   transition: width .1s, height .1s .1s, opacity .02s .18s;
+}
+
+.pa-border-draw nav ul li a:hover::before {
+   opacity: 1;
+   width: 100%;
+   height: 100%;
+   -webkit-transition: opacity .02s, height .1s, width .1s .1s;
+   -o-transition: opacity .02s, height .1s, width .1s .1s;
+   transition: opacity .02s, height .1s, width .1s .1s;
+}
+
+.pa-border-draw nav ul li a:hover::after {
+   opacity: 1;
+   width: 100%;
+   height: 100%;
+   -webkit-transition: opacity .02s .2s, height .1s .2s, width .1s .3s;
+   -o-transition: opacity .02s .2s, height .1s .2s, width .1s .3s;
+   transition: opacity .02s .2s, height .1s .2s, width .1s .3s;
+}
+
+
+/*==== End Border Draw====*/
+
+
+/*==== Start Border Corners====*/
+
+.pa-border-corners nav ul li a {
+   position: relative;
+}
+
+.pa-border-corners nav ul li a::before {
+   content: "";
+   position: absolute;
+   background: transparent;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   width: 2px;
+   height: 2px;
+   opacity: 0;
+   z-index: 2;
+   display: block;
+   border: 3px solid #2cba6c;
+   border-width: 2px 0 0 2px;
+   -webkit-transition: width .1s .2s, height .1s .3s, opacity .12s .22s;
+   -o-transition: width .1s .2s, height .1s .3s, opacity .12s .22s;
+   transition: width .1s .2s, height .1s .3s, opacity .12s .22s;
+}
+
+.pa-border-corners nav ul li a::after {
+   content: "";
+   display: block;
+   position: absolute;
+   top: auto;
+   bottom: 0;
+   left: auto;
+   right: 0;
+   opacity: 0;
+   width: 2px;
+   height: 2px;
+   border: 3px solid #2cba6c;
+   border-width: 0 2px 2px 0;
+   -webkit-transition: width .1s, height .1s .1s, opacity .02s .18s;
+   -o-transition: width .1s, height .1s .1s, opacity .02s .18s;
+   transition: width .1s, height .1s .1s, opacity .02s .18s;
+}
+
+.pa-border-corners nav ul li a:hover::before {
+   opacity: 1;
+   width: 100%;
+   height: 100%;
+   -webkit-transition: opacity 2ms, width .4s, height .4s;
+   -o-transition: opacity 2ms, width .4s, height .4s;
+   transition: opacity 2ms, width .4s, height .4s;
+}
+
+.pa-border-corners nav ul li a:hover::after {
+   opacity: 1;
+   width: 100%;
+   height: 100%;
+   -webkit-transition: opacity 2ms, width .4s, height .4s;
+   -o-transition: opacity 2ms, width .4s, height .4s;
+   transition: opacity 2ms, width .4s, height .4s;
+}
+
+
+/*==== End Border Corners====*/
+
+
+/*==== Start Round Corner ====*/
+
+.pa-border-round-corners nav ul li a {
+   border: 2px solid #e1e1e1;
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-border-round-corners nav ul li a:hover {
+   border-radius: 1em;
+   border-color: #2cba6c;
+}
+
+
+/*==== End Round Corner ====*/
+
+
+/*==== Start Square Corner ====*/
+
+.pa-border-square-corners nav ul li a {
+   border: 2px solid #e1e1e1;
+   border-radius: 1em;
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-border-square-corners nav ul li a:hover {
+   border-radius: 0;
+   border-color: #2cba6c;
+}
+
+
+/*==== End square Corner ====*/
+
+
+/*==== Start Ripple Out ====*/
+
+.pa-border-ripple-out nav ul li a {
+   position: relative;
+   background-color: #e1e1e1;
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-border-ripple-out nav ul li a::before {
+   content: '';
+   position: absolute;
+   border: #2cba6c solid 2px;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   -webkit-animation-duration: 1s;
+   animation-duration: 1s;
+}
+
+.pa-border-ripple-out nav ul li a:hover::before {
+   -webkit-animation-name: hvr-ripple-out;
+   animation-name: hvr-ripple-out;
+}
+
+@-webkit-keyframes hvr-ripple-out {
+   100% {
+      top: -12px;
+      right: -12px;
+      bottom: -12px;
+      left: -12px;
+      opacity: 0;
+   }
+}
+
+@keyframes hvr-ripple-out {
+   100% {
+      top: -12px;
+      right: -12px;
+      bottom: -12px;
+      left: -12px;
+      opacity: 0;
+   }
+}
+
+
+/*==== End Ripple Out ====*/
+
+
+/*==== Start Ripple In ====*/
+
+.pa-border-ripple-in nav ul li a {
+   position: relative;
+   background-color: #e1e1e1;
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-border-ripple-in nav ul li a::before {
+   content: '';
+   position: absolute;
+   border: #2cba6c solid 2px;
+   top: -12px;
+   right: -12px;
+   bottom: -12px;
+   left: -12px;
+   opacity: 0;
+   -webkit-animation-duration: 1s;
+   animation-duration: 1s;
+}
+
+.pa-border-ripple-in nav ul li a:hover::before {
+   -webkit-animation-name: hvr-ripple-in;
+   animation-name: hvr-ripple-in;
+}
+
+@-webkit-keyframes hvr-ripple-in {
+   100% {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 1;
+   }
+}
+
+@keyframes hvr-ripple-in {
+   100% {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      opacity: 1;
+   }
+}
+
+
+/*==== End Ripple In ====*/
+
+
+/*==== Start Side Border ====*/
+
+.pa-side-border nav ul li a {
+   position: relative;
+   -webkit-transition: all 0.35s ease;
+   transition: all 0.35s ease;
+   -o-transition: all 0.35s ease;
+   -moz-transition: all 0.35s ease;
+}
+
+.pa-side-border nav ul li a::before {
+   position: absolute;
+   content: '';
+   -webkit-transition: all 0.35s ease;
+   transition: all 0.35s ease;
+   opacity: 0;
+   left: 15%;
+   right: 15%;
+   top: 0;
+   bottom: 0;
+   border-left: 2px solid #2cba6c;
+   border-right: 2px solid #2cba6c;
+}
+
+.pa-side-border nav ul li a:hover::before {
+   opacity: 1;
+   left: 0;
+   right: 0;
+}
+
+
+/*==== End Side Border ====*/
+
+
+/*==== Start Corner Border ====*/
+
+.pa-corner-border nav ul li a {
+   position: relative;
+   -webkit-transition: all 0.35s ease;
+   transition: all 0.35s ease;
+   -o-transition: all 0.35s ease;
+   -moz-transition: all 0.35s ease;
+}
+
+.pa-corner-border nav ul li a::before,
+.pa-corner-border nav ul li a::after {
+   height: 14px;
+   width: 14px;
+   position: absolute;
+   content: '';
+   -webkit-transition: all 0.35s ease;
+   transition: all 0.35s ease;
+   opacity: 0;
+}
+
+.pa-corner-border nav ul li a::before {
+   left: 0;
+   top: 0;
+   border-left: 2px solid #2cba6c;
+   border-top: 2px solid #2cba6c;
+   -webkit-transform: translate(100%, 50%);
+   transform: translate(100%, 50%);
+}
+
+.pa-corner-border nav ul li a::after {
+   right: 0;
+   bottom: 0;
+   border-right: 2px solid #2cba6c;
+   border-bottom: 2px solid #2cba6c;
+   -webkit-transform: translate(-100%, -50%);
+   transform: translate(-100%, -50%);
+}
+
+.pa-corner-border nav ul li a:hover::before,
+.pa-corner-border nav ul li a:hover::after {
+   -webkit-transform: translate(0%, 0%);
+   transform: translate(0%, 0%);
+   opacity: 1;
+}
+
+
+/*==== End Corner Border ====*/
+
+
+/*==== Start Side Lines ====*/
+
+.pa-border-side-lines nav ul li a {
+   position: relative;
+   -webkit-transition: all 0.35s ease;
+   transition: all 0.35s ease;
+   -o-transition: all 0.35s ease;
+   -moz-transition: all 0.35s ease;
+}
+
+.pa-border-side-lines nav ul li a::before {
+   left: 20%;
+   right: 20%;
+   top: 50%;
+   content: '';
+   border-left: 12px solid #2cba6c;
+   border-right: 12px solid #2cba6c;
+   -webkit-transform: translateY(-50%);
+   transform: translateY(-50%);
+   height: 2px;
+   opacity: 0;
+   position: absolute;
+   -webkit-transition: all 0.35s ease;
+   transition: all 0.35s ease;
+}
+
+.pa-border-side-lines nav ul li a:hover::before {
+   left: 0;
+   right: 0;
+   opacity: 1;
+}
+
+
+/*==== End Side Lines ====*/
+
+
+/*==== Start Border Drop ====*/
+
+.pa-border-drop nav ul li a {
+   position: relative;
+   -webkit-transition: all 0.3s ease;
+   transition: all 0.3s ease;
+}
+
+.pa-border-drop nav ul li a::before {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 2px;
+   background: #2cba6c;
+   content: "";
+   -webkit-transition: all 0.3s ease;
+   transition: all 0.3s ease;
+}
+
+.pa-border-drop nav ul li a::after {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 2px;
+   height: 2px;
+   background: #2cba6c;
+   content: "";
+   -webkit-transition: all 0.3s ease;
+   transition: all 0.3s ease;
+}
+
+.pa-border-drop nav ul li a:hover::before {
+   top: 100%;
+   opacity: 1;
+}
+
+.pa-border-drop nav ul li a:hover::after {
+   height: 100%;
+}
+
+
+/*==== End Border Drop ====*/
+
+
+/*==== Start Border Switch ====*/
+
+.pa-border-switch nav ul li a {
+   position: relative;
+   -webkit-transition: all 0.3s ease;
+   transition: all 0.3s ease;
+}
+
+.pa-border-switch nav ul li a::before,
+.pa-border-switch nav ul li a::after {
+   position: absolute;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   border: 2px solid #e1e1e1;
+   content: "";
+   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+   -moz-transition: -moz-transform 0.3s, opacity 0.3s;
+   transition: transform 0.3s, opacity 0.3s;
+}
+
+.pa-border-switch nav ul li a::after {
+   border-color: #2cba6c;
+   opacity: 0;
+   -webkit-transform: translateY(-7px) translateX(6px);
+   -moz-transform: translateY(-7px) translateX(6px);
+   transform: translateY(-7px) translateX(6px);
+}
+
+.pa-border-switch nav ul li a:hover::before {
+   opacity: 0;
+   -webkit-transform: translateY(5px) translateX(-5px);
+   -moz-transform: translateY(5px) translateX(-5px);
+   transform: translateY(5px) translateX(-5px);
+}
+
+.pa-border-switch nav ul li a:hover::after {
+   opacity: 1;
+   -webkit-transform: translateY(0px) translateX(0px);
+   -moz-transform: translateY(0px) translateX(0px);
+   transform: translateY(0px) translateX(0px);
+}
+
+
+/*==== End Border Switch ====*/
+
+
+/*==== Start Border Tabs ====*/
+
+.pa-border-tabs nav ul li {
+   position: relative;
+}
+
+.pa-border-tabs nav ul li a {
+   z-index: 1;
+}
+
+.pa-border-tabs nav ul li::before,
+.pa-border-tabs nav ul li::after {
+   content: '';
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
+   left: 0;
+   color: #2cba6c;
+   border-style: solid;
+   -webkit-transition: -webkit-transform 0.2s cubic-bezier(1, 0.6, 0, 1);
+   transition: transform 0.2s cubic-bezier(1, 0.6, 0, 1);
+}
+
+.pa-border-tabs nav ul li::before {
+   border-width: 2px 0 0;
+   -webkit-transform: translateY(calc(100% - 2px));
+   transform: translateY(calc(100% - 2px));
+}
+
+.pa-border-tabs nav ul li::after {
+   right: -1px;
+   left: -1px;
+   border-width: 0 2px;
+   -webkit-transform: scale(1, 0);
+   transform: scale(1, 0);
+   -webkit-transform-origin: 50% 100%;
+   transform-origin: 50% 100%;
+}
+
+.pa-border-tabs nav ul li:hover::before {
+   -webkit-transform: translate(0, 0);
+   transform: translate(0, 0);
+   -webkit-transition-timing-function: cubic-bezier(1, 0.6, 0, 1.22);
+   transition-timing-function: cubic-bezier(1, 0.6, 0, 1.22);
+}
+
+.pa-border-tabs nav ul li:hover::after {
+   -webkit-transform: scale(1);
+   transform: scale(1);
+   -webkit-transition-timing-function: cubic-bezier(1, 0.6, 0, 1.22);
+   transition-timing-function: cubic-bezier(1, 0.6, 0, 1.22);
+}
+
+
+/*==== End Border Tabs ====*/
+
+
+/*==== Start Border Surround ====*/
+
+.pa-border-surround nav ul li {
+   position: relative;
+   padding: 0 !important;
+}
+
+.pa-border-surround nav ul li a {
+   position: relative;
+}
+
+.pa-border-surround nav ul li::before,
+.pa-border-surround nav ul li::after,
+.pa-border-surround nav ul li a::before,
+.pa-border-surround nav ul li a::after {
+   content: '';
+   position: absolute;
+   background: #2cba6c;
+   -webkit-transition: -webkit-transform 0.1s;
+   transition: transform 0.1s;
+   transition-delay: 0s;
+   -webkit-transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9);
+   transition-timing-function: cubic-bezier(1, 0.68, 0.16, 0.9);
+}
+
+.pa-border-surround nav ul li::before,
+.pa-border-surround nav ul li::after {
+   top: 0;
+   width: 2px;
+   height: 100%;
+   -webkit-transform: scale3d(1, 0, 1);
+   transform: scale3d(1, 0, 1);
+}
+
+.pa-border-surround nav ul li::before {
+   -webkit-transition-delay: 0.2s;
+   transition-delay: 0.2s;
+   left: 0;
+   -webkit-transform-origin: 50% 100%;
+   transform-origin: 50% 100%;
+}
+
+.pa-border-surround nav ul li::after {
+   right: 0;
+   -webkit-transform-origin: 50% 0%;
+   transform-origin: 50% 0%;
+}
+
+.pa-border-surround nav ul li a::before,
+.pa-border-surround nav ul li a::after {
+   left: 0;
+   width: 100%;
+   height: 2px;
+   -webkit-transform: scale3d(0, 1, 1);
+   transform: scale3d(0, 1, 1);
+}
+
+.pa-border-surround nav ul li a::before {
+   -webkit-transition-delay: 0.1s;
+   transition-delay: 0.1s;
+   top: 0;
+   -webkit-transform-origin: 0 50%;
+   transform-origin: 0 50%;
+}
+
+.pa-border-surround nav ul li a::after {
+   bottom: 0;
+   -webkit-transform-origin: 100% 50%;
+   transform-origin: 100% 50%;
+   -webkit-transition-delay: 0.3s;
+   transition-delay: 0.3s;
+}
+
+.pa-border-surround nav ul li:hover::before,
+.pa-border-surround nav ul li:hover a::before,
+.pa-border-surround nav ul li:hover::after,
+.pa-border-surround nav ul li:hover a::after {
+   transform: scale3d(1, 1, 1);
+   -webkit-transform: scale3d(1, 1, 1);
+}
+
+
+/*==== End Border Surround ====*/
+
+
+/*==== Start Border Enclose ====*/
+
+.pa-border-enclose nav ul li {
+   position: relative;
+   padding: 0 !important;
+}
+
+.pa-border-enclose nav ul li a {
+   position: relative;
+}
+
+.pa-border-enclose nav ul li::before,
+.pa-border-enclose nav ul li::after,
+.pa-border-enclose nav ul li a::before,
+.pa-border-enclose nav ul li a::after {
+   content: '';
+   position: absolute;
+   background: #2cba6c;
+   -webkit-transition: -webkit-transform 0.2s;
+   transition: transform 0.2s;
+}
+
+.pa-border-enclose nav ul li::before,
+.pa-border-enclose nav ul li::after {
+   top: 0;
+   width: 2px;
+   height: 100%;
+   -webkit-transform: scale3d(1, 0, 1);
+   transform: scale3d(1, 0, 1);
+   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   -webkit-transition-duration: 0.4s;
+   transition-duration: 0.4s;
+}
+
+.pa-border-enclose nav ul li::before {
+   left: 0;
+   -webkit-transform-origin: 50% 100%;
+   transform-origin: 50% 100%;
+}
+
+.pa-border-enclose nav ul li::after {
+   right: 0;
+   -webkit-transform-origin: 50% 0%;
+   transform-origin: 50% 0%;
+}
+
+.pa-border-enclose nav ul li a::before,
+.pa-border-enclose nav ul li a::after {
+   left: 0;
+   width: 100%;
+   height: 2px;
+   -webkit-transform: scale3d(0, 1, 1);
+   transform: scale3d(0, 1, 1);
+   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   -webkit-transition-duration: 0.4s;
+   transition-duration: 0.4s;
+}
+
+.pa-border-enclose nav ul li a::before {
+   top: 0;
+   -webkit-transform-origin: 0 50%;
+   transform-origin: 0 50%;
+}
+
+.pa-border-enclose nav ul li a::after {
+   bottom: 0;
+   -webkit-transform-origin: 100% 50%;
+   transform-origin: 100% 50%;
+   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   -webkit-transition-duration: 0.4s;
+   transition-duration: 0.4s;
+}
+
+.pa-border-enclose nav ul li:hover::before,
+.pa-border-enclose nav ul li:hover a::before,
+.pa-border-enclose nav ul li:hover::after,
+.pa-border-enclose nav ul li:hover a::after {
+   -webkit-transform: scale3d(1, 1, 1);
+   transform: scale3d(1, 1, 1);
+   -webkit-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+   -webkit-transition-duration: 0.4s;
+   transition-duration: 0.4s;
+}
+
+
+/*==== End Border Enclose ====*/
+
+
+/*==== Start Border Bracket ====*/
+
+.pa-border-bracket nav ul li {
+   position: relative;
+   padding: 0 !important;
+}
+
+.pa-border-bracket nav ul li a {
+   position: relative;
+}
+
+.pa-border-bracket nav ul li::before,
+.pa-border-bracket nav ul li a::before,
+.pa-border-bracket nav ul li a::after {
+   content: '';
+   position: absolute;
+   bottom: 0;
+   width: 10px;
+   height: 2px;
+   opacity: 0;
+   background: #2cba6c;
+}
+
+.pa-border-bracket nav ul li::before {
+   left: 0;
+   width: 100%;
+   -webkit-transform: translate3d(0, 10px, 0);
+   transform: translate3d(0, 10px, 0);
+   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+   transition: transform 0.3s, opacity 0.3s;
+}
+
+.pa-border-bracket nav ul li a::before,
+.pa-border-bracket nav ul li a::after {
+   -webkit-transform: translate3d(0, 10px, 0);
+   transform: translate3d(0, 10px, 0);
+   -webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+   transition: transform 0.3s, opacity 0.3s;
+}
+
+.pa-border-bracket nav ul li a::before {
+   left: 0;
+   -webkit-transform-origin: 0% 0%;
+   transform-origin: 0% 0%;
+}
+
+.pa-border-bracket nav ul li a::after {
+   right: 0;
+   -webkit-transform-origin: 100% 0%;
+   transform-origin: 100% 0%;
+}
+
+.pa-border-bracket nav ul li:hover {
+   color: #d94f5c;
+}
+
+.pa-border-bracket nav ul li:hover a::before,
+.pa-border-bracket nav ul li:hover a::after {
+   opacity: 1;
+}
+
+.pa-border-bracket nav ul li:hover a::before {
+   -webkit-transform: rotate3d(0, 0, 1, -90deg);
+   transform: rotate3d(0, 0, 1, -90deg);
+}
+
+.pa-border-bracket nav ul li:hover a::after {
+   -webkit-transform: rotate3d(0, 0, 1, 90deg);
+   transform: rotate3d(0, 0, 1, 90deg);
+}
+
+.pa-border-bracket nav ul li:hover::before {
+   opacity: 1;
+   -webkit-transform: translate3d(0, 0, 0);
+   transform: translate3d(0, 0, 0);
+   -webkit-transition: -webkit-transform 0.3s, opacity 0.1s;
+   transition: transform 0.3s, opacity 0.1s;
+}
+
+
+/*==== Start Border Bracket ====*/
+
+
+/*==== Start Border Cross ====*/
+
+.pa-border-cross nav ul li {
+   position: relative;
+}
+
+.pa-border-cross nav ul li a {
+   position: relative;
+   padding: 14px 0 !important;
+}
+
+.pa-border-cross nav ul li::before {
+   content: '';
+   position: absolute;
+   top: 100%;
+   left: 50%;
+   width: 100%;
+   margin-left: -28px;
+   height: 2px;
+   background: #2cba6c;
+   -webkit-transform: rotate3d(0, 0, 1, -45deg) scale3d(0, 1, 1);
+   transform: rotate3d(0, 0, 1, -45deg) scale3d(0, 1, 1);
+   -webkit-transform-origin: 0 50%;
+   transform-origin: 0 50%;
+   -webkit-transition: -webkit-transform 0.4s;
+   transition: transform 0.4s;
+}
+
+.pa-border-cross nav ul li:hover::before {
+   -webkit-transform: rotate3d(0, 0, 1, -45deg) scale3d(1, 1, 1);
+   transform: rotate3d(0, 0, 1, -45deg) scale3d(1, 1, 1);
+}
+
+.pa-border-cross nav ul li:hover a {
+   color: #333;
+}
+
+
+/*==== End Border Cross ====*/
+
+
+/*==== Start Shadow ====*/
+
+.pa-shadow nav ul li a {
+   background-color: #e1e1e1;
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-shadow nav ul li a:hover {
+   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+}
+
+
+/*==== End Shadow ====*/
+
+
+/*==== Start Shadow Grow ====*/
+
+.pa-shadow-grow nav ul li a {
+   background-color: #e1e1e1;
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-shadow-grow nav ul li a:hover {
+   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+   -webkit-transform: scale(1.1);
+   transform: scale(1.1);
+}
+
+
+/*==== End Shadow Grow ====*/
+
+
+/*==== Start Float Shadow ====*/
+
+.pa-shadow-float nav ul li a {
+   background-color: #e1e1e1;
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-shadow-float nav ul li a::before {
+   pointer-events: none;
+   position: absolute;
+   z-index: -1;
+   content: '';
+   top: 100%;
+   left: 5%;
+   height: 10px;
+   width: 90%;
+   opacity: 0;
+   background: -webkit-radial-gradient(center, ellipse, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+   background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 80%);
+   /* W3C */
+   -webkit-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -webkit-transition-property: transform, opacity;
+   transition-property: transform, opacity;
+}
+
+.pa-shadow-float nav ul li a:hover {
+   -webkit-transform: translateY(-5px);
+   transform: translateY(-5px);
+}
+
+.pa-shadow-float nav ul li a:hover::before {
+   opacity: 1;
+   -webkit-transform: translateY(5px);
+   transform: translateY(5px);
+}
+
+
+/*==== End Float Shadow ====*/
+
+
+/*==== Start Shadow Glow ====*/
+
+.pa-shadow-glow nav ul li a {
+   background-color: #e1e1e1;
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-shadow-glow nav ul li a:hover {
+   box-shadow: 0 0 8px rgba(0, 0, 0, 0.6);
+}
+
+
+/*==== End Shadow Glow ====*/
+
+
+/*==== Start Shadow Radial ====*/
+
+.pa-shadow-radial nav ul li a {
+   position: relative;
+   background-color: #e1e1e1;
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-shadow-radial nav ul li a::before,
+.pa-shadow-radial nav ul li a::after {
+   pointer-events: none;
+   position: absolute;
+   content: '';
+   left: 0;
+   width: 100%;
+   box-sizing: border-box;
+   background-repeat: no-repeat;
+   height: 5px;
+   opacity: 0;
+   -webkit-transition-duration: 0.3s;
+   transition-duration: 0.3s;
+   -webkit-transition-property: opacity;
+   transition-property: opacity;
+}
+
+.pa-shadow-radial nav ul li a::before {
+   bottom: 100%;
+   background: -webkit-radial-gradient(50% 150%, ellipse, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 80%);
+   background: radial-gradient(ellipse at 50% 150%, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 80%);
+}
+
+.pa-shadow-radial nav ul li a::after {
+   top: 100%;
+   background: -webkit-radial-gradient(50% -50%, ellipse, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 80%);
+   background: radial-gradient(ellipse at 50% -50%, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 80%);
+}
+
+.pa-shadow-radial nav ul li a:hover::before,
+.pa-shadow-radial nav ul li a:hover::after {
+   opacity: 1;
+}
+
+
+/*==== End Shadow Radial ====*/
+
+
+/*==== Start Shadow Outset ====*/
+
+.pa-shadow-outset nav ul li a {
+   background-color: #e1e1e1;
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-shadow-outset nav ul li a:hover {
+   box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+
+/*==== Start Shadow Outset ====*/
+
+
+/*==== Start Shadow Inset ====*/
+
+.pa-shadow-inset nav ul li a {
+   background-color: #e1e1e1;
+   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+   box-shadow: inset 0 0 0 rgba(0, 0, 0, 0.6), 0 0 1px rgba(0, 0, 0, 0);
+   -webkit-transition: all 0.3s;
+   transition: all 0.3s;
+   -o-transition: all 0.3s;
+   -moz-transition: all 0.3s;
+}
+
+.pa-shadow-inset nav ul li a:hover {
+   box-shadow: inset 2px 2px 2px rgba(0, 0, 0, 0.6), 0 0 1px rgba(0, 0, 0, 0);
+}
+
+
+/*==== Start Shadow Inset ====*/
