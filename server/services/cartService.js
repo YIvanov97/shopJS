@@ -1,8 +1,7 @@
 const User = require('../models/User');
 
 async function cart([userId, product]) {
-    let userCart = await User.updateOne({_id: userId}, {$push: {cart: product}})
-    return userCart
+    return await User.updateOne({_id: userId}, {$push: {cart: product}})
 }
 
 async function remove([userId, product]) {

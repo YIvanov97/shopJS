@@ -5,7 +5,7 @@ import './styles/profile.scss'
 
 const Profile = () => {
 
-    const {user} = useContext(UserContext)
+    const [user] = useContext(UserContext)
 
     return(
         <div className="profile--Body">

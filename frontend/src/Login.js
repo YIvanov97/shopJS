@@ -1,27 +1,42 @@
-import React, { useContext } from 'react'
-import { API, UserContext } from './globalParams'
+import React from 'react'
+import { API } from './globalParams'
 import logo from './styles/images/NWN.png'
 import './styles/login.scss'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const Login = () => {
 
-    // const {setUser} = useContext(UserContext)
+    const onSuccess = () => toast.success('Login successful!', {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+    });
 
-    // const getUserData = () => {
-    //     fetch(`${API}/auth/user`, {
-    //         method: 'GET',
-    //         withCredentials: true,
-    //         credentials: 'include'
-    //     })
-    //     .then (response => response.json())
-    //     .then (response => {
-    //         console.log(response.user)
-    //         setUser(response.user)
-    //     })
-    //     .catch (error => {
-    //         console.error (error);
-    //     });
-    // }
+    const onWarning = () => toast.warn('All fields required!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+    });
+
+    const onError = () => toast.error('Wrong Email or Password!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+    });
 
     const handleLogin = (e) => {
         e.preventDefault();
@@ -32,7 +47,7 @@ const Login = () => {
         }
 
         if(user.email === '' || user.password === '') {
-            //this.onWarning()
+            onWarning()
             return;
         }
 
@@ -47,12 +62,12 @@ const Login = () => {
             })
             .then((response) => {
                 if(response.status === 200) { 
-                    //getUserData()
+                    onSuccess()
                     setTimeout(() => {
                         window.location = '/'
                     }, 1000)
                 } else if (response.status === 401) {
-                    this.onError()
+                    onError()
                 }
             })
              .catch((error) => {
@@ -71,6 +86,7 @@ const Login = () => {
                     <input className="login--button" type="submit" value="Login" />
                 </form>
             </div>
+            <ToastContainer />
         </div>
     )
 }

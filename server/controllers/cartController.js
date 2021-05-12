@@ -7,8 +7,8 @@ router.post('/usercart', async (req, res) => {
     const [userId, cart] = req.body
     try {
         let userCart = await cartService.cart([userId, cart])
-        res.status(200).json({userCart})
-        } catch (error) {
+        res.status(200).json(userCart)
+    } catch (error) {
         res.status(401).json({ error: error })
     }
 })

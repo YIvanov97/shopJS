@@ -5,7 +5,7 @@ import {UserContext, API} from './globalParams';
 
 const Navigation = () => {
 
-    const {user} = useContext(UserContext)
+    const [user] = useContext(UserContext)
 
     const handleLogout = () => {
         fetch(`${API}/auth/logout`, {
@@ -13,6 +13,7 @@ const Navigation = () => {
             credentials: 'include',
             withCredentials: true
         })
+        .then(() => localStorage.clear())
         .then(() => window.location = '/')
         .catch(error => console.log(error))
       }

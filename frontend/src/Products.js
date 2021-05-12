@@ -1,17 +1,20 @@
 import React, { useEffect, useState, useContext } from 'react'
 import {UserContext, API} from './globalParams'
 import './styles/products.scss'
-import {FaSearch, FaHeart, FaShoppingCart} from 'react-icons/fa'
+import {FaSearch, FaHeart, FaShoppingCart, FaCartArrowDown} from 'react-icons/fa'
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
 import { Badge } from '@material-ui/core';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
+import {ProductContext} from './productContextProvider'
 
-const Products = () => {
+const Products = props => {
 
-    const {user, setUser} = useContext(UserContext)
-
+    const [user, setUser, addToCart] = useContext(UserContext);
+    const {productData} = useContext(ProductContext);
     const [products, setProducts] = useState([])
-
+    const localCart = JSON.parse(localStorage.getItem("cart"));
     const animatedComponents = makeAnimated();
 
     const storageOptions = [
@@ -101,33 +104,35 @@ const Products = () => {
         .catch(error => console.log(error))
     }  
 
-    const addToCart = (userId, product) => {
-        fetch(`${API}/cart/usercart`, {
-          method:"POST",
-          headers: { 
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify([userId, product])
-        })
-        .then(() => reloadProducts())
-        .catch(error => console.log(error))
-    }
-
+    // const productAbout = (id) => {
+    //     fetch (`${API}/products/details/${id}`, {
+    //         method: 'GET',
+    //     })
+    //     .then (response => response.json ())
+    //     //.then (response => {
+    //     //    setProduct(response)
+    //     //})
+    //     .then(response => window.location =`/details/${response._id}`)
+    //     .catch (error => {
+    //         console.error (error);
+    //     });
+    // }
+    
     return(
         <div className="products--Container">
-            <div className="custom-shape-divider-top-1619184532">
+            <div className="custom-shape-divider-top-1619781110">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
                 </svg>
             </div>
-            <div className="custom-shape-divider-top-16191845323">
+            <div className="custom-shape-divider-top-1619781111">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
                 </svg>
             </div>
-            <div className="custom-shape-divider-top-161918453234">
+            <div className="custom-shape-divider-top-1619781112">
                 <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-                    <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
+                    <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" className="shape-fill"></path>
                 </svg>
             </div>
             <header>
@@ -173,34 +178,9 @@ const Products = () => {
                         <div className="products--Section">
                             {products.map(product => {
                                 return(    
-                                    <div className="product--Container">
-                                        <div className="product--TopButtons--Container">
-                                        {!product.likes.includes(user.email) ? 
-                                            <>
-                                                <Badge badgeContent={product.likes.length} showZero color="secondary">
-                                                    <button className="addTo--Favourite--Button--Container">
-                                                        <FaHeart className="heart--Button" onClick={() => productLike(product._id, user.email)}/>
-                                                    </button>
-                                                </Badge>
-                                            </>
-                                            : 
-                                            <>
-                                                <Badge badgeContent={product.likes.length} showZero color="secondary">
-                                                    <button className="addTo--Favourite--Button--Container">
-                                                        <FaHeart color='#FFA0F7' className="heart--Button" onClick={() => productDislike(product._id, user.email)}/>
-                                                    </button>
-                                                </Badge>
-                                            </>
-                                        }
-                                            <button className="addTo--Cart--Button--Container">
-                                                <FaShoppingCart onClick={() => {addToCart(user._id, product); setUser(oldState => ({
-                                                    ...oldState,
-                                                    cart: [
-                                                        ...oldState.cart,
-                                                        product
-                                                    ]
-                                                }))}}/>
-                                            </button>
+                                    <div className="product--Container" key={product._id}>
+                                        <div className="product--TopButton--Container">
+                                            <button className="about--Button" onClick={() => productData(product._id)}>About</button>
                                         </div>
                                         <img src={product.imageUrl} alt="product image" />
                                         <div className="product--About--Container">
@@ -208,7 +188,93 @@ const Products = () => {
                                             <p>{product.description}</p>
                                             <p>{product.price}$</p>
                                         </div>
-                                        <button className="About">About</button>
+                                        <div className="product--BottomButtons--Container">
+                                            {user.email ?
+                                                <> 
+                                                    {!product.likes.includes(user.email) ? 
+                                                        <>
+                                                            <Badge badgeContent={product.likes.length} showZero color="secondary" anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
+                                                                <button className="addTo--Favourite--Button--Container">
+                                                                    <FaHeart size='25' className="heart--Button" onClick={() => productLike(product._id, user.email)}/>
+                                                                </button>
+                                                            </Badge>
+                                                        </>
+                                                        : 
+                                                        <>
+                                                            <Badge badgeContent={product.likes.length} showZero color="secondary" anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
+                                                                <button className="addTo--Favourite--Button--Container">
+                                                                    <FaHeart size='25' color='#FFA0F7' className="heart--Button" onClick={() => productDislike(product._id, user.email)}/>
+                                                                </button>
+                                                            </Badge>
+                                                        </>
+                                                    }
+                                                    {!localStorage.hasOwnProperty("cart") ? 
+                                                        <>
+                                                            {!user.cart.some(item => item._id === product._id) ? 
+                                                                <>
+                                                                    <button className="addTo--Cart--Button--Container">
+                                                                        <FaShoppingCart size='25' onClick={() => {addToCart(user, product); reloadProducts()}}/>
+                                                                    </button>
+                                                                </>
+                                                                :
+                                                                <>
+                                                                    <Popup trigger={
+                                                                        <button className="addTo--Cart--Button--Container">
+                                                                            <FaCartArrowDown size='25' color='#1E718D'/>
+                                                                        </button>
+                                                                    }
+                                                                    position="top right"
+                                                                    on="hover"
+                                                                    className="popup--Added"
+                                                                    >
+                                                                        <span>Product already added to cart.</span>
+                                                                    </Popup>
+                                                                </>
+                                                            }
+                                                        </>
+                                                    :
+                                                        <>
+                                                            {!localCart.some(item => item._id === product._id) ? 
+                                                                <>
+                                                                    <button className="addTo--Cart--Button--Container">
+                                                                        <FaShoppingCart size='25' onClick={() => {addToCart(user, product); reloadProducts()}}/>
+                                                                    </button>
+                                                                </>
+                                                                :
+                                                                <>
+                                                                    <Popup trigger={
+                                                                        <button className="addTo--Cart--Button--Container">
+                                                                            <FaCartArrowDown size='25' color='#1E718D'/>
+                                                                        </button>
+                                                                    }
+                                                                    position="top right"
+                                                                    on="hover"
+                                                                    className="popup--Added"
+                                                                    >
+                                                                        <span>Product already added to cart.</span>
+                                                                    </Popup>
+                                                                </>
+                                                            }
+                                                        </>
+                                                    }
+                                                </>   
+                                                :
+                                                <>
+                                                    <Popup trigger={
+                                                        <Badge badgeContent={product.likes.length} showZero color="secondary" anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
+                                                            <button className="addTo--Favourite--Button--Container">
+                                                                <FaHeart size='25' className="heart--Button" />
+                                                            </button>
+                                                        </Badge>
+                                                    }
+                                                    position="top left"
+                                                    on="hover"
+                                                    >
+                                                        <span>Login to like this product.</span>
+                                                    </Popup>
+                                                </>
+                                            }
+                                        </div>    
                                     </div>
                                 )
                             })}

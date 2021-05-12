@@ -39,8 +39,12 @@ router.post('/dislike', async (req, res) => {
 })
 
 router.get('/details/:id', async (req, res) => {
-    let product = await productService.getOne(req.params.id)
-    res.status(200).json(product)
+    try{
+        let product = await productService.getOne(req.params.id)
+        res.status(200).json(product)
+    } catch (error) {
+        res.status(500).json({error: error})
+    }
 })
 
 router.post('/:id/delete', (req, res) => {

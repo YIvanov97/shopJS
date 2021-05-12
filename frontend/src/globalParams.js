@@ -5,7 +5,7 @@ const UserProvider = UserContext.Provider;
 
 const UserContextProvider = (props) => {
     const [user, setUser] = useState({})
-    
+
     useEffect(() => {
         fetch(`${API}/auth/user`, {
             method: 'GET',
@@ -21,8 +21,51 @@ const UserContextProvider = (props) => {
         });
     }, [setUser])
 
+    //TODO: FIX DOUBLE ADDING 
+
+    const addToCart = (user, product) => {
+        fetch(`${API}/cart/usercart`, {
+            method:"POST",
+            headers: { 
+                'Content-Type': 'application/json'
+            },
+        body: JSON.stringify([user._id, product])
+        })
+        .then(() => setUser(oldState => ({...oldState, cart: [...oldState.cart, product]})))
+        .then(() => {
+            const itemToLocalCart = product;
+            const copyCart = user.cart;
+            copyCart.push(itemToLocalCart)
+            localStorage.setItem("cart", JSON.stringify(copyCart))
+        })
+        .catch(error => console.log(error))
+    }
+
+     const removeFromCart = (user, product) => {
+        fetch(`${API}/cart/remove`, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify([user._id, product])
+        })
+        .then(() => {
+            const updatedCart = user.cart.filter((item) => item._id !== product._id);
+            setUser(oldState => ({
+                ...oldState,
+                cart: updatedCart
+            }));
+        })
+        .then(() => {
+            const copyCart = user.cart;
+            const updatedCart = copyCart.filter((item) => item._id !== product._id);
+            localStorage.setItem("cart", JSON.stringify(updatedCart))
+        })
+        .catch((error) => console.log(error));
+    };
+
     return (
-        <UserProvider value={{user, setUser}}>
+        <UserProvider value={[user, setUser, addToCart, removeFromCart]}>
             {props.children}
         </UserProvider>
     )

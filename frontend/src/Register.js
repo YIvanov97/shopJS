@@ -2,8 +2,40 @@ import React from 'react'
 import './styles/register.scss'
 import { API } from './globalParams'
 import logo from './styles/images/NWN.png'
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Register = () => {
+
+    const onSuccess = () => toast.success('Successful register!', {
+        position: "top-center",
+        autoClose: 1000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        });
+
+    const onWarning = () => toast.warn('All fields required!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        });
+
+    const onPasswordWarning = () => toast.warn('Password must be at least 6 signs!', {
+        position: "top-right",
+        autoClose: 2000,
+        hideProgressBar: true,
+        closeOnClick: true,
+        pauseOnHover: false,
+        draggable: true,
+        progress: undefined,
+        });
 
     const handleRegister = (e) => {
         e.preventDefault()
@@ -16,12 +48,12 @@ const Register = () => {
         }
 
         if(user.name === '' || user.username === '' || user.email === '' || user.password === '') {
-            //this.onWarning()
+            onWarning()
             return;
         }
 
         if(user.password.length < 6) {
-            //this.onPasswordWarning()
+            onPasswordWarning()
             return;
         }
 
@@ -36,6 +68,7 @@ const Register = () => {
         })
         .then((response) => {
             if (response.status === 201) {
+                onSuccess()
                 setTimeout(() => {
                     window.location = '/auth/login'
                 }, 1000)
@@ -57,6 +90,7 @@ const Register = () => {
                     <input className="register--button" type="submit" value="Register" />
                 </form>
             </div>
+            <ToastContainer />
         </div>
     )
 }
