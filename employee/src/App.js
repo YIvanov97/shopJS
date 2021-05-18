@@ -4,6 +4,9 @@ import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProductsData from './Product'
 import logo from './styles/images/NWN.png'
+import Select from 'react-select'
+import makeAnimated from 'react-select/animated';
+import { FaCloudUploadAlt } from 'react-icons/fa';
 
 class App extends React.Component {
   constructor (props) {
@@ -11,9 +14,10 @@ class App extends React.Component {
     this.state = {
       name: '',
       description: '',
-      imageUrl: '',
+      imageFile: [],
       price: '',
       type: '',
+      colors: '',
       products: [],
     };
 
@@ -22,6 +26,7 @@ class App extends React.Component {
     this.handleProductImage = this.handleProductImage.bind (this);
     this.handleProductPrice = this.handleProductPrice.bind (this);
     this.handleProductType = this.handleProductType.bind (this);
+    this.handleProductColors = this.handleProductColors.bind (this);
     this.createProduct = this.createProduct.bind (this);
     this.getProducts = this.getProducts.bind (this);
     this.onRemove = this.onRemove.bind (this);
@@ -74,40 +79,38 @@ class App extends React.Component {
   createProduct (e) {
     e.preventDefault ();
 
-    const product = {
-      name: this.state.name,
-      description: this.state.description,
-      imageUrl: this.state.imageUrl,
-      price: this.state.price,
-      type: this.state.type
-    };
+    const data = new FormData()
 
-    if (
-      product.name === '' ||
-      product.description === '' ||
-      product.imageUrl === '' ||
-      product.price === '' ||
-      product.type === ''
-    ) {
-      this.onWarn ();
-      return;
+    const colors = this.state.colors
+    colors.forEach(el => {
+      data.append(`color`, JSON.stringify(el))
+    })
+
+    const images = this.state.imageFile
+    for (let i = 0; i < images.length; i++) {
+      data.append(`imageFile`, images[i])
     }
+    
+    data.append("name", this.state.name)
+    data.append("description", this.state.description)
+    data.append("price", this.state.price)
+    data.append("type", this.state.type)
+
+    console.log(this.state.colors)
 
     fetch ('http://localhost:5000/products/create', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify (product),
+      body: data
     })
       .then (response => {
         if (response.status === 201) {
           this.setState ({
             name: '',
             description: '',
-            imageUrl: '',
+            imageFile: [],
             price: '',
-            type: ''
+            type: '',
+            colors: []
           });
           this.onSuccess ();
         } else if (response.status === 500) {
@@ -140,7 +143,7 @@ onRemove = (id) => {
 }
 
   componentDidMount() {
-      this.getProducts();
+    this.getProducts();
   }
 
   handleProductName (e) {
@@ -152,7 +155,7 @@ onRemove = (id) => {
   }
 
   handleProductImage (e) {
-    this.setState ({imageUrl: e.target.value});
+    this.setState ({imageFile: e.target.files});
   }
 
   handleProductPrice (e) {
@@ -163,7 +166,23 @@ onRemove = (id) => {
     this.setState ({type: e.target.value});
   }
 
+  handleProductColors (colorOption) {
+    this.setState ({colors: colorOption})
+  }
+
   render () {
+
+    const animatedComponents = makeAnimated();
+
+    const colorsOptions = [
+      {value: '#4f5b66', label: 'Space-Gray'},
+      {value: '#a7adba', label: 'Silver'},
+      {value: '#FFFFFF', label: 'White'},
+      {value: '#F63204', label: 'Red'},
+      {value: '#000000', label: 'Black'},
+      {value: '#0095CB', label: 'Pacific Blue'}
+    ]
+
     return (
       <div className="App">
         <h1 className="employee--Title">Employee</h1>
@@ -171,7 +190,7 @@ onRemove = (id) => {
         <main>
             <div className="employee--Create--Container">
             <img src={logo} className="login--logo" alt="logo" />
-                <form className="createProduct--form" onSubmit={this.createProduct}>
+                <form className="createProduct--form" onSubmit={this.createProduct} encType="multipart/form-data">
                   <input
                     type="text"
                     placeholder="Product Name"
@@ -184,12 +203,20 @@ onRemove = (id) => {
                     onChange={this.handleProductDescription}
                     value={this.state.description}
                   />
-                  <input
-                    type="text"
-                    placeholder="Product Image"
-                    onChange={this.handleProductImage}
-                    value={this.state.imageUrl}
-                  />
+                  <label htmlFor="file" className="file--Input--Container">
+                    <input
+                      type="file"
+                      id="file"
+                      multiple
+                      className="file--Input"
+                      filename="imageFile"
+                      placeholder="Product Image"
+                      onChange={this.handleProductImage}
+                    />
+                    <div className="file--Label--Container">
+                      <FaCloudUploadAlt className="upload--Icon"/> Upload Image
+                    </div>
+                  </label>
                   <input
                     type="text"
                     placeholder="Product Price"
@@ -208,6 +235,16 @@ onRemove = (id) => {
                     <option value="computer">Computer</option>
                     <option value="watch">Watch</option>
                   </select>
+                  <Select
+                    className="product--Colors"
+                    name="colors"
+                    placeholder="Colors"
+                    options={colorsOptions}
+                    components={animatedComponents}
+                    isClearable={true}
+                    isMulti={true}
+                    onChange={this.handleProductColors}
+                  />
                   <input
                     type="submit"
                     value="Create"

@@ -19,11 +19,10 @@ const UserContextProvider = (props) => {
         .catch (error => {
             console.error (error);
         });
-    }, [setUser])
-
-    //TODO: FIX DOUBLE ADDING 
+    }, [setUser]) 
 
     const addToCart = (user, product) => {
+        console.log(product, 'asd')
         fetch(`${API}/cart/usercart`, {
             method:"POST",
             headers: { 
@@ -36,6 +35,7 @@ const UserContextProvider = (props) => {
             const itemToLocalCart = product;
             const copyCart = user.cart;
             copyCart.push(itemToLocalCart)
+            console.log(JSON.stringify(copyCart), ' 123')
             localStorage.setItem("cart", JSON.stringify(copyCart))
         })
         .catch(error => console.log(error))

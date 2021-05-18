@@ -3,6 +3,7 @@ import {API, UserContext} from './globalParams'
 import './styles/cart.scss'
 import {FaTrashAlt} from 'react-icons/fa'
 
+
 const Cart = props => {
     
     const [user, setUser, addToCart, removeFromCart] = useContext(UserContext)
@@ -19,6 +20,8 @@ const Cart = props => {
             }
         }
     }, [removeFromCart])
+
+    console.log(cart,'123')
 
     return (
         <>
@@ -45,17 +48,23 @@ const Cart = props => {
                 <>
                 {user.cart?.map(product => {
                     return (
-                        <div className="product--Container" key={product._id}>
-                            <img src={product.imageUrl} alt="product image" />
-                            <div className="product--About--Container">
-                                <h3>{product.name}</h3>
-                                <p>{product.description}</p>
-                                <p>{product.price}$</p>
-                            </div>
-                            <div className="remove--Button--Container">
-                                <FaTrashAlt /> 
-                                <button className="remove--Button" onClick={() => removeFromCart(user, product)}> REMOVE</button>
-                            </div>
+                        <div className="cart--Products" key={product._id}>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        
+                                        <td>{product.name}</td>
+                                        <td>{product.description}</td>
+                                        <td>{product.price}$</td>
+                                        <td>
+                                            <div className="remove--Button--Container">
+                                                <FaTrashAlt /> 
+                                                <button className="remove--Button" onClick={() => removeFromCart(user, product)}> REMOVE</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     )
                 })}
@@ -64,17 +73,23 @@ const Cart = props => {
                 <>
                 {cart?.map(product => {
                     return(
-                        <div className="product--Container" key={product._id}>
-                            <img src={product.imageUrl} alt="product image" />
-                            <div className="product--About--Container">
-                                <h3>{product.name}</h3>
-                                <p>{product.description}</p>
-                                <p>{product.price}$</p>
-                            </div>
-                            <div className="remove--Button--Container">
-                                <FaTrashAlt /> 
-                                <button className="remove--Button" onClick={() => removeFromCart(user, product)}> REMOVE</button>
-                            </div>
+                        <div className="cart--Products" key={product._id}>
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        
+                                        <td>{product.name}</td>
+                                        <td>{product.description}</td>
+                                        <td>{product.price}$</td>
+                                        <td>
+                                            <div className="remove--Button--Container">
+                                                <FaTrashAlt /> 
+                                                <button className="remove--Button" onClick={() => removeFromCart(user, product)}> REMOVE</button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     )
                 })}

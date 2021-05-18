@@ -42,17 +42,18 @@
         }
 
         img{
-            height: 450px;
-            width: 500px;
+            height: 550px;
+            width: 400px;
         }
     
         .createProduct--form {
             display: flex;
             flex-direction: column;
             align-items: center;
+            justify-content: space-around;
             width: 300px;
             padding: 40px;
-            height: 370px;
+            height: 470px;
             border-top-right-radius: 10px;
             background-color: #293039;
 
@@ -69,6 +70,42 @@
                     outline: none;
                     color: #293039;
                     background-color: #EFEFEF;
+                }
+            }
+
+            label {
+                display: flex;
+                flex-direction: column-reverse;
+                align-items: center;
+                margin-top: 20px;
+                padding: 10px;
+                width: 100%;
+                border: 1px solid #EFEFEF;
+                cursor: pointer;
+                color: #EFEFEF;
+                font-family: 'SF-UI-Display-Light';
+
+                .file--Label--Container {
+                    display: flex;
+                    align-items: center;
+                    width: 40%;
+                    justify-content: space-around;
+
+                }
+                
+                .file--Input {
+                    border: none;
+                    padding: 10px;
+                    cursor: pointer;
+                    
+                    &::-webkit-file-upload-button {
+                        display: none;
+                    }
+                    
+                    &:focus { 
+                        outline: none;
+                        color: #293039;
+                    }
                 }
             }
 
@@ -90,6 +127,13 @@
                     background-color: #293039;
                     color: #EFEFEF;
                 }
+            }
+
+            .product--Colors {
+                position: relative;
+                width: 110%;
+                height: 10px;
+                background-color: transparent;
             }
 
             .create--button {

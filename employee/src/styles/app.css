@@ -44,17 +44,18 @@
 }
 
 .App main img {
-  height: 450px;
-  width: 500px;
+  height: 550px;
+  width: 400px;
 }
 
 .App main .createProduct--form {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-around;
   width: 300px;
   padding: 40px;
-  height: 370px;
+  height: 470px;
   border-top-right-radius: 10px;
   background-color: #293039;
 }
@@ -75,6 +76,41 @@
   background-color: #EFEFEF;
 }
 
+.App main .createProduct--form label {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px;
+  width: 100%;
+  border: 1px solid #EFEFEF;
+  cursor: pointer;
+  color: #EFEFEF;
+  font-family: 'SF-UI-Display-Light';
+}
+
+.App main .createProduct--form label .file--Label--Container {
+  display: flex;
+  align-items: center;
+  width: 40%;
+  justify-content: space-around;
+}
+
+.App main .createProduct--form label .file--Input {
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.App main .createProduct--form label .file--Input::-webkit-file-upload-button {
+  display: none;
+}
+
+.App main .createProduct--form label .file--Input:focus {
+  outline: none;
+  color: #293039;
+}
+
 .App main .createProduct--form select {
   width: 80%;
   margin-top: 20px;
@@ -93,6 +129,13 @@
   padding: 5px;
   background-color: #293039;
   color: #EFEFEF;
+}
+
+.App main .createProduct--form .product--Colors {
+  position: relative;
+  width: 110%;
+  height: 10px;
+  background-color: transparent;
 }
 
 .App main .createProduct--form .create--button {

@@ -68,72 +68,57 @@
 }
 
 .cart--Container {
-    display: grid;
-    grid-template-columns: repeat(3, 40%);
-    justify-content: space-around;
-    align-items: center;
-    justify-items: center;
-    margin: 0 auto;
-    margin-top: 300px;
-    width: 80%;
-}
-
-.product--Container {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
-    text-align: center;
-    height: 450px;
-    width: 370px;
-    border-radius: 20px;
-    padding: 10px;
-    background-color: #EFEFEF;
-    -webkit-box-shadow: 0px 13px 13px 6px rgba(0,0,0,0.137); 
-    box-shadow: 0px 13px 13px 6px rgba(0,0,0,0.137);
+    margin: auto;
+    width: 80%;
 
-    img {
-        height: 60%;
-        width: 70%;
-    }
-
-    h3 {
-        font-size: 25px;
-        font-family: 'SF-UI-Display-Regular';
-        color: #293039;
-        margin: 5px
-    }
-
-    p {
-        font-size: 17px;
-        margin: 5px;
-        font-family: 'SF-UI-Display-Medium';
-    }
-
-    .remove--Button--Container {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
+    .cart--Products {
+        margin-top: 300px;
         align-items: center;
-        background-color: #FF5F5F;
-        padding: 10px;
-        padding-left: 20px;
-        padding-right: 20px;
-        border-radius: 10px;
+        justify-content: center;
+        background-color: #EFEFEF;
+        border-collapse: collapse;
+        border-style: hidden;
+        box-shadow: 0 0 0 1px #666;
+        margin-bottom: 50px;
+        width: 100%;
+        border-radius: 15px;
 
-        &:hover {
-            cursor: pointer;
-            padding-left: 30px;
-            padding-right: 30px;
+        tr img {
+            height: 50px;
+            width: 50px;
         }
 
-        button {
-            background-color: transparent;
-            border: none;
+        tr, td {
+            border: 1px solid #293039;
+            text-align: left;
+            padding: 8px;
+            font-family: 'SF-UI-Display-Regular';
+        }
+
+        tr td:first-child {
+            text-align: center;
+        }
+
+        tr td:last-child {
+            background-color: #FF5871;
+            color: #293039;
+            text-align: center;
+            font-size: 20px;
 
             &:hover {
                 cursor: pointer;
             }
+        }
+
+        tr:nth-child(1) td:last-child {
+            border-top-right-radius: 15px;
+        }
+
+        tr:last-child td:last-child{
+            border-bottom-right-radius: 15px;
         }
     }
 }

@@ -13,7 +13,8 @@ const Products = props => {
 
     const [user, setUser, addToCart] = useContext(UserContext);
     const {productData} = useContext(ProductContext);
-    const [products, setProducts] = useState([])
+    const [products, setProducts] = useState([]);
+    const [color, setColor] = useState([]);
     const localCart = JSON.parse(localStorage.getItem("cart"));
     const animatedComponents = makeAnimated();
 
@@ -102,7 +103,34 @@ const Products = props => {
         })
         .then(() => reloadProducts())
         .catch(error => console.log(error))
-    }  
+    }
+
+    const ParsedColors = props => {
+        return(
+            props.product.color.map(col => {
+                const parsed = JSON.parse(col)
+                return(
+                    <button name="color" value={parsed.value} style={{backgroundColor: `${parsed.value}`}} onClick={() => colorPicker([props.product._id, parsed.value])}/>
+                )
+            })
+        )
+    }
+
+    const colorPicker = ([productId, colors]) => {
+        setColor([productId, colors])
+    }
+
+    const RenderProductImage = (props) => {
+        return(
+            props.product.imageFile?.map(image => {
+                if(image.originalname.includes(color[1].substring(1))) {
+                    return (
+                        <img src={require(`./styles/images/${image.originalname}`).default} alt="product img" />
+                    )
+                }
+            })
+        )
+    }
 
     // const productAbout = (id) => {
     //     fetch (`${API}/products/details/${id}`, {
@@ -176,16 +204,32 @@ const Products = props => {
                             </div>
                         </form>
                         <div className="products--Section">
-                            {products.map(product => {
-                                return(    
+                            {products.map(product => {     
+                                return(
                                     <div className="product--Container" key={product._id}>
                                         <div className="product--TopButton--Container">
                                             <button className="about--Button" onClick={() => productData(product._id)}>About</button>
                                         </div>
-                                        <img src={product.imageUrl} alt="product image" />
+                                        <div className="product--Image--Container">
+                                            {(color.length > 0 && color[0] === product._id) ?
+                                                <RenderProductImage product={product} />
+                                            :
+                                            <>
+                                                {product.imageFile.map(image => {
+                                                    if(image.originalname.includes('def')) {
+                                                        return (
+                                                            <img src={require(`./styles/images/${image.originalname}`).default} alt="product img" />
+                                                        )
+                                                    }
+                                                })}
+                                            </>
+                                            }
+                                        </div>
+                                        <div className="product--Colors--Container">
+                                            <ParsedColors product={product}/>
+                                        </div>
                                         <div className="product--About--Container">
                                             <h3>{product.name}</h3>
-                                            <p>{product.description}</p>
                                             <p>{product.price}$</p>
                                         </div>
                                         <div className="product--BottomButtons--Container">
@@ -212,15 +256,15 @@ const Products = props => {
                                                         <>
                                                             {!user.cart.some(item => item._id === product._id) ? 
                                                                 <>
-                                                                    <button className="addTo--Cart--Button--Container">
-                                                                        <FaShoppingCart size='25' onClick={() => {addToCart(user, product); reloadProducts()}}/>
+                                                                    <button className="addTo--Cart--Button--Container" onClick={() => {addToCart(user, product); reloadProducts()}}>
+                                                                        <FaShoppingCart size='25' /> ADD TO CART
                                                                     </button>
                                                                 </>
                                                                 :
                                                                 <>
                                                                     <Popup trigger={
                                                                         <button className="addTo--Cart--Button--Container">
-                                                                            <FaCartArrowDown size='25' color='#1E718D'/>
+                                                                            <FaCartArrowDown size='25' color='#1E718D'/> ADD TO CART
                                                                         </button>
                                                                     }
                                                                     position="top right"
@@ -236,15 +280,15 @@ const Products = props => {
                                                         <>
                                                             {!localCart.some(item => item._id === product._id) ? 
                                                                 <>
-                                                                    <button className="addTo--Cart--Button--Container">
-                                                                        <FaShoppingCart size='25' onClick={() => {addToCart(user, product); reloadProducts()}}/>
+                                                                    <button className="addTo--Cart--Button--Container" onClick={() => {addToCart(user, product); reloadProducts()}}>
+                                                                        <FaShoppingCart size='25'/> ADD TO CART
                                                                     </button>
                                                                 </>
                                                                 :
                                                                 <>
                                                                     <Popup trigger={
                                                                         <button className="addTo--Cart--Button--Container">
-                                                                            <FaCartArrowDown size='25' color='#1E718D'/>
+                                                                            <FaCartArrowDown size='25' color='#1E718D'/> ADD TO CART
                                                                         </button>
                                                                     }
                                                                     position="top right"

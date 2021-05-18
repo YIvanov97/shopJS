@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(30, 113, 141, 0.2);
+    background-color: rgba(22, 158, 182, 0.4);
 }
 
 .custom-shape-divider-top-1619781110 {
@@ -240,9 +240,22 @@ header {
 
             .product--TopButton--Container {
                 display: flex;
-
+                align-self: flex-end;
+                border-top-right-radius: 20px;
+                
                 .about--Button {
-                    
+                    border-top-right-radius: 20px;
+                    border-bottom-left-radius: 20px;
+                    background-color: transparent;
+                    border: 2px solid #FFA500;
+                    font-size: 20px;
+                    font-family: 'SF-UI-Display-Bold';
+                    padding: 10px;
+                    transition: ease-in 0.2s;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
                 }
             }
 
@@ -252,6 +265,8 @@ header {
                 justify-content: space-between;
                 align-items: center;
                 width: 100%;
+                background-color: #FF5F5F;
+                border-bottom-left-radius: 20px;
 
                 .addTo--Favourite--Button--Container {
                     display: flex;
@@ -259,7 +274,7 @@ header {
                     align-items: center;
                     padding: 20px;
                     border: none;
-                    border-bottom-left-radius: 10px;
+                    border-radius: 0 0 0 20px / 0 0 0 20px;
                     background-color: #FF5F5F;
 
                     &:hover {
@@ -272,20 +287,64 @@ header {
                     flex: 1;
                     justify-content: center;
                     align-items: center;
+                    font-size: 20px;
+                    font-family: "SF-UI-Display-Bold";
+                    letter-spacing: 1px;
                     border: none;
                     padding: 20px;
-                    border-bottom-right-radius: 10px;
-                    background-color: #53EC00  ;
+                    border-radius: 30px 0 0 30px / 30px 0 0 30px;
+                    background-color: #00DD7B  ;
 
                     &:hover {
                         cursor: pointer;
                     }
                 }
             }
-    
-            img {
-                height: 60%;
-                width: 70%;
+
+            .color--Background {
+                display: flex;
+                justify-content: center;
+                position: absolute;
+                margin-bottom: 220px;
+                box-shadow: 10px 25px 20px 3px rgba(0,0,0,0.2);
+                z-index: 0;
+                left: 74px;
+                border-radius: 52% 48% 41% 59% / 0% 54% 46% 100% ;
+                border-top-left-radius: 20px;
+                width: 360px; 
+                height: 280px; 
+            }
+
+            .product--Image--Container {
+                height: 290px;
+                width: 290px;
+                
+                img {
+                    height: 100%;
+                    width: 100%;
+                }
+            }
+
+            .product--Colors--Container {
+                display: flex;
+                position: relative;
+                z-index: 1;
+                flex-direction: row;
+                justify-content: space-around;
+                align-items: center;
+                width: 40%;
+                margin-top: 10px;
+
+                button {
+                    border-radius: 50%;
+                    height: 20px;
+                    width: 20px;
+                    border: 1px solid black;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
             }
 
             h3 {
@@ -299,22 +358,6 @@ header {
                 font-size: 17px;
                 margin: 5px;
                 font-family: 'SF-UI-Display-Medium';
-            }
-
-            button {
-                background-color: transparent;
-                border: 2px solid #FFA500;
-                font-size: 20px;
-                font-family: 'SF-UI-Display-Bold';
-                padding: 10px;
-                transition: ease-in 0.2s;
-                
-                &:hover {
-                    border-radius: 10px;
-                    background-color: #FFA500;
-                    cursor: pointer;
-                    transform: translate(0.2s);
-                }
             }
         }
     }

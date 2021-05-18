@@ -10,10 +10,9 @@ const productSchema = new mongoose.Schema ({
         type: 'String',
         required: true
     }, 
-    imageUrl: {
-        type: 'String',
-        required: true,
-        validate: /^https?/
+    imageFile: {
+        type: [],
+        required: true
     },
     price: {
         type: Number,
@@ -26,6 +25,10 @@ const productSchema = new mongoose.Schema ({
     likes: {
         type: [],
         required: false
+    },
+    color: {
+        type: [],
+        required: true
     }
 })
 

@@ -1,7 +1,19 @@
 const { Router } = require('express');
 const productService = require('../services/productService');
+const multer = require('multer')
 
 const router = Router()
+
+const imageStorage = multer.diskStorage({
+    destination: (req, file, callback) => {
+        callback(null, "../../shpJS/frontend/src/styles/images")
+    },
+    filename: (req, file, callback) => {
+        callback(null, file.originalname)
+    }
+})
+
+const uploads = multer({storage: imageStorage})
 
 router.get('/', (req, res) => {
     productService.getAll(req.query).then(products =>{
@@ -9,9 +21,19 @@ router.get('/', (req, res) => {
     }).catch(() => res.status(500).end())
 })
 
-router.post('/create', async (req, res) => {
+router.post('/create', uploads.array("imageFile"), async (req, res) => {
+    console.log(req, ' asd')
     try {
-        let product = await productService.create(req.body)
+        const data = {
+            name: req.body.name,
+            description: req.body.description,
+            imageFile: req.files,
+            price: req.body.price,
+            type: req.body.type,
+            likes: req.body.likes,
+            color: req.body.color
+        }
+        let product = await productService.create(data)
         res.status(201).json(product)
     } catch (error) {
         res.status(500).json({error: error})
