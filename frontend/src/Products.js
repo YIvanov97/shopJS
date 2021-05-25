@@ -7,22 +7,22 @@ import makeAnimated from 'react-select/animated';
 import { Badge } from '@material-ui/core';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import {ProductContext} from './productContextProvider'
 
 const Products = props => {
 
-    const [user, setUser, addToCart] = useContext(UserContext);
-    const {productData} = useContext(ProductContext);
+    const [user, setUser, addToCart, setChosenImage] = useContext(UserContext);
     const [products, setProducts] = useState([]);
     const [color, setColor] = useState([]);
     const localCart = JSON.parse(localStorage.getItem("cart"));
     const animatedComponents = makeAnimated();
 
-    const storageOptions = [
-        {value: '512', label: '512 GB'},
-        {value: '128', label: '128 GB'},
-        {value: '256', label: '256 GB'},
-        {value: '1 TB', label: '1 TB'},
+    const processorOptions = [
+        {value: 'i7', label: 'i7'},
+        {value: 'i5', label: 'i5'},
+        {value: 'i9', label: 'i9'},
+        {value: 'S6', label: 'S6'},
+        {value: 'M1', label: 'M1'},
+        {value: 'A14', label: 'A14'},
     ]
 
     const ramOptions = [
@@ -30,7 +30,15 @@ const Products = props => {
         {value: '8', label: '8 GB'},
         {value: '16', label: '16 GB'},
         {value: '32', label: '32 GB'},
-        {value: '64', label: '64 GB'},
+        {value: '12', label: '12 GB'},
+    ]
+    
+    const storageOptions = [
+        {value: '32GB', label: '32 GB'},
+        {value: '512GB', label: '512 GB'},
+        {value: '128GB', label: '128 GB'},
+        {value: '256GB', label: '256 GB'},
+        {value: '1TB', label: '1 TB'},
     ]
 
     const typeOptions = [
@@ -47,6 +55,7 @@ const Products = props => {
         })
         .then (response => response.json ())
         .then (response => {
+            console.log(response, '222')
             setProducts(response)
         })
         .catch (error => {
@@ -74,7 +83,9 @@ const Products = props => {
         })
         .then (response => response.json ())
         .then (response => {
-            setProducts(response)
+            setTimeout(() => {
+                setProducts(response)
+            }, 300)
         })
         .catch (error => {
             console.error (error);
@@ -124,6 +135,7 @@ const Products = props => {
         return(
             props.product.imageFile?.map(image => {
                 if(image.originalname.includes(color[1].substring(1))) {
+                    setChosenImage(image.originalname)
                     return (
                         <img src={require(`./styles/images/${image.originalname}`).default} alt="product img" />
                     )
@@ -131,20 +143,6 @@ const Products = props => {
             })
         )
     }
-
-    // const productAbout = (id) => {
-    //     fetch (`${API}/products/details/${id}`, {
-    //         method: 'GET',
-    //     })
-    //     .then (response => response.json ())
-    //     //.then (response => {
-    //     //    setProduct(response)
-    //     //})
-    //     .then(response => window.location =`/details/${response._id}`)
-    //     .catch (error => {
-    //         console.error (error);
-    //     });
-    // }
     
     return(
         <div className="products--Container">
@@ -177,9 +175,9 @@ const Products = props => {
                             <input type="text" className="product--Search" name="search" placeholder="Search..."/>
                             <Select
                             className="product--Filter"
-                            name="storage"
-                            placeholder="Storage"
-                            options={storageOptions}
+                            name="processor"
+                            placeholder="Processor"
+                            options={processorOptions}
                             components={animatedComponents}
                             isClearable={true}
                             />
@@ -188,6 +186,14 @@ const Products = props => {
                             name="ram"
                             placeholder="Ram"
                             options={ramOptions}
+                            components={animatedComponents}
+                            isClearable={true}
+                            />
+                            <Select
+                            className="product--Filter"
+                            name="storage"
+                            placeholder="Storage"
+                            options={storageOptions}
                             components={animatedComponents}
                             isClearable={true}
                             />
@@ -208,7 +214,7 @@ const Products = props => {
                                 return(
                                     <div className="product--Container" key={product._id}>
                                         <div className="product--TopButton--Container">
-                                            <button className="about--Button" onClick={() => productData(product._id)}>About</button>
+                                            <a href={`/details/${product._id}`} className="about--Button">About</a>
                                         </div>
                                         <div className="product--Image--Container">
                                             {(color.length > 0 && color[0] === product._id) ?
@@ -225,21 +231,22 @@ const Products = props => {
                                             </>
                                             }
                                         </div>
-                                        <div className="product--Colors--Container">
-                                            <ParsedColors product={product}/>
-                                        </div>
-                                        <div className="product--About--Container">
-                                            <h3>{product.name}</h3>
-                                            <p>{product.price}$</p>
-                                        </div>
-                                        <div className="product--BottomButtons--Container">
+                                        <div className="product--Card--Layout">
+                                            <div className="product--Colors--Container">
+                                                <ParsedColors product={product}/>
+                                            </div>
+                                            <div className="product--About--Container">
+                                                <h3>{product.name}</h3>
+                                                <p>{product.price}$</p>
+                                            </div>
+                                            <div className="product--BottomButtons--Container">
                                             {user.email ?
                                                 <> 
                                                     {!product.likes.includes(user.email) ? 
                                                         <>
                                                             <Badge badgeContent={product.likes.length} showZero color="secondary" anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
                                                                 <button className="addTo--Favourite--Button--Container">
-                                                                    <FaHeart size='25' className="heart--Button" onClick={() => productLike(product._id, user.email)}/>
+                                                                    <FaHeart size='30' color="#C5C5C5" className="heart--Button" onClick={() => productLike(product._id, user.email)}/>
                                                                 </button>
                                                             </Badge>
                                                         </>
@@ -247,7 +254,7 @@ const Products = props => {
                                                         <>
                                                             <Badge badgeContent={product.likes.length} showZero color="secondary" anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
                                                                 <button className="addTo--Favourite--Button--Container">
-                                                                    <FaHeart size='25' color='#FFA0F7' className="heart--Button" onClick={() => productDislike(product._id, user.email)}/>
+                                                                    <FaHeart size='30' color='#FFA0F7' className="heart--Button" onClick={() => productDislike(product._id, user.email)}/>
                                                                 </button>
                                                             </Badge>
                                                         </>
@@ -257,14 +264,14 @@ const Products = props => {
                                                             {!user.cart.some(item => item._id === product._id) ? 
                                                                 <>
                                                                     <button className="addTo--Cart--Button--Container" onClick={() => {addToCart(user, product); reloadProducts()}}>
-                                                                        <FaShoppingCart size='25' /> ADD TO CART
+                                                                        <FaShoppingCart size='30' color='#C5C5C5' />
                                                                     </button>
                                                                 </>
                                                                 :
                                                                 <>
                                                                     <Popup trigger={
                                                                         <button className="addTo--Cart--Button--Container">
-                                                                            <FaCartArrowDown size='25' color='#1E718D'/> ADD TO CART
+                                                                            <FaCartArrowDown size='30' color='#36F180'/>
                                                                         </button>
                                                                     }
                                                                     position="top right"
@@ -281,14 +288,14 @@ const Products = props => {
                                                             {!localCart.some(item => item._id === product._id) ? 
                                                                 <>
                                                                     <button className="addTo--Cart--Button--Container" onClick={() => {addToCart(user, product); reloadProducts()}}>
-                                                                        <FaShoppingCart size='25'/> ADD TO CART
+                                                                        <FaShoppingCart size='30' color='#C5C5C5'/>
                                                                     </button>
                                                                 </>
                                                                 :
                                                                 <>
                                                                     <Popup trigger={
                                                                         <button className="addTo--Cart--Button--Container">
-                                                                            <FaCartArrowDown size='25' color='#1E718D'/> ADD TO CART
+                                                                            <FaCartArrowDown size='30' color='#36F180'/>
                                                                         </button>
                                                                     }
                                                                     position="top right"
@@ -318,6 +325,7 @@ const Products = props => {
                                                     </Popup>
                                                 </>
                                             }
+                                        </div>
                                         </div>    
                                     </div>
                                 )

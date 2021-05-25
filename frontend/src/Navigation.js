@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import './styles/navigation.scss'
 import {Link} from 'react-router-dom';
 import {UserContext, API} from './globalParams';
@@ -6,6 +6,12 @@ import {UserContext, API} from './globalParams';
 const Navigation = () => {
 
     const [user] = useContext(UserContext)
+
+    useEffect(() => {
+        if(user.role === 'admin') {
+            window.location = 'http://localhost:4000'
+        }
+    }, [user])
 
     const handleLogout = () => {
         fetch(`${API}/auth/logout`, {

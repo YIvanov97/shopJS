@@ -1,0 +1,37 @@
+[
+    {
+        "_id": {
+            "$oid": "60acc010d7dc514520577072"
+        },
+        "imageFile": [{
+            "fieldname": "imageFile",
+            "originalname": "iwatch000000.png",
+            "encoding": "7bit",
+            "mimetype": "image/png",
+            "destination": "../../shpJS/frontend/src/styles/images",
+            "filename": "iwatch000000.png",
+            "path": "..\\..\\shpJS\\frontend\\src\\styles\\images\\iwatch000000.png",
+            "size": 169354
+        }, {
+            "fieldname": "imageFile",
+            "originalname": "iwatchdefFFFFFF.png",
+            "encoding": "7bit",
+            "mimetype": "image/png",
+            "destination": "../../shpJS/frontend/src/styles/images",
+            "filename": "iwatchdefFFFFFF.png",
+            "path": "..\\..\\shpJS\\frontend\\src\\styles\\images\\iwatchdefFFFFFF.png",
+            "size": 72186
+        }],
+        "likes": [],
+        "color": ["{\"value\":\"#FFFFFF\",\"label\":\"White\"}", "{\"value\":\"#000000\",\"label\":\"Black\"}"],
+        "name": "iWatch 6 Pro",
+        "description": "Measure your blood oxygen level.¹ Keep an eye on your heart. See your fitness metrics on the enhanced Always-On Retina display. Live a healthier, more active, more connected life.",
+        "processor": "S6",
+        "ram": "4",
+        "storage": "32GB",
+        "price": 399,
+        "type": "watch",
+        "__v": 0
+    }
+    
+]

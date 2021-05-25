@@ -7,6 +7,9 @@ const ProductData = props => {
                 <tr>
                     <td>{product.name}</td>
                     <td>{product.description}</td>
+                    <td>{product.processor}</td>
+                    <td>{product.ram}</td>
+                    <td>{product.storage}</td>
                     <td>{product.type}</td>
                     <td>{product.price}$</td>
                     <td>

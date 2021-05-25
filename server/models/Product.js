@@ -10,6 +10,18 @@ const productSchema = new mongoose.Schema ({
         type: 'String',
         required: true
     }, 
+    processor: {
+        type: 'String',
+        required: true
+    }, 
+    ram: {
+        type: 'String',
+        required: true
+    }, 
+    storage: {
+        type: 'String',
+        required: true
+    }, 
     imageFile: {
         type: [],
         required: true

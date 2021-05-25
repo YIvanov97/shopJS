@@ -1,0 +1,26 @@
+[
+    {
+        "_id": {
+            "$oid": "60acc010d7dc514520577010"
+        },
+        "name": "dani",
+        "username": "dani12",
+        "email": "dani@mail.com",
+        "password": "$2b$10$x.rXGx0Yk5rURoJD.Q2b4eqdHrGX5CBKzgLHoKp8JC9Ea.LpT5i.a",
+        "cart": [],
+        "role": "user",
+        "_v": 0
+    },
+    {
+        "_id": {
+            "$oid": "60acc010d7dc514520577011"
+        },
+        "name": "niki",
+        "username": "niki12",
+        "email": "niki@mail.com",
+        "password": "$2b$10$x.rXGx0Yk5rURoJD.Q2b4eqdHrGX5CBKzgLHoKp8JC9Ea.LpT5i.a",
+        "cart": [],
+        "role": "admin",
+        "_v": 0
+    }
+]

@@ -14,6 +14,9 @@ class App extends React.Component {
     this.state = {
       name: '',
       description: '',
+      processor: '',
+      ram: '',
+      storage: '',
       imageFile: [],
       price: '',
       type: '',
@@ -23,10 +26,14 @@ class App extends React.Component {
 
     this.handleProductName = this.handleProductName.bind (this);
     this.handleProductDescription = this.handleProductDescription.bind (this);
+    this.handleProductProcessor = this.handleProductProcessor.bind (this);
+    this.handleProductRam = this.handleProductRam.bind (this);
+    this.handleProductStorage = this.handleProductStorage.bind (this);
     this.handleProductImage = this.handleProductImage.bind (this);
     this.handleProductPrice = this.handleProductPrice.bind (this);
     this.handleProductType = this.handleProductType.bind (this);
     this.handleProductColors = this.handleProductColors.bind (this);
+    this.handleLogout = this.handleLogout.bind (this);
     this.createProduct = this.createProduct.bind (this);
     this.getProducts = this.getProducts.bind (this);
     this.onRemove = this.onRemove.bind (this);
@@ -76,6 +83,17 @@ class App extends React.Component {
       progress: undefined,
     });
 
+    handleLogout = () => {
+      fetch('http://localhost:5000/auth/logout', {
+          method: 'GET',
+          credentials: 'include',
+          withCredentials: true
+      })
+      .then(() => localStorage.clear())
+      .then(() => window.location = 'http://localhost:3000')
+      .catch(error => console.log(error))
+    }
+
   createProduct (e) {
     e.preventDefault ();
 
@@ -93,6 +111,9 @@ class App extends React.Component {
     
     data.append("name", this.state.name)
     data.append("description", this.state.description)
+    data.append("processor", this.state.processor)
+    data.append("ram", this.state.ram)
+    data.append("storage", this.state.storage)
     data.append("price", this.state.price)
     data.append("type", this.state.type)
 
@@ -154,6 +175,18 @@ onRemove = (id) => {
     this.setState ({description: e.target.value});
   }
 
+  handleProductProcessor (e) {
+    this.setState ({processor: e.target.value});
+  }
+
+  handleProductRam (e) {
+    this.setState ({ram: e.target.value});
+  }
+
+  handleProductStorage (e) {
+    this.setState ({storage: e.target.value});
+  }
+
   handleProductImage (e) {
     this.setState ({imageFile: e.target.files});
   }
@@ -187,6 +220,7 @@ onRemove = (id) => {
       <div className="App">
         <h1 className="employee--Title">Employee</h1>
         <h2 className="addProduct--Title">Add new product</h2>
+        <button className="logout--Button" onClick={this.handleLogout}>Logout</button>
         <main>
             <div className="employee--Create--Container">
             <img src={logo} className="login--logo" alt="logo" />
@@ -203,6 +237,48 @@ onRemove = (id) => {
                     onChange={this.handleProductDescription}
                     value={this.state.description}
                   />
+                  <div className="product--SpecInputs--Container">
+                    <select
+                      type="text"
+                      onChange={this.handleProductProcessor}
+                      value={this.state.processor}
+                      defaultValue=""                    
+                    >
+                      <option selected value="">Processor</option>
+                      <option value="i7">i7</option>
+                      <option value="i5">i5</option>
+                      <option value="i9">i9</option>
+                      <option value="S6">S6</option>
+                      <option value="M1">M1</option>
+                      <option value="A14">A14</option>
+                    </select>
+                    <select
+                      type="text"
+                      onChange={this.handleProductRam}
+                      value={this.state.ram}
+                      defaultValue=""                    
+                    >
+                      <option selected value="">Ram</option>
+                      <option value="12">12</option>
+                      <option value="8">8</option>
+                      <option value="16">16</option>
+                      <option value="32">32</option>
+                      <option value="4">4</option>
+                    </select>
+                    <select
+                      type="text"
+                      onChange={this.handleProductStorage}
+                      value={this.state.storage}
+                      defaultValue=""                    
+                    >
+                      <option selected value="">Storage</option>
+                      <option value="128GB">128GB</option>
+                      <option value="256GB">256GB</option>
+                      <option value="512GB">512GB</option>
+                      <option value="1TB">1TB</option>
+                      <option value="32GB">32GB</option>
+                    </select>
+                  </div>
                   <label htmlFor="file" className="file--Input--Container">
                     <input
                       type="file"
@@ -257,6 +333,9 @@ onRemove = (id) => {
                   <tr>
                       <th>Name</th>
                       <th>Description</th>
+                      <th>Processor</th>
+                      <th>Ram</th>
+                      <th>Storage</th>
                       <th>Type</th>
                       <th>Price</th>
                   </tr>

@@ -152,14 +152,14 @@ header {
         width: 90%;
         background-color: rgba(30, 113, 141, 0.4);
         padding: 15px;
-        border-top-left-radius: 20px;
-        border-bottom-right-radius: 20px;
         margin-bottom: 50px;
+        border-top-right-radius: 40px;
+        border-bottom-left-radius: 40px;
         -webkit-box-shadow: 0px 13px 13px 6px rgba(0,0,0,0.08); 
         box-shadow: 0px 13px 13px 6px rgba(0,0,0,0.08);
 
         .product--Search {
-            width: 30%;
+            width: 25%;
             padding: 10px;
             border: 1px solid #EFEFEF;
             border-radius: 20px;
@@ -232,97 +232,54 @@ header {
             text-align: center;
             height: 500px;
             width: 400px;
-            border-radius: 20px;
             padding: 0;
-            background-color: #EFEFEF;
+            background-color: #5D97AE ;
             -webkit-box-shadow: 0px 13px 13px 6px rgba(0,0,0,0.137); 
             box-shadow: 0px 13px 13px 6px rgba(0,0,0,0.137);
 
             .product--TopButton--Container {
                 display: flex;
-                align-self: flex-end;
-                border-top-right-radius: 20px;
+                background-color: #EFEFEF;
+                width: 100%;
                 
                 .about--Button {
                     border-top-right-radius: 20px;
                     border-bottom-left-radius: 20px;
                     background-color: transparent;
-                    border: 2px solid #FFA500;
+                    border: 2px solid #7D9F9C;
                     font-size: 20px;
                     font-family: 'SF-UI-Display-Bold';
                     padding: 10px;
                     transition: ease-in 0.2s;
+                    text-decoration: none;
+                    color: #293039;
 
                     &:hover {
                         cursor: pointer;
                     }
                 }
-            }
-
-            .product--BottomButtons--Container {
-                display: flex;
-                flex-direction: row;
-                justify-content: space-between;
-                align-items: center;
-                width: 100%;
-                background-color: #FF5F5F;
-                border-bottom-left-radius: 20px;
-
-                .addTo--Favourite--Button--Container {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    padding: 20px;
-                    border: none;
-                    border-radius: 0 0 0 20px / 0 0 0 20px;
-                    background-color: #FF5F5F;
-
-                    &:hover {
-                        cursor: pointer;
-                    }
-                }
-
-                .addTo--Cart--Button--Container {
-                    display: flex;
-                    flex: 1;
-                    justify-content: center;
-                    align-items: center;
-                    font-size: 20px;
-                    font-family: "SF-UI-Display-Bold";
-                    letter-spacing: 1px;
-                    border: none;
-                    padding: 20px;
-                    border-radius: 30px 0 0 30px / 30px 0 0 30px;
-                    background-color: #00DD7B  ;
-
-                    &:hover {
-                        cursor: pointer;
-                    }
-                }
-            }
-
-            .color--Background {
-                display: flex;
-                justify-content: center;
-                position: absolute;
-                margin-bottom: 220px;
-                box-shadow: 10px 25px 20px 3px rgba(0,0,0,0.2);
-                z-index: 0;
-                left: 74px;
-                border-radius: 52% 48% 41% 59% / 0% 54% 46% 100% ;
-                border-top-left-radius: 20px;
-                width: 360px; 
-                height: 280px; 
             }
 
             .product--Image--Container {
                 height: 290px;
-                width: 290px;
+                width: 100%;
+                background-color: #EFEFEF;
+                padding-bottom: 10px;
+                border-bottom-left-radius: 40px;
+                border-bottom-right-radius: 40px;
                 
                 img {
                     height: 100%;
-                    width: 100%;
+                    width: 80%;
                 }
+            }
+
+            .product--Card--Layout {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
             }
 
             .product--Colors--Container {
@@ -339,7 +296,8 @@ header {
                     border-radius: 50%;
                     height: 20px;
                     width: 20px;
-                    border: 1px solid black;
+                    border: none;
+                    box-shadow: 0px 7px 10px 2px rgba(0,0,0,0.2);
 
                     &:hover {
                         cursor: pointer;
@@ -355,9 +313,43 @@ header {
             }
 
             p {
-                font-size: 17px;
+                font-size: 20px;
                 margin: 5px;
+                color: #293039;
                 font-family: 'SF-UI-Display-Medium';
+            }
+
+            .product--BottomButtons--Container {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                .addTo--Favourite--Button--Container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: none;
+                    background-color: transparent;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+
+                .addTo--Cart--Button--Container {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: none;
+                    margin: 10px;
+                    color: #293039;
+                    background-color: transparent;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
             }
         }
     }

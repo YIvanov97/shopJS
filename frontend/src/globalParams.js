@@ -5,6 +5,7 @@ const UserProvider = UserContext.Provider;
 
 const UserContextProvider = (props) => {
     const [user, setUser] = useState({})
+    const [chosenImage, setChosenImage] = useState('');
 
     useEffect(() => {
         fetch(`${API}/auth/user`, {
@@ -22,7 +23,20 @@ const UserContextProvider = (props) => {
     }, [setUser]) 
 
     const addToCart = (user, product) => {
-        console.log(product, 'asd')
+
+        const cartProduct = {
+            _id: product._id,
+            name: product.name,
+            description: product.description,
+            price: product.price,
+            type: product.type,
+            likes: product.likes,
+            color: product.color,
+            imageFile: chosenImage
+        }
+
+        console.log(cartProduct)
+
         fetch(`${API}/cart/usercart`, {
             method:"POST",
             headers: { 
@@ -30,13 +44,11 @@ const UserContextProvider = (props) => {
             },
         body: JSON.stringify([user._id, product])
         })
-        .then(() => setUser(oldState => ({...oldState, cart: [...oldState.cart, product]})))
-        .then(() => {
-            const itemToLocalCart = product;
-            const copyCart = user.cart;
-            copyCart.push(itemToLocalCart)
-            console.log(JSON.stringify(copyCart), ' 123')
-            localStorage.setItem("cart", JSON.stringify(copyCart))
+        .then(response => response.json())
+        .then(response => {
+            const updatedCart = response.cart;
+            setUser(oldState => ({...oldState, cart: [updatedCart]}))
+            localStorage.setItem("cart", JSON.stringify(updatedCart))
         })
         .catch(error => console.log(error))
     }
@@ -49,23 +61,17 @@ const UserContextProvider = (props) => {
           },
           body: JSON.stringify([user._id, product])
         })
-        .then(() => {
-            const updatedCart = user.cart.filter((item) => item._id !== product._id);
-            setUser(oldState => ({
-                ...oldState,
-                cart: updatedCart
-            }));
-        })
-        .then(() => {
-            const copyCart = user.cart;
-            const updatedCart = copyCart.filter((item) => item._id !== product._id);
+        .then(response => response.json())
+        .then(response => {
+            const updatedCart = response.removeProduct.cart;
+            setUser(oldState => ({...oldState, cart: [updatedCart]}));
             localStorage.setItem("cart", JSON.stringify(updatedCart))
         })
         .catch((error) => console.log(error));
     };
 
     return (
-        <UserProvider value={[user, setUser, addToCart, removeFromCart]}>
+        <UserProvider value={[user, setUser, addToCart, removeFromCart, setChosenImage]}>
             {props.children}
         </UserProvider>
     )

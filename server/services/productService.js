@@ -7,12 +7,16 @@ async function getAll(query) {
         products = products.filter(x => x.name.toLowerCase().includes(query.search))
     }
 
-    if (query.storage) {
-        products = products.filter(x => x.description.toLowerCase().includes(query.storage))
+    if (query.processor) {
+        products = products.filter(x => x.processor === query.processor)
     }
 
     if (query.ram) {
-        products = products.filter(x => x.description.toLowerCase().includes(query.ram))
+        products = products.filter(x => x.ram === query.ram)
+    }
+    
+    if (query.storage) {
+        products = products.filter(x => x.storage === query.storage)
     }
 
     if (query.type) {

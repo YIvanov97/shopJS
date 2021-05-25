@@ -1,0 +1,177 @@
+.product--Details--Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  position: relative;
+  align-items: center;
+  height: 600px;
+  width: 1000px;
+  margin: 0 auto;
+  background-color: transparent;
+  margin-top: 50px;
+}
+
+.product--Details--Container .product--ImageColors--Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: absolute;
+  z-index: 5;
+  left: 40px;
+  align-items: center;
+  border: none;
+  height: 500px;
+  background-color: #5D97AE;
+  box-shadow: 10px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
+}
+
+.product--Details--Container .product--ImageColors--Container .product--Image--Container {
+  display: flex;
+  justify-content: center;
+  height: 80%;
+  position: relative;
+  width: 400px;
+  align-items: center;
+}
+
+.product--Details--Container .product--ImageColors--Container .product--Image--Container img {
+  position: absolute;
+  left: -200px;
+  width: 100%;
+  height: 100%;
+  -webkit-animation: img 1s forwards;
+  animation: img 1s forwards;
+}
+
+.product--Details--Container .product--ImageColors--Container .product--Image--Container::before {
+  display: none;
+}
+
+@-webkit-keyframes img {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+@keyframes img {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    left: 0;
+  }
+}
+
+.product--Details--Container .product--ImageColors--Container .product--Colors--Container {
+  display: flex;
+  justify-content: space-around;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.product--Details--Container .product--ImageColors--Container .product--Colors--Container button {
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 7px 10px 2px rgba(0, 0, 0, 0.2);
+}
+
+.product--Details--Container .product--Details--Info {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  height: 100%;
+  width: 50%;
+  z-index: 4;
+  right: 40px;
+  padding-left: 80px;
+  box-shadow: none;
+  background-color: #EFEFEF;
+}
+
+.product--Details--Container .product--Details--Info .product--Info {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  flex: 1;
+}
+
+.product--Details--Container .product--Details--Info .product--Info h1 {
+  font-size: 50px;
+  color: #293039;
+  font-family: 'SF-UI-Display-Thin';
+}
+
+.product--Details--Container .product--Details--Info .product--Info p {
+  font-size: 20px;
+  color: #293039;
+  font-family: 'SF-UI-Display-Medium';
+}
+
+.product--Details--Container .product--Details--Info .product--Info h3 {
+  font-size: 25px;
+  color: #293039;
+  font-family: 'SF-UI-Display-Light';
+}
+
+.product--Details--Container .product--Details--Info .product--Info table {
+  width: 70%;
+}
+
+.product--Details--Container .product--Details--Info .product--Info table thead tr td {
+  font-size: 20px;
+  color: #293039;
+  font-family: 'SF-UI-Display-Light';
+}
+
+.product--Details--Container .product--Details--Info .product--Info table tbody tr td {
+  font-size: 20px;
+  color: #293039;
+  font-family: 'SF-UI-Display-Medium';
+}
+
+.product--Details--Container .product--Buy--Container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product--Details--Container .product--Buy--Container .product--Price {
+  display: flex;
+  align-self: flex-start;
+}
+
+.product--Details--Container .product--Buy--Container .product--Price h3 {
+  font-size: 30px;
+  color: #293039;
+  font-family: 'SF-UI-Display-Bold';
+}
+
+.product--Details--Container .product--Buy--Container .addToCart--Button--Container {
+  display: flex;
+  align-self: flex-end;
+  margin: 30px;
+  width: 150px;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  cursor: pointer;
+  transition: ease-out 0.3s;
+  justify-content: space-around;
+  font-family: 'SF-UI-Display-Medium';
+  border: 1px solid #1e718d;
+  color: #1e718d;
+}
+
+.product--Details--Container .product--Buy--Container .addToCart--Button--Container:hover {
+  border-radius: 20px;
+}

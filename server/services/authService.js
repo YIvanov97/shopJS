@@ -30,9 +30,9 @@ const login = async ({email, password}) => {
         if (!isMatch) {
             throw {message: 'Password does not match!'}
         }
-        
-        let token = jwt.sign({user}, SECRET)
 
+        let token = jwt.sign({user}, SECRET)
+        
         return token;
 }
 

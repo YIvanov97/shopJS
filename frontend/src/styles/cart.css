@@ -68,57 +68,58 @@
 }
 
 .cart--Container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: auto;
-  width: 80%;
+  margin-top: 300px;
 }
 
-.cart--Container .cart--Products {
-  margin-top: 300px;
-  align-items: center;
-  justify-content: center;
+.cart--Container table {
+  margin: auto;
+  width: 50%;
+}
+
+.cart--Container table tbody {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   background-color: #EFEFEF;
+}
+
+.cart--Container table tbody tr {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
   border-collapse: collapse;
   border-style: hidden;
   box-shadow: 0 0 0 1px #666;
-  margin-bottom: 50px;
-  width: 100%;
-  border-radius: 15px;
 }
 
-.cart--Container .cart--Products tr img {
-  height: 50px;
-  width: 50px;
-}
-
-.cart--Container .cart--Products tr, .cart--Container .cart--Products td {
-  border: 1px solid #293039;
+.cart--Container table tbody tr td {
+  flex: 1;
+  border-right: 1px solid #293039;
   text-align: left;
   padding: 8px;
   font-family: 'SF-UI-Display-Regular';
 }
 
-.cart--Container .cart--Products tr td:first-child {
+.cart--Container table tbody tr td:first-child {
   text-align: center;
 }
 
-.cart--Container .cart--Products tr td:last-child {
+.cart--Container table tbody tr td:last-child {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #FF5871;
   color: #293039;
-  text-align: center;
-  font-size: 20px;
+  flex: 0.5;
+  border: none;
 }
 
-.cart--Container .cart--Products tr td:last-child:hover {
+.cart--Container table tbody tr td:last-child button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: none;
   cursor: pointer;
-}
-
-.cart--Container .cart--Products tr:nth-child(1) td:last-child {
-  border-top-right-radius: 15px;
-}
-
-.cart--Container .cart--Products tr:last-child td:last-child {
-  border-bottom-right-radius: 15px;
 }

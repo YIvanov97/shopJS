@@ -19,7 +19,7 @@ const Cart = props => {
                 setCart([])
             }
         }
-    }, [removeFromCart])
+    }, [setCart])
 
     console.log(cart,'123')
 
@@ -44,57 +44,49 @@ const Cart = props => {
                 <h3>Cart</h3>
             </header>
             <main className="cart--Container">
-            {cart?.length === 0 ? 
-                <>
-                {user.cart?.map(product => {
-                    return (
-                        <div className="cart--Products" key={product._id}>
-                            <table>
-                                <tbody>
-                                    <tr>
+                <table>
+                    <tbody>
+                        {!cart ? 
+                                <>
+                                    {user.cart.map(product => {
+                                        return (
+                                            
+                                                <tr>   
+                                                    <td>{product.name}</td>
+                                                    <td>{product.description}</td>
+                                                    <td>{product.price}$</td>
+                                                    <td>
+                                                        <button className="remove--Button--Container" onClick={() => removeFromCart(user, product)}>
+                                                            <FaTrashAlt size="25" /> 
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                            
+                                        )
+                                    })}
+                                </>
+                            :
+                                <>
+                                    {cart.map(product => {
+                                        return (
                                         
-                                        <td>{product.name}</td>
-                                        <td>{product.description}</td>
-                                        <td>{product.price}$</td>
-                                        <td>
-                                            <div className="remove--Button--Container">
-                                                <FaTrashAlt /> 
-                                                <button className="remove--Button" onClick={() => removeFromCart(user, product)}> REMOVE</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    )
-                })}
-                </>
-                :
-                <>
-                {cart?.map(product => {
-                    return(
-                        <div className="cart--Products" key={product._id}>
-                            <table>
-                                <tbody>
-                                    <tr>
-                                        
-                                        <td>{product.name}</td>
-                                        <td>{product.description}</td>
-                                        <td>{product.price}$</td>
-                                        <td>
-                                            <div className="remove--Button--Container">
-                                                <FaTrashAlt /> 
-                                                <button className="remove--Button" onClick={() => removeFromCart(user, product)}> REMOVE</button>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    )
-                })}
-                </>
-            }
+                                            <tr>   
+                                                <td>{product.name}</td>
+                                                <td>{product.description}</td>
+                                                <td>{product.price}$</td>
+                                                <td>
+                                                    <button className="remove--Button--Container" onClick={() => removeFromCart(user, product)}>
+                                                        <FaTrashAlt size="25" /> 
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            
+                                        )
+                                    })}
+                                </>
+                        }
+                    </tbody>
+                </table>
             </main>
         </>
     )

@@ -27,6 +27,9 @@ router.post('/create', uploads.array("imageFile"), async (req, res) => {
         const data = {
             name: req.body.name,
             description: req.body.description,
+            processor: req.body.processor,
+            ram: req.body.ram,
+            storage: req.body.storage,
             imageFile: req.files,
             price: req.body.price,
             type: req.body.type,

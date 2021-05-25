@@ -60,6 +60,17 @@
   background-color: #293039;
 }
 
+.App main .createProduct--form .product--SpecInputs--Container {
+  display: flex;
+  flex-direction: row;
+  width: 108%;
+}
+
+.App main .createProduct--form .product--SpecInputs--Container select {
+  font-family: 'SF-UI-Display-Light';
+  font-size: 14px;
+}
+
 .App main .createProduct--form input {
   width: 100%;
   margin-top: 20px;

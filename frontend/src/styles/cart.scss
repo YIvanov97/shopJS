@@ -67,58 +67,60 @@
     opacity: 0.4;
 }
 
-.cart--Container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    width: 80%;
+ .cart--Container {
+    margin-top: 300px;
+    
+    table {
+        margin: auto;
+        width: 50%;
 
-    .cart--Products {
-        margin-top: 300px;
-        align-items: center;
-        justify-content: center;
-        background-color: #EFEFEF;
-        border-collapse: collapse;
-        border-style: hidden;
-        box-shadow: 0 0 0 1px #666;
-        margin-bottom: 50px;
-        width: 100%;
-        border-radius: 15px;
+        tbody {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            background-color: #EFEFEF;
+            
+            tr {
+                display: flex;
+                flex-direction: row;
+                width: 100%;
+                align-items: center;
+                border-collapse: collapse;
+                border-style: hidden;
+                box-shadow: 0 0 0 1px #666;
+                
+                td {
+                    flex: 1;
+                    border-right: 1px solid #293039;
+                    text-align: left;
+                    padding: 8px;
+                    font-family: 'SF-UI-Display-Regular';
+                }
 
-        tr img {
-            height: 50px;
-            width: 50px;
-        }
+                td:first-child {
+                    text-align: center;
+                }
 
-        tr, td {
-            border: 1px solid #293039;
-            text-align: left;
-            padding: 8px;
-            font-family: 'SF-UI-Display-Regular';
-        }
+                td:last-child {
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #FF5871;
+                    color: #293039;
+                    flex: 0.5;
+                    border: none;
 
-        tr td:first-child {
-            text-align: center;
-        }
 
-        tr td:last-child {
-            background-color: #FF5871;
-            color: #293039;
-            text-align: center;
-            font-size: 20px;
-
-            &:hover {
-                cursor: pointer;
+                    button {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        background-color: transparent;
+                        border: none;
+                        cursor: pointer;
+                    }
+                }
             }
-        }
-
-        tr:nth-child(1) td:last-child {
-            border-top-right-radius: 15px;
-        }
-
-        tr:last-child td:last-child{
-            border-bottom-right-radius: 15px;
         }
     }
 }

@@ -8,6 +8,7 @@ const ProductContextProvider = (props) => {
     const [product, setProduct] = useState({})
     
     
+    console.log(product)
     const productData = (id) => {
         fetch (`${API}/products/details/${id}`, {
             method: 'GET',
@@ -16,15 +17,14 @@ const ProductContextProvider = (props) => {
         .then (response => {
             setProduct(response)
         })
-        .then(() => props.history.push(`/details/${id}`))
+        .then(() => window.location=`/details/${product._id}`)
         .catch (error => {
             console.error (error);
         })
     }
     
-    console.log(product)
     return (
-        <ProductProvider value={{product, productData}}>
+        <ProductProvider value={[product, productData]}>
             {props.children}
         </ProductProvider>
     )

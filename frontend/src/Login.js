@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { API } from './globalParams'
 import logo from './styles/images/NWN.png'
 import './styles/login.scss'
@@ -70,7 +70,7 @@ const Login = () => {
                     onError()
                 }
             })
-             .catch((error) => {
+            .catch((error) => {
                 console.log(error)
             })
     }
