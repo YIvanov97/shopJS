@@ -46,24 +46,41 @@
   height: 100%;
 }
 
-.register--Container .register--Form--Container .register--form .input--Form {
+.register--Container .register--Form--Container .register--form .form--Input--Container {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
   flex: 0.1;
-  margin-top: 20px;
-  padding: 10px;
-  width: 90%;
-  background: transparent;
-  color: #EFEFEF;
-  border: 2px solid #EFEFEF;
-  font-family: 'SF-UI-Display-Medium';
+  width: 100%;
 }
 
-.register--Container .register--Form--Container .register--form .input--Form:focus {
+.register--Container .register--Form--Container .register--form .form--Input--Container input {
+  margin-top: 20px;
+  padding: 10px;
+  width: 80%;
+  border: none;
+  font-family: 'SF-UI-Display-Medium';
+  background: transparent;
+  color: #EFEFEF;
+  border-bottom: 2px solid #EFEFEF;
+}
+
+.register--Container .register--Form--Container .register--form .form--Input--Container input:focus {
+  background-color: transparent;
   outline: none;
-  color: #293039;
-  background-color: #EFEFEF;
+}
+
+.register--Container .register--Form--Container .register--form .form--Input--Container .registerForm--Input--Icon {
+  align-self: flex-end;
+  margin-bottom: 10px;
+  margin-right: 10px;
 }
 
 .register--Container .register--Form--Container .register--form .register--button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   margin-top: 40px;
   border-radius: 5px;
   width: 70%;
@@ -76,6 +93,7 @@
   overflow: hidden;
   position: relative;
   transition: ease-out 0.3s;
+  margin-bottom: 20px;
 }
 
 .register--Container .register--Form--Container .register--form .register--button:hover {

@@ -16,7 +16,7 @@
     width: 500px;
     height: 550px;
     top: calc(50% - 260px);
-    left: calc(50% - 225px);
+    left: calc(50% - 275px);
     background: inherit;
     border-radius: 10px;
     overflow: hidden;
@@ -45,8 +45,8 @@
     height: 460px;
     position: absolute;
     align-self: center;
-    top: calc(50% - 220px);
-    left: calc(50% - 125px);
+    top: calc(50% - 210px);
+    left: calc(50% - 190px);
     z-index: 2;
     flex-direction: column;
     justify-content: center;
@@ -62,16 +62,102 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
-        margin-top: 40px;
+        margin-top: 10px;
         border-top: 3px solid #1E718D;
         border-bottom: 3px solid #1E718D;
         padding: 30px;
         box-shadow: inset 0 0 0 400px rgba(255,255,255,0.7);
+        margin-bottom: 20px;
         
+        .edit--Button--Container {
+            display: flex;
+            align-self: flex-end;
+            cursor: pointer;
+        }
 
         h2 {
-            font-size: 27px;
+            font-size: 18px;
+            margin: 0;
+            color: #293039;
+            font-family: 'SF-UI-Display-Thin';
+        }
+
+        input {
+            display: flex;
+            font-size: 24px;
+            color: #293039;
             font-family: 'SF-UI-Display-Regular';
+            text-align: left;
+            background-color: transparent;
+            border: none;
+            margin-bottom: 30px;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        h4 {
+            text-align: left;
+            font-size: 24px;
+            font-family: 'SF-UI-Display-Thin';
+            margin: 0;
+            color: #293039;
+        }
+
+        .submit--EditButton--Container {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            align-self: center;
+            width: 80%;
+
+            .cancle--Edit--Button {
+                display: flex;
+                width: 50%;
+                text-align: center;
+                justify-content: center;
+                border-radius: 5px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border: 2px solid #1E718D;
+                background-color: transparent;
+                margin-top: 40px;
+                cursor: pointer;
+                color: #293039;
+                font-size: 20px;
+                font-family: 'SF-UI-Display-Bold';
+                transition: 0.3s;
+
+                &:hover {
+                    background-color: #DC2D00;
+                    color: #EFEFEF;
+                }
+            }
+            
+            .submit--Edit--Button {
+                display: flex;
+                width: 50%;
+                text-align: center;
+                justify-content: center;
+                border-radius: 5px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                border: 2px solid #1E718D;
+                background-color: #00B0FF;
+                margin-top: 40px;
+                cursor: pointer;
+                color: #293039;
+                font-size: 20px;
+                font-family: 'SF-UI-Display-Bold';
+                transition: 0.3s;
+            
+                &:hover {
+                    color: #EFEFEF;
+                    background-color: #0094D6;
+                }
+            }
         }
     }
 }

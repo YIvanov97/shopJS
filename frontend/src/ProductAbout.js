@@ -1,16 +1,15 @@
 import React, { useEffect, useState, useContext } from 'react'
 import {UserContext, API} from './globalParams'
 import './styles/details.scss'
+import './styles/responsive/responsiveDetails.scss'
 import { FaShoppingCart, FaCartArrowDown } from 'react-icons/fa'
+import { motion } from "framer-motion"
 
 const ProductAbout = (props) => {
-    const [user, setUser, addToCart, setChosenImage] = useContext(UserContext);
+    const [user, setUser, setAddToCart, removeFromCart, setChosenImage] = useContext(UserContext);
     const [product, setProduct] = useState({})
-    const [color, setColor] = useState([]);
+    const [imageIndex, setImageIndex] = useState(0);
     const localCart = JSON.parse(localStorage.getItem("cart"));
-
-    console.log(product, '123')
-    
     const productId = props.match.params.id
     
     useEffect(() => {
@@ -19,13 +18,12 @@ const ProductAbout = (props) => {
         })
         .then (response => response.json ())
         .then (response => {
-            console.log(response, 'asd')
             setProduct(response)
         })
         .catch (error => {
             console.error (error);
         })
-    }, [])
+    }, [productId])
 
     const reloadPage = () => {
         fetch (`${API}/products/details/${productId}`, {
@@ -33,38 +31,47 @@ const ProductAbout = (props) => {
         })
         .then (response => response.json ())
         .then (response => {
-            setProduct(response)
+            setTimeout(() => {
+                setProduct(response)
+            }, 100)
         })
         .catch (error => {
             console.error (error);
         })
     }
 
-    const ParsedColors = () => {
+    const ParsedColors = props => {
         return(
-            product.color.map(col => {
-                const parsed = JSON.parse(col)
-                return(
-                    <button name="color" value={parsed.value} style={{backgroundColor: `${parsed.value}`}} onClick={() => colorPicker([product._id, parsed.value])}/>
-                )
-            })
+            <ul>
+                {props.product.colors.map((color, i) => {
+                    return(
+                        <li key={i}>
+                            <motion.button
+                                key={i}
+                                style={{backgroundColor: color}}
+                                className="color--Button"
+                                whileHover={{ scale: 1.2 }} 
+                                whileTap={{ scale: 0.8 }}
+                                onClick={() => setImageIndex(i)}
+                            />
+                        </li>
+                    )
+                })}
+            </ul>
         )
     }
 
-    const colorPicker = ([productId, colors]) => {
-        setColor([productId, colors])
-    }
-
-    const RenderProductImage = () => {
+    const RenderProductImage = (props) => {
         return(
-            product.imageFile?.map(image => {
-                if(image.originalname.includes(color[1].substring(1))) {
-                    setChosenImage(image.originalname)
-                    return (
-                        <img src={require(`./styles/images/${image.originalname}`).default} alt="product img" />
-                    )
-                }
-            })
+            <>
+            {props.product.images[imageIndex] ? 
+                <>
+                    <img key={props.product._id + imageIndex} src={require(`./styles/images/${props.product.images[imageIndex].originalname}`).default} alt="product img" />
+                </>  
+                :
+                <></>
+            }
+            </>
         )
     }
    
@@ -89,23 +96,11 @@ const ProductAbout = (props) => {
             <div className="product--ImageColors--Container">
                 {product.name ?
                 <div className="product--Image--Container">
-                    {(color.length > 0 && color[0] === product._id) ?
-                        <RenderProductImage />
-                    :
-                    <>
-                        {product.imageFile.map(image => {
-                            if(image.originalname.includes('def')) {
-                                return (
-                                    <img src={require(`./styles/images/${image.originalname}`).default} alt="product img" />
-                                )
-                            }
-                        })}
-                    </>
-                    }
+                    <RenderProductImage product={product}/>
                 </div>
                 : <></>}
             <div className="product--Colors--Container">
-                {product.name ? <ParsedColors /> : <></>}
+                {product.name ? <ParsedColors product={product}/> : <></>}
             </div>
             </div>
             <div className="product--Details--Info">
@@ -116,7 +111,7 @@ const ProductAbout = (props) => {
                     <table>
                         <thead>
                             <tr>
-                                <td>Processor</td>
+                                <td>CPU</td>
                                 <td>Ram</td>
                                 <td>Storage</td>
                             </tr>
@@ -124,7 +119,7 @@ const ProductAbout = (props) => {
                         <tbody>
                             <tr>
                                 <td>{product.processor}</td>
-                                <td>{product.ram}</td>
+                                <td>{product.ram}GB</td>
                                 <td>{product.storage}</td>
                             </tr>
                         </tbody>
@@ -134,38 +129,44 @@ const ProductAbout = (props) => {
                 <div className="product--Price">
                     <h3>{product.price} $</h3>
                 </div>
-                {!localStorage.hasOwnProperty("cart") ? 
+                {user.email ? 
                     <>
-                        {!user.cart.some(item => item._id === product._id) ? 
+                        {!localStorage.hasOwnProperty("cart") ? 
                             <>
-                                <button className="addToCart--Button--Container" onClick={() => {addToCart(user, product); reloadPage();}}>
-                                    <FaShoppingCart size='25' /> ADD TO CART
-                                </button>
+                                {!user.cart?.some(item => item._id === product._id) ? 
+                                    <>
+                                        <button className="addToCart--Button--Container" onClick={() => {setChosenImage(product.images[imageIndex]); setAddToCart([user, product]); reloadPage();}}>
+                                            <FaShoppingCart size='25' /> <p>ADD TO CART</p>
+                                        </button>
+                                    </>
+                                    :
+                                    <>
+                                        <button className="addToCart--Icon--Container">
+                                            <FaCartArrowDown size='35' color='#40D000'/>
+                                        </button>
+                                    </>
+                                }
                             </>
-                            :
+                        :
                             <>
-                                <button className="addToCart--Button--Container">
-                                    <FaCartArrowDown size='25' color='#1E718D'/>
-                                </button>
+                                {!localCart.some(item => item._id === product._id) ? 
+                                    <>
+                                        <button className="addToCart--Button--Container" onClick={() => {setChosenImage(product.images[imageIndex]); setAddToCart([user, product]); reloadPage();}}>
+                                            <FaShoppingCart size='25'/> <p>ADD TO CART</p>
+                                        </button>
+                                    </>
+                                    :
+                                    <>
+                                        <button className="addToCart--Icon--Container">
+                                            <FaCartArrowDown size='35' color='#40D000'/>
+                                        </button>
+                                    </>
+                                }
                             </>
                         }
                     </>
                 :
-                    <>
-                        {!localCart.some(item => item._id === product._id) ? 
-                            <>
-                                <button className="addToCart--Button--Container" onClick={() => {addToCart(user, product); reloadPage();}}>
-                                    <FaShoppingCart size='25'/> ADD TO CART
-                                </button>
-                            </>
-                            :
-                            <>
-                                <button className="addToCart--Button--Container">
-                                    <FaCartArrowDown size='25' color='#1E718D'/>
-                                </button>
-                            </>
-                        }
-                    </>
+                    <></>
                 }
             </div>
             </div>

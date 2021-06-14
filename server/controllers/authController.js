@@ -32,6 +32,14 @@ router.get('/user', async (req, res) => {
     }
 })
 
+router.put('/user', async (req, res) => {
+    try{
+        let updatedUser = await authService.update(req.body)
+        res.status(200).json(updatedUser)
+    } catch (error) {
+        res.status(400).json({error: error})
+    }
+})
 
 router.get('/logout', (req, res) => {
     res.clearCookie(COOKIE_NAME);

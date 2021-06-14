@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { API } from './globalParams'
 import logo from './styles/images/NWN.png'
 import './styles/login.scss'
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer, toast } from 'react-toastify';
+import { AiOutlineMail, AiOutlineLock } from "react-icons/ai";
 
 
 const Login = () => {
@@ -81,8 +82,14 @@ const Login = () => {
             <div className="login--Form--Container">
                 <img src={logo} className="login--logo" alt="logo" />
                 <form className="login--form" onSubmit={handleLogin}>
-                    <input className="input--Form" type="text" name="email" placeholder="Email" />
-                    <input className="input--Form" type="password" name="password" placeholder="Password" />
+                    <div className="form--Input--Container">
+                        <input className="input--Form" type="text" name="email" placeholder="Email" />
+                        <AiOutlineMail className="loginForm--Input--Icon" size="20" color="#EFEFEF"/>
+                    </div>
+                    <div className="form--Input--Container">
+                        <input className="input--Form" type="password" name="password" placeholder="Password" />
+                        <AiOutlineLock className="loginForm--Input--Icon" size="20" color="#EFEFEF" />
+                    </div>
                     <input className="login--button" type="submit" value="Login" />
                 </form>
             </div>

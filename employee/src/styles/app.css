@@ -3,6 +3,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #2284a5;
+  width: 100%;
 }
 
 .App .employee--Title {
@@ -13,8 +15,10 @@
   padding: 10px;
   letter-spacing: 3px;
   top: 0;
-  color: #00406D;
+  color: #EFEFEF;
   position: absolute;
+  border-radius: 30px;
+  box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
 }
 
 .App .addProduct--Title {
@@ -27,12 +31,43 @@
   margin-top: 150px;
 }
 
+.App .logout--Button {
+  display: flex;
+  font-family: 'SF-UI-Display-Regular';
+  font-size: 20px;
+  color: #EFEFEF;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border: 2px solid #EFEFEF;
+  width: 130px;
+  padding: 10px;
+  position: absolute;
+  top: 70px;
+  right: 150px;
+  overflow: hidden;
+  transition: ease-in-out 0.3s;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0px 10px 15px 0px rgba(0, 0, 0, 0.1);
+}
+
+.App .logout--Button .logout--Icon {
+  margin-left: 5px;
+  transition: ease-in-out 0.3s;
+}
+
+.App .logout--Button:hover .logout--Icon {
+  transform: translateX(7px);
+}
+
 .App main {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 800px;
+  width: 100%;
 }
 
 .App main .employee--Create--Container {
@@ -40,12 +75,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 800px;
-}
-
-.App main img {
-  height: 550px;
-  width: 400px;
+  width: 500px;
 }
 
 .App main .createProduct--form {
@@ -53,10 +83,10 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  width: 300px;
+  width: 100%;
   padding: 40px;
-  height: 470px;
-  border-top-right-radius: 10px;
+  height: 100%;
+  margin-top: 30px;
   background-color: #293039;
 }
 
@@ -71,8 +101,45 @@
   font-size: 14px;
 }
 
+.App main .createProduct--form .image--Color--Container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.App main .createProduct--form .image--Color--Container .buttons--Container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.App main .createProduct--form .image--Color--Container .buttons--Container .add {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0 10px 0 10px;
+  background-color: #0BC000;
+  border: none;
+  color: #EFEFEF;
+  border-radius: 20px;
+  margin-top: 20px;
+}
+
+.App main .createProduct--form .image--Color--Container .buttons--Container .remove {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
 .App main .createProduct--form input {
-  width: 100%;
+  width: 80%;
   margin-top: 20px;
   padding: 10px;
   color: #EFEFEF;
@@ -83,8 +150,6 @@
 
 .App main .createProduct--form input:focus {
   outline: none;
-  color: #293039;
-  background-color: #EFEFEF;
 }
 
 .App main .createProduct--form label {
@@ -119,11 +184,11 @@
 
 .App main .createProduct--form label .file--Input:focus {
   outline: none;
-  color: #293039;
+  color: #EFEFEF;
 }
 
 .App main .createProduct--form select {
-  width: 80%;
+  width: 50%;
   margin-top: 20px;
   padding: 10px;
   color: #EFEFEF;
@@ -147,6 +212,8 @@
   width: 110%;
   height: 10px;
   background-color: transparent;
+  margin-bottom: 15px;
+  margin-top: 15px;
 }
 
 .App main .createProduct--form .create--button {
@@ -167,40 +234,19 @@
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
-.App main .load--Products {
-  border: none;
-  border-radius: 10px;
-  font-family: 'SF-UI-Display-Light';
-  font-size: 20px;
-  background-color: #293039;
-  padding: 10px;
-  transition: all 0.3s ease 0s;
-}
-
-.App main .load--Products:hover {
-  background-color: #FFD200;
-  cursor: pointer;
-  transform: translateX(5px 5px);
-  letter-spacing: 2.5px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-}
-
-.App main .load--Products:focus {
-  outline: none;
-}
-
 .App main .added--Products {
   align-items: center;
   justify-content: space-around;
   background-color: #293039;
   justify-content: space-around;
   border-collapse: collapse;
-  border-bottom-right-radius: 10px;
-  border-bottom-left-radius: 10px;
+  border-radius: 10px;
   border-style: hidden;
+  margin: 0 auto;
+  margin-top: 30px;
   box-shadow: 0 0 0 1px #666;
   margin-bottom: 50px;
-  width: 100%;
+  width: 90%;
 }
 
 .App main .added--Products tr, .App main .added--Products th {

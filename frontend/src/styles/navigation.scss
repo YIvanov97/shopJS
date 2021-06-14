@@ -8,23 +8,71 @@ ul {
     li {
         list-style: none;
         margin-right: 30px;
+
+
         .link {
             font-family: 'SF-UI-Display-Thin';
             font-size: 20px;
             color: #EFEFEF;
             text-decoration: none;
-        }
-        .logout--Button {
-            font-family: 'SF-UI-Display-Thin';
-            font-size: 20px;
-            color: #E0DAD4;
-            text-decoration: none;
-            background-color: transparent;
-            border: none;
-            padding: 0;
 
             &:hover {
-                cursor: pointer;
+                border-bottom: 3px solid #EFEFEF;
+            }
+        }
+
+
+        .logout--Button {
+            display: flex;
+            font-family: 'SF-UI-Display-Regular';
+            font-size: 20px;
+            color: #EFEFEF;
+            text-decoration: none;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: transparent;
+            border: none;
+            width: 130px;
+            padding: 3px 0px 3px 0px;
+            padding-top: 0;
+            overflow: hidden;
+            transition: ease-in-out 0.3s;
+            cursor: pointer;
+
+            .logout--Icon {
+                margin-left: 5px;
+                transition: ease-in-out 0.3s;
+            }
+
+            &:hover .logout--Icon {
+                transform: translateX(7px);
+            }
+        }
+
+        .employee--Button {
+            display: flex;
+            font-family: 'SF-UI-Display-Regular';
+            font-size: 20px;
+            color: #EFEFEF;
+            text-decoration: none;
+            align-items: center;
+            justify-content: flex-start;
+            background-color: transparent;
+            border: none;
+            width: 130px;
+            padding: 3px 0px 3px 0px;
+            padding-top: 0;
+            overflow: hidden;
+            transition: ease-in-out 0.3s;
+            cursor: pointer;
+
+            .employee--Icon {
+                margin-left: 5px;
+                transition: ease-in-out 0.3s;
+            }
+
+            &:hover .employee--Icon {
+                transform: translateX(7px);
             }
         }
     }

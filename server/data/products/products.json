@@ -1,30 +1,109 @@
-[
+ [
     {
         "_id": {
-            "$oid": "60acc010d7dc514520577072"
+            "$oid": "60c30664df959310a0d7857b"
         },
-        "imageFile": [{
-            "fieldname": "imageFile",
-            "originalname": "iwatch000000.png",
+        "images": [{
+            "fieldname": "images",
+            "originalname": "ipaddef4f5b66.png",
             "encoding": "7bit",
             "mimetype": "image/png",
             "destination": "../../shpJS/frontend/src/styles/images",
-            "filename": "iwatch000000.png",
-            "path": "..\\..\\shpJS\\frontend\\src\\styles\\images\\iwatch000000.png",
-            "size": 169354
+            "filename": "ipaddef4f5b66.png",
+            "path": "..\\..\\shpJS\\frontend\\src\\styles\\images\\ipaddef4f5b66.png",
+            "size": 403895
         }, {
-            "fieldname": "imageFile",
+            "fieldname": "images",
+            "originalname": "ipada7adba.png",
+            "encoding": "7bit",
+            "mimetype": "image/png",
+            "destination": "../../shpJS/frontend/src/styles/images",
+            "filename": "ipada7adba.png",
+            "path": "..\\..\\shpJS\\frontend\\src\\styles\\images\\ipada7adba.png",
+            "size": 409736
+        }],
+        "likes": [],
+        "colors": ["#4f5b66", "#a7adba"],
+        "name": "iPad Pro M1",
+        "description": "The ultimate iPad experience. Now with next-level M1 performance, a breathtaking 12.9-inch Liquid Retina XDR display, and blazing-fast 5G speed.◊Buckle up.",
+        "processor": "M1",
+        "ram": "8",
+        "storage": "256GB",
+        "price": 999,
+        "type": "tablet",
+        "__v": 0
+    },
+
+    {
+        "_id": {
+            "$oid": "60c0ea4735ac734f101ff3a0"
+        },
+        "images": [{
+            "fieldname": "images",
+            "originalname": "iphonedef0095CB.png",
+            "encoding": "7bit",
+            "mimetype": "image/png",
+            "destination": "../../shpJS/frontend/src/styles/images",
+            "filename": "iphonedef0095CB.png",
+            "path": "..\\..\\shpJS\\frontend\\src\\styles\\images\\iphonedef0095CB.png",
+            "size": 491537
+        }, {
+            "fieldname": "images",
+            "originalname": "iphonea7adba.png",
+            "encoding": "7bit",
+            "mimetype": "image/png",
+            "destination": "../../shpJS/frontend/src/styles/images",
+            "filename": "iphonea7adba.png",
+            "path": "..\\..\\shpJS\\frontend\\src\\styles\\images\\iphonea7adba.png",
+            "size": 434931
+        }],
+        "likes": [],
+        "colors": ["#0095CB", "#a7adba"],
+        "name": "iPhone 12 Pro Max",
+        "description": "5G speed. A14 Bionic, the fastest chip in a smartphone. And a Pro camera system that takes low-light photography to the next level — with an even bigger jump on iPhone 12 Pro Max.",
+        "processor": "A14",
+        "ram": "8",
+        "storage": "128GB",
+        "price": 999,
+        "type": "phone",
+        "__v": 0
+    },
+
+    {
+        "_id": {
+            "$oid": "60c3043965af6637b04117b5"
+        },
+        "images": [{
+            "fieldname": "images",
+            "originalname": "iwatch0095CB.png",
+            "encoding": "7bit",
+            "mimetype": "image/png",
+            "destination": "../../shpJS/frontend/src/styles/images",
+            "filename": "iwatch0095CB.png",
+            "path": "..\\..\\shpJS\\frontend\\src\\styles\\images\\iwatch0095CB.png",
+            "size": 206906
+        }, {
+            "fieldname": "images",
+            "originalname": "iwatchF63204.png",
+            "encoding": "7bit",
+            "mimetype": "image/png",
+            "destination": "../../shpJS/frontend/src/styles/images",
+            "filename": "iwatchF63204.png",
+            "path": "..\\..\\shpJS\\frontend\\src\\styles\\images\\iwatchF63204.png",
+            "size": 247923
+        }, {
+            "fieldname": "images",
             "originalname": "iwatchdefFFFFFF.png",
             "encoding": "7bit",
             "mimetype": "image/png",
             "destination": "../../shpJS/frontend/src/styles/images",
             "filename": "iwatchdefFFFFFF.png",
             "path": "..\\..\\shpJS\\frontend\\src\\styles\\images\\iwatchdefFFFFFF.png",
-            "size": 72186
+            "size": 172334
         }],
         "likes": [],
-        "color": ["{\"value\":\"#FFFFFF\",\"label\":\"White\"}", "{\"value\":\"#000000\",\"label\":\"Black\"}"],
-        "name": "iWatch 6 Pro",
+        "colors": ["#0095CB", "#F63204", "#FFFFFF"],
+        "name": "Apple Watch 6",
         "description": "Measure your blood oxygen level.¹ Keep an eye on your heart. See your fitness metrics on the enhanced Always-On Retina display. Live a healthier, more active, more connected life.",
         "processor": "S6",
         "ram": "4",
@@ -32,6 +111,40 @@
         "price": 399,
         "type": "watch",
         "__v": 0
+    },
+
+    {
+        "_id": {
+            "$oid": "60c304f965af6637b04117b6"
+        },
+        "images": [{
+            "fieldname": "images",
+            "originalname": "macbookdef4f5b66.png",
+            "encoding": "7bit",
+            "mimetype": "image/png",
+            "destination": "../../shpJS/frontend/src/styles/images",
+            "filename": "macbookdef4f5b66.png",
+            "path": "..\\..\\shpJS\\frontend\\src\\styles\\images\\macbookdef4f5b66.png",
+            "size": 195770
+        }, {
+            "fieldname": "images",
+            "originalname": "macbooka7adba.png",
+            "encoding": "7bit",
+            "mimetype": "image/png",
+            "destination": "../../shpJS/frontend/src/styles/images",
+            "filename": "macbooka7adba.png",
+            "path": "..\\..\\shpJS\\frontend\\src\\styles\\images\\macbooka7adba.png",
+            "size": 207614
+        }],
+        "likes": [],
+        "colors": ["#4f5b66", "#a7adba"],
+        "name": "MacBook Pro 2020",
+        "description": "The Apple M1 chip gives the 13-inch MacBook Pro speed and power beyond belief. With up to 2.8x CPU performance. Up to 5x the graphics speed. Apple’s most advanced Neural Engine for up to 11x faster machine learning. And up to 20 hours of battery life — the longest of any Mac to date. It’s Apple’s most popular pro notebook, taken to a whole new level.",
+        "processor": "M1",
+        "ram": "16",
+        "storage": "512GB",
+        "price": 1999,
+        "type": "laptop",
+        "__v": 0
     }
-    
 ]

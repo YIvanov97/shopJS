@@ -1,18 +1,23 @@
 import React, { useEffect, useState, useContext } from 'react'
 import {UserContext, API} from './globalParams'
 import './styles/products.scss'
-import {FaSearch, FaHeart, FaShoppingCart, FaCartArrowDown} from 'react-icons/fa'
+import './styles/responsive/responsiveProducts.scss'
+import {FaSearch, FaHeart, FaShoppingCart, FaCartArrowDown, FaInfo} from 'react-icons/fa'
 import Select from 'react-select'
 import makeAnimated from 'react-select/animated';
 import { Badge } from '@material-ui/core';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
+import { motion } from "framer-motion"
+import ipad from './styles/images/ipaddef4f5b66.png'
+import iphone from './styles/images/iphonedef0095CB.png'
+import iwatch from './styles/images/iwatch0095CB.png'
 
 const Products = props => {
 
-    const [user, setUser, addToCart, setChosenImage] = useContext(UserContext);
+    const [user, setUser, setAddToCart, removeFromCart, setChosenImage] = useContext(UserContext);
     const [products, setProducts] = useState([]);
-    const [color, setColor] = useState([]);
+    const [imageIndex, setImageIndex] = useState(['', 0]);
     const localCart = JSON.parse(localStorage.getItem("cart"));
     const animatedComponents = makeAnimated();
 
@@ -55,7 +60,6 @@ const Products = props => {
         })
         .then (response => response.json ())
         .then (response => {
-            console.log(response, '222')
             setProducts(response)
         })
         .catch (error => {
@@ -65,7 +69,7 @@ const Products = props => {
 
     const searchProduct = (e) => {
         e.preventDefault()
-        fetch (`${API}/products?search=${e.target.search.value}&storage=${e.target.storage.value}&ram=${e.target.ram.value}&type=${e.target.type.value}`, {
+        fetch (`${API}/products?search=${e.target.search.value}&processor=${e.target.processor.value}&storage=${e.target.storage.value}&ram=${e.target.ram.value}&type=${e.target.type.value}`, {
             method: 'GET',
         })
         .then (response => response.json ())
@@ -115,32 +119,39 @@ const Products = props => {
         .then(() => reloadProducts())
         .catch(error => console.log(error))
     }
-
-    const ParsedColors = props => {
+    
+    const Colors = props => {
         return(
-            props.product.color.map(col => {
-                const parsed = JSON.parse(col)
-                return(
-                    <button name="color" value={parsed.value} style={{backgroundColor: `${parsed.value}`}} onClick={() => colorPicker([props.product._id, parsed.value])}/>
-                )
-            })
+            <ul>
+                {props.product.colors.map((color, i) => {
+                    return(
+                        <li key={i}>
+                            <motion.button
+                                key={i}
+                                style={{backgroundColor: color}}
+                                className="color--Button"
+                                whileHover={{ scale: 1.2 }} 
+                                whileTap={{ scale: 0.8 }}
+                                onClick={() => setImageIndex([props.product._id, i])}
+                            />
+                        </li>
+                    )
+                })}
+            </ul>
         )
-    }
-
-    const colorPicker = ([productId, colors]) => {
-        setColor([productId, colors])
     }
 
     const RenderProductImage = (props) => {
         return(
-            props.product.imageFile?.map(image => {
-                if(image.originalname.includes(color[1].substring(1))) {
-                    setChosenImage(image.originalname)
-                    return (
-                        <img src={require(`./styles/images/${image.originalname}`).default} alt="product img" />
-                    )
-                }
-            })
+            <>
+            {props.product.images[imageIndex[1]] ? 
+                <>
+                    <img key={props.product._id + imageIndex[1]} src={require(`./styles/images/${props.product.images[imageIndex[1]].originalname}`).default} alt="product img" />
+                </>  
+                :
+                <></>
+            }
+            </>
         )
     }
     
@@ -165,6 +176,15 @@ const Products = props => {
                 <h1>Feel the comfort at your workplace</h1>
                 <h3>Feel the comfort in your hands</h3>
             </header>
+            <motion.div className="first--topImage--container" transition={{duration: 0.3}} initial={{ x: "100%" }} animate={{ x: "calc(50vw - 50%)" }}>
+                <img className="first--topImage" src={ipad} alt="top ipad" />
+            </motion.div>
+            <motion.div className="second--topImage--container" transition={{duration: 0.5}} initial={{ x: "100%" }} animate={{ x: "calc(50vw - 50%)" }}>
+                <img className="second--topImage" src={iphone} alt="top iphone" />
+            </motion.div>
+            <motion.div className="third--topImage--container" transition={{duration: 0.7}} initial={{ x: "100%" }} animate={{ x: "calc(50vw - 50%)" }}>
+                <img className="third--topImage" src={iwatch} alt="top iwatch" />
+            </motion.div>
             <main className="products--Table--Container">
                 <>
                 {products.lenght === 0 ? 
@@ -176,7 +196,7 @@ const Products = props => {
                             <Select
                             className="product--Filter"
                             name="processor"
-                            placeholder="Processor"
+                            placeholder="CPU"
                             options={processorOptions}
                             components={animatedComponents}
                             isClearable={true}
@@ -184,7 +204,7 @@ const Products = props => {
                             <Select
                             className="product--Filter"
                             name="ram"
-                            placeholder="Ram"
+                            placeholder="RAM"
                             options={ramOptions}
                             components={animatedComponents}
                             isClearable={true}
@@ -205,7 +225,7 @@ const Products = props => {
                             isClearable={true}
                             />   
                             <div className="search--Button--Container">
-                                <FaSearch color={'#1E718D'}/>
+                                <FaSearch color='#EFEFEF'/>
                                 <input type="submit" value="Search"/>
                             </div>
                         </form>
@@ -214,26 +234,22 @@ const Products = props => {
                                 return(
                                     <div className="product--Container" key={product._id}>
                                         <div className="product--TopButton--Container">
-                                            <a href={`/details/${product._id}`} className="about--Button">About</a>
+                                        <motion.div whileHover={{ scale: 1.2 }}>
+                                            <a href={`/details/${product._id}`} className="about--Button"><FaInfo size="30"/></a>
+                                        </motion.div>
                                         </div>
                                         <div className="product--Image--Container">
-                                            {(color.length > 0 && color[0] === product._id) ?
+                                            <div className="product--Image--Container">
+                                            {imageIndex[0] === product._id ?
                                                 <RenderProductImage product={product} />
-                                            :
-                                            <>
-                                                {product.imageFile.map(image => {
-                                                    if(image.originalname.includes('def')) {
-                                                        return (
-                                                            <img src={require(`./styles/images/${image.originalname}`).default} alt="product img" />
-                                                        )
-                                                    }
-                                                })}
-                                            </>
+                                                :
+                                                <img key={product._id + imageIndex} src={require(`./styles/images/${product.images[0].originalname}`).default} alt="product img" /> 
                                             }
+                                            </div>
                                         </div>
                                         <div className="product--Card--Layout">
                                             <div className="product--Colors--Container">
-                                                <ParsedColors product={product}/>
+                                                <Colors product={product}/>
                                             </div>
                                             <div className="product--About--Container">
                                                 <h3>{product.name}</h3>
@@ -243,13 +259,13 @@ const Products = props => {
                                             {user.email ?
                                                 <> 
                                                     {!product.likes.includes(user.email) ? 
-                                                        <>
+                                                        <motion.div whileHover={{scale: 1.2}}>
                                                             <Badge badgeContent={product.likes.length} showZero color="secondary" anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
                                                                 <button className="addTo--Favourite--Button--Container">
                                                                     <FaHeart size='30' color="#C5C5C5" className="heart--Button" onClick={() => productLike(product._id, user.email)}/>
                                                                 </button>
                                                             </Badge>
-                                                        </>
+                                                        </motion.div>
                                                         : 
                                                         <>
                                                             <Badge badgeContent={product.likes.length} showZero color="secondary" anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
@@ -261,20 +277,26 @@ const Products = props => {
                                                     }
                                                     {!localStorage.hasOwnProperty("cart") ? 
                                                         <>
-                                                            {!user.cart.some(item => item._id === product._id) ? 
+                                                            {!user.cart.some(item => item._id === product._id) ?
                                                                 <>
-                                                                    <button className="addTo--Cart--Button--Container" onClick={() => {addToCart(user, product); reloadProducts()}}>
-                                                                        <FaShoppingCart size='30' color='#C5C5C5' />
-                                                                    </button>
+                                                                    
+                                                                        <motion.div whileHover={{scale: 1.2}}>
+                                                                            <button className="addTo--Cart--Button--Container" onClick={() => {
+                                                                                setChosenImage(product.images[imageIndex[1]])
+                                                                                setAddToCart([user, product]); reloadProducts()}}>
+                                                                                <FaShoppingCart size='30' color='#C5C5C5' />
+                                                                            </button>
+                                                                        </motion.div>
+                                                                    
                                                                 </>
                                                                 :
                                                                 <>
                                                                     <Popup trigger={
                                                                         <button className="addTo--Cart--Button--Container">
-                                                                            <FaCartArrowDown size='30' color='#36F180'/>
+                                                                            <FaCartArrowDown size='30' color='#36F180'/> 
                                                                         </button>
                                                                     }
-                                                                    position="top right"
+                                                                    position="top center"
                                                                     on="hover"
                                                                     className="popup--Added"
                                                                     >
@@ -287,9 +309,13 @@ const Products = props => {
                                                         <>
                                                             {!localCart.some(item => item._id === product._id) ? 
                                                                 <>
-                                                                    <button className="addTo--Cart--Button--Container" onClick={() => {addToCart(user, product); reloadProducts()}}>
-                                                                        <FaShoppingCart size='30' color='#C5C5C5'/>
-                                                                    </button>
+                                                                    <motion.div whileHover={{scale: 1.2}}>
+                                                                        <button className="addTo--Cart--Button--Container" onClick={() => {
+                                                                            setChosenImage(product.images[imageIndex[1]])
+                                                                            setAddToCart([user, product]); reloadProducts()}}>
+                                                                            <FaShoppingCart size='30' color='#C5C5C5' />
+                                                                        </button>
+                                                                    </motion.div>
                                                                 </>
                                                                 :
                                                                 <>
@@ -312,9 +338,9 @@ const Products = props => {
                                                 :
                                                 <>
                                                     <Popup trigger={
-                                                        <Badge badgeContent={product.likes.length} showZero color="secondary" anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
+                                                        <Badge badgeContent={product?.likes?.length} showZero color="secondary" anchorOrigin={{vertical: 'top', horizontal: 'left'}}>
                                                             <button className="addTo--Favourite--Button--Container">
-                                                                <FaHeart size='25' className="heart--Button" />
+                                                                <FaHeart size='25' color='#C5C5C5' className="heart--Button" />
                                                             </button>
                                                         </Badge>
                                                     }
@@ -335,6 +361,36 @@ const Products = props => {
                 }
                 </>
             </main>
+            <footer>
+                    <ul>
+                        <li className="footer--List--Header">Contacts</li>
+                        <li>Lorem</li>
+                        <li>Ipsum</li>
+                        <li>dignissim</li>
+                        <li>Sociosqu</li>
+                    </ul>
+                    <ul>
+                        <li className="footer--List--Header">Support</li>
+                        <li>Sociosqu</li>
+                        <li>Ipsum</li>
+                        <li>Lorem</li>
+                        <li>dignissim</li>
+                    </ul>
+                    <ul>
+                        <li className="footer--List--Header">About</li>
+                        <li>Ipsum</li>
+                        <li>dignissim</li>
+                        <li>Lorem</li>
+                        <li>Sociosqu</li>
+                    </ul>
+                    <ul>
+                        <li className="footer--List--Header">Locations</li>
+                        <li>dignissim</li>
+                        <li>Lorem</li>
+                        <li>Sociosqu</li>
+                        <li>Ipsum</li>
+                    </ul>
+                </footer>
         </div>
     )    
 }

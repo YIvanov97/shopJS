@@ -43,24 +43,36 @@
                 background-color: #293039;
                 height: 100%;
 
-                .input--Form {
+                .form--Input--Container {
+                    display: flex;
+                    flex-direction: row-reverse;
+                    align-items: center;
+                    justify-content: center;
                     flex: 0.1;
-                    margin-top: 20px;
-                    padding: 10px;
-                    width: 90%;
-                    border: none;
-                    font-family: 'SF-UI-Display-Medium';
-                    background: transparent;
-                    color: #EFEFEF;
-                    border: 2px solid #EFEFEF;
-                
-                &:focus {
-                    outline: none;
-                    color: #293039;
-                    background-color: #EFEFEF; 
-                }
+                    width: 100%;
+                    
+                    input {
+                        margin-top: 20px;
+                        padding: 10px;
+                        width: 80%;
+                        border: none;
+                        font-family: 'SF-UI-Display-Medium';
+                        background: transparent;
+                        color: #EFEFEF;
+                        border-bottom: 2px solid #EFEFEF;
+                    
+                        &:focus {
+                            background-color: transparent;
+                            outline: none;
+                        }
+                    }
 
-            }
+                    .loginForm--Input--Icon {
+                        align-self: flex-end;
+                        margin-bottom: 10px;
+                        margin-right: 10px;
+                    }
+                }
 
             .login--button {
                 margin-top: 40px;

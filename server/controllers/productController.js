@@ -21,8 +21,7 @@ router.get('/', (req, res) => {
     }).catch(() => res.status(500).end())
 })
 
-router.post('/create', uploads.array("imageFile"), async (req, res) => {
-    console.log(req, ' asd')
+router.post('/create', uploads.array("images"), async (req, res) => {
     try {
         const data = {
             name: req.body.name,
@@ -30,11 +29,11 @@ router.post('/create', uploads.array("imageFile"), async (req, res) => {
             processor: req.body.processor,
             ram: req.body.ram,
             storage: req.body.storage,
-            imageFile: req.files,
+            images: req.files,
             price: req.body.price,
             type: req.body.type,
             likes: req.body.likes,
-            color: req.body.color
+            colors: req.body.colors
         }
         let product = await productService.create(data)
         res.status(201).json(product)

@@ -1,4 +1,4 @@
-.custom-shape-divider-top-1619781157 {
+.custom-shape-divider-top-1619781151 {
     position: absolute;
     top: 0;
     left: 0;
@@ -8,20 +8,20 @@
     line-height: 0;
 }
 
-.custom-shape-divider-top-1619781157 svg {
+.custom-shape-divider-top-1619781151 svg {
     position: relative;
     display: block;
     width: calc(170% + 1.3px);
-    height: 350px;
+    height: 240px;
     transform: rotateY(180deg);
 }
 
-.custom-shape-divider-top-1619781157 .shape-fill {
+.custom-shape-divider-top-1619781151 .shape-fill {
     fill: #1E718D;
     opacity: 0.8;
 }
 
-.custom-shape-divider-top-1619781158 {
+.custom-shape-divider-top-1619781152 {
     position: absolute;
     top: 0;
     left: 0;
@@ -31,20 +31,20 @@
     line-height: 0;
 }
 
-.custom-shape-divider-top-1619781158 svg {
+.custom-shape-divider-top-1619781152 svg {
     position: relative;
     display: block;
     width: calc(190% + 1.3px);
-    height: 400px;
+    height: 280px;
     transform: rotateY(180deg);
 }
 
-.custom-shape-divider-top-1619781158 .shape-fill {
+.custom-shape-divider-top-1619781152 .shape-fill {
     fill: #1E718D;
     opacity: 0.6;
 }
 
-.custom-shape-divider-top-1619781159 {
+.custom-shape-divider-top-1619781153 {
     position: absolute;
     top: 0;
     left: 0;
@@ -54,15 +54,15 @@
     line-height: 0;
 }
 
-.custom-shape-divider-top-1619781159 svg {
+.custom-shape-divider-top-1619781153 svg {
     position: relative;
     display: block;
     width: calc(160% + 1.3px);
-    height: 430px;
+    height: 340px;
     transform: rotateY(180deg);
 }
 
-.custom-shape-divider-top-1619781159 .shape-fill {
+.custom-shape-divider-top-1619781153 .shape-fill {
     fill: #1E718D;
     opacity: 0.4;
 }
@@ -70,8 +70,8 @@
 header {
     display: flex;
     flex-direction: column;
-    margin-left: 380px;
-    margin-top: 80px;
+    margin-left: 80px;
+    margin-top: 40px;
     position: relative;
     z-index: 5;
     width: 400px;
@@ -101,62 +101,43 @@ header {
 }
 
 .top--Image {
-    position: absolute;
-    width: 600px;
-    height: 400px;
-    right: 0;
-    top: 17.2px;
-    z-index: 4;
-
-    img{
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.home--Section--Boxes--Container {
+    display: flex;
+    align-self: flex-end;
+    justify-content: flex-end;
     width: 100%;
-    height: 470px;
-    margin-top: 13%;
-    position: relative;
-    background: inherit;
-    overflow: hidden;
-
-    &::after{
-        content: '';
-        width: 100%;
-        height: 470px;
-        background: inherit; 
-        position: absolute;
-        left: position;
-        right: 0;
-        top: position; 
-        bottom: 0;
-        box-shadow: inset 0 0 0 300px rgba(30, 113, 141, 0.2);
+    position: absolute;
+    top: 70px;
+    
+    img{
+        align-self: flex-end;
+        justify-self: flex-end;
+        border-radius: 40px;
+        width: 20%;
+        margin-right: 100px;
     }
-
 }
 
 .home--Section--Boxes--Container--Transparent {
     display: flex;
     flex-direction: row;
+    box-shadow: inset 0 0 0 400px rgba(30, 113, 141, 0.2);
     justify-content: space-around;
-    align-items: center;
+    align-items: flex-start;
+    padding-top: 100px;
     text-align: center;
+    margin-top: 200px;
     width: 100%;
-    padding-top: 10px;
-    margin: auto;
-    position: absolute;
-    top: calc(100% - 305px);
-    left: calc(0%);
+    height: 700px;
 
     .home--Section--Box {
         display: flex;
         flex-direction: column;
-        width: 350px;
-        height: 300px;
+        width: 25%;
+        height: 45%;
+        margin-top: 2%;
         border-radius: 30px;
         align-items: center;
+        color: #293039;
         justify-content: center;
         background-color: #FFFFFF;
         -webkit-box-shadow: 0px 13px 13px 6px rgba(0, 0, 0, 0.137); 
@@ -165,10 +146,11 @@ header {
         h1 {
             display: flex;
             font-size: 30px;
+            color: #293039;
             font-family: 'SF-UI-Display-Medium';
             letter-spacing: 2px;
             align-items: center;
-            width: 260px;
+            width: 70%;
             justify-content: space-around;
         }
 
@@ -182,10 +164,10 @@ header {
     .home--Section--Box--Middle {
         display: flex;
         flex-direction: column;
-        width: 350px;
-        height: 370px;
+        width: 25%;
+        height: 60%;
         border-radius: 30px;
-        margin-top: 70px;
+        margin-top: 3%;
         align-items: center;
         justify-content: center;
         background-color: #FFFFFF;
@@ -197,15 +179,17 @@ header {
             font-size: 30px;
             font-family: 'SF-UI-Display-Medium';
             letter-spacing: 2px;
+            color: #293039;
             align-items: center;
-            width: 250px;
+            width: 70%;
             justify-content: space-around;
         }
 
         p {
             font-size: 17px;
+            color: #293039;
             font-family: 'SF-UI-Display-Regular';
-            width: 90%;
+            width: 80%;
         }
     }
 }
@@ -231,82 +215,78 @@ header {
     fill: rgba(30, 113, 141, 0.1);
 }
 
-.home--Section--Preview--Container {
+.home--Section--Preview {
     width: 100%;
-    height: 700px;
-    position: relative;
-    background: inherit;
-    overflow: hidden;
+    height: 1000px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    box-shadow: inset 0 0 0 600px rgba(30, 113, 141, 0.2);
 
-    &::after{
-        content: '';
-        width: 100%;
-        height: 700px;
-        background: inherit; 
-        position: absolute;
-        left: position;
-        right: 0;
-        top: position; 
-        bottom: 0;
-        box-shadow: inset 0 0 0 400px rgba(30, 113, 141, 0.2);
-    }
+}
 
+.blob--One {
+    position: absolute;
+    right: 0;
+    opacity: 0.6;
+    top: 135%;
 }
 
 .preview--First {
     display: flex;
     flex-direction: row-reverse;
+    align-self: flex-start;
     width: 100%;
     justify-content: space-around;
     align-items: center;
-    height: 700px;
-    margin-top: 200px;
-    position: absolute;
-    top: calc(100%);
-    left: calc(0%);
+    height: 40%;
+    
 
-    .first--About {
+    .catalogue--About--Container {
         display: flex;
         flex-direction: column;
         text-align: left;
-        width: 600px;
+        width: 70%;
+        margin-left: 5%;
 
         h3{
             display: flex;
             font-size: 30px;
             font-family: 'SF-UI-Display-Medium';
             letter-spacing: 2px;
+            color: #293039;
             margin: 0;
             align-items: center;
-            width: 600px;
+            width: 85%;
             justify-content: space-around;
         }
 
         p{
             font-size: 17px;
+            color: #293039;
             font-family: 'SF-UI-Display-Regular';
         }
     }
 
     .img--Repeat--Background--First {
-        width: 450px;
-        height: 320px;
+        width: 30%;
+        height: 45%;
         overflow: hidden;
         position: absolute;
         z-index: 3;
-        right: 150px;
+        right: 8%;
         background: #FFFFFF;
         opacity: 0.6;
         border-radius: 8px;
     }
 
     .img--Repeat--Background--Second {
-        width: 450px;
-        height: 280px;
+        width: 30%;
+        height: 40%;
         overflow: hidden;
         position: absolute;
         z-index: 2;
-        right: 180px;
+        right: 9%;
         background: #FFFFFF;
         opacity: 0.4;
         border-radius: 12px;
@@ -315,7 +295,144 @@ header {
     img {
         position: relative;
         z-index: 5;
-        width: 450px;
-        height: 350px;
+        width: 40%;
+        height: 90%;
+        margin-right: 5%;
+    }
+
+}
+
+.blob--Two {
+    position: absolute;
+    opacity: 0.6;
+    top: 230%;
+}
+
+.preview--Second {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    height: 40%;
+    
+    
+    .delivery--About--Container {
+        display: flex;
+        flex-direction: column;
+        text-align: right;
+        width: 50%;
+        margin-right: 5%;
+        
+        h3{
+            display: flex;
+            flex-direction: row;
+            font-size: 30px;
+            align-self: flex-end;
+            font-family: 'SF-UI-Display-Medium';
+            letter-spacing: 2px;
+            margin: 0;
+            align-items: center;
+            width: 35%;
+            color: #293039;
+            justify-content: space-around;
+        }
+
+        p{
+            font-size: 17px;
+            color: #293039;
+            font-family: 'SF-UI-Display-Regular';
+        }
+    
+    }
+
+    img {
+        width: 80%;
+        height: 30%;
+        margin-left: 15%;
+    }
+}
+
+.home--Section--Bottom--Container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0 auto;
+    background-color: #1e718dc2;
+    border-radius: 40px;
+    justify-content: space-around;
+    width: 80%;
+    height: 400px;
+    margin-top: 200px;
+
+    .company--About--Buble {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-around;
+        background-color: #EFEFEF;
+        border-radius: 20px;
+        width: 80%;
+        height: 80%;
+        margin: 0 auto;
+
+        h4 {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 70%;
+            color: #293039;
+            border-bottom: 1px solid #293039;
+            font-family: 'SF-UI-Display-Medium';
+            font-size: 20px;
+        }
+
+        p {
+            margin: 10px;
+            color: #293039;
+            font-family: 'SF-UI-Display-Regular';
+            font-size: 16px;
+        }
+    }
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 300px;
+    margin-top: 200px;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #1E718D;
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        height: 200px;
+        width: 200px;
+        
+        .footer--List--Header {
+            font-size: 20px;
+            font-family: 'SF-UI-Display-Bold';
+            margin: 15px;
+            margin-left: 0;
+            color: #EFEFEF;
+            text-align: left;
+        }
+        
+        li {
+            font-size: 16px;
+            text-align: left;
+            font-family: 'SF-UI-Display-Medium';
+            color: #EFEFEF;
+
+            &:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+        }
     }
 }

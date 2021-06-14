@@ -18,16 +18,60 @@ ul li .link {
   text-decoration: none;
 }
 
-ul li .logout--Button {
-  font-family: 'SF-UI-Display-Thin';
-  font-size: 20px;
-  color: #E0DAD4;
-  text-decoration: none;
-  background-color: transparent;
-  border: none;
-  padding: 0;
+ul li .link:hover {
+  border-bottom: 3px solid #EFEFEF;
 }
 
-ul li .logout--Button:hover {
+ul li .logout--Button {
+  display: flex;
+  font-family: 'SF-UI-Display-Regular';
+  font-size: 20px;
+  color: #EFEFEF;
+  text-decoration: none;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: transparent;
+  border: none;
+  width: 130px;
+  padding: 3px 0px 3px 0px;
+  padding-top: 0;
+  overflow: hidden;
+  transition: ease-in-out 0.3s;
   cursor: pointer;
+}
+
+ul li .logout--Button .logout--Icon {
+  margin-left: 5px;
+  transition: ease-in-out 0.3s;
+}
+
+ul li .logout--Button:hover .logout--Icon {
+  transform: translateX(7px);
+}
+
+ul li .employee--Button {
+  display: flex;
+  font-family: 'SF-UI-Display-Regular';
+  font-size: 20px;
+  color: #EFEFEF;
+  text-decoration: none;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: transparent;
+  border: none;
+  width: 130px;
+  padding: 3px 0px 3px 0px;
+  padding-top: 0;
+  overflow: hidden;
+  transition: ease-in-out 0.3s;
+  cursor: pointer;
+}
+
+ul li .employee--Button .employee--Icon {
+  margin-left: 5px;
+  transition: ease-in-out 0.3s;
+}
+
+ul li .employee--Button:hover .employee--Icon {
+  transform: translateX(7px);
 }

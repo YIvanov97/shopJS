@@ -36,7 +36,16 @@ const login = async ({email, password}) => {
         return token;
 }
 
+async function update (data) {
+    let updatedUser = await User.updateOne({_id: data._id}, {$set: {
+        name: data.name,
+        username: data.username,
+    }})
+    return User.findById(data._id);
+}
+
 module.exports = {
     register,
-    login
+    login,
+    update
 }

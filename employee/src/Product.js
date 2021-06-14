@@ -1,4 +1,5 @@
 import { FaTrashAlt } from 'react-icons/fa';
+import { motion } from 'framer-motion';
 
 const ProductData = props => {
     return(
@@ -13,8 +14,10 @@ const ProductData = props => {
                     <td>{product.type}</td>
                     <td>{product.price}$</td>
                     <td>
-                        <span className="removeProduct--Container" onClick={() => {props.remove(product._id); props.notify()}}>
-                            <FaTrashAlt className="remove--Icon" />
+                        <span className="removeProduct--Container" onClick={() => {props.remove(product._id); props.notify(); props.reload()}}>
+                            <motion.div whileHover={{scale: 1.1}}>
+                                <FaTrashAlt className="remove--Icon" />
+                            </motion.div>
                         </span>
                     </td>
                 </tr>

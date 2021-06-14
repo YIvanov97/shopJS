@@ -1,0 +1,100 @@
+@media (max-width: 1024px) {
+  .product--Details--Container {
+    width: 90%;
+  }
+  .product--Details--Container .product--ImageColors--Container {
+    width: 40%;
+    left: 10%;
+  }
+  .product--Details--Container .product--Details--Info {
+    width: 40%;
+    right: 5%;
+  }
+  .product--Details--Container .product--Details--Info .product--Info {
+    width: 80%;
+  }
+  .product--Details--Container .product--Details--Info .product--Info h1 {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product--ImageColors--Container {
+    height: 400px !important;
+  }
+  .product--ImageColors--Container img {
+    height: 120% !important;
+  }
+  .product--Details--Info .product--Info {
+    width: 85% !important;
+  }
+  .product--Details--Info .product--Info h1 {
+    font-size: 30px !important;
+  }
+  .product--Details--Info .product--Info p {
+    font-size: 17px !important;
+  }
+  .product--Details--Info .product--Info h3 {
+    font-size: 20px !important;
+  }
+  .product--Details--Info .product--Info table {
+    width: 100% !important;
+  }
+  .product--Buy--Container .product--Price {
+    align-self: auto !important;
+  }
+  .product--Buy--Container .product--Price h3 {
+    font-size: 23px !important;
+    justify-self: center !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .product--Details--Container {
+    height: 500px;
+  }
+  .product--ImageColors--Container {
+    height: 300px !important;
+    width: 210px !important;
+    left: 2% !important;
+  }
+  .product--ImageColors--Container .product--Image--Container {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+  .product--ImageColors--Container img {
+    width: 100% !important;
+    margin: 0 auto;
+  }
+  .product--ImageColors--Container .product--Colors--Container {
+    width: 150px !important;
+    margin-top: 10px !important;
+  }
+  .product--ImageColors--Container .product--Colors--Container button {
+    height: 17px !important;
+    width: 17px !important;
+  }
+  .product--Details--Info .product--Info h1 {
+    font-size: 25px !important;
+  }
+  .product--Details--Info .product--Info p {
+    font-size: 15px !important;
+  }
+  .product--Details--Info .product--Info table thead tr td {
+    font-size: 17px !important;
+  }
+  .product--Details--Info .product--Info table tbody tr td {
+    font-size: 17px !important;
+  }
+  .product--Buy--Container .product--Price h3 {
+    font-size: 20px !important;
+  }
+  .addToCart--Button--Container {
+    padding: 5px !important;
+    margin: 30px !important;
+    width: 55px !important;
+  }
+  .addToCart--Button--Container p {
+    display: none;
+  }
+}

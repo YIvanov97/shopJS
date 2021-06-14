@@ -1,45 +1,27 @@
+import React, { useEffect, useState } from 'react';
 import './styles/app.scss';
-import React from 'react';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProductsData from './Product'
 import logo from './styles/images/NWN.png'
-import Select from 'react-select'
-import makeAnimated from 'react-select/animated';
 import { FaCloudUploadAlt } from 'react-icons/fa';
+import { FiLogOut } from "react-icons/fi";
+import { IoAddCircleSharp, IoRemoveCircleSharp } from "react-icons/io5";
+import { motion } from "framer-motion"
 
-class App extends React.Component {
-  constructor (props) {
-    super (props);
-    this.state = {
-      name: '',
-      description: '',
-      processor: '',
-      ram: '',
-      storage: '',
-      imageFile: [],
-      price: '',
-      type: '',
-      colors: '',
-      products: [],
-    };
+function App() {
 
-    this.handleProductName = this.handleProductName.bind (this);
-    this.handleProductDescription = this.handleProductDescription.bind (this);
-    this.handleProductProcessor = this.handleProductProcessor.bind (this);
-    this.handleProductRam = this.handleProductRam.bind (this);
-    this.handleProductStorage = this.handleProductStorage.bind (this);
-    this.handleProductImage = this.handleProductImage.bind (this);
-    this.handleProductPrice = this.handleProductPrice.bind (this);
-    this.handleProductType = this.handleProductType.bind (this);
-    this.handleProductColors = this.handleProductColors.bind (this);
-    this.handleLogout = this.handleLogout.bind (this);
-    this.createProduct = this.createProduct.bind (this);
-    this.getProducts = this.getProducts.bind (this);
-    this.onRemove = this.onRemove.bind (this);
-  }
+  const [name, setName] = useState('')
+  const [description, setDescription] = useState('')
+  const [processor, setProcessor] = useState('')
+  const [ram, setRam] = useState('')
+  const [storage, setStorage] = useState('')
+  const [price, setPrice] = useState('')
+  const [type, setType] = useState('')
+  const [products, setProducts] = useState([])
+  const [imagesColors, setImagesColors] = useState([{images: [], colors: ''}])
 
-  onSuccess = () =>
+  const onSuccess = () =>
     toast.success ('Product created successfuly!', {
       position: 'top-center',
       autoClose: 2000,
@@ -50,7 +32,7 @@ class App extends React.Component {
       progress: undefined,
     });
 
-  onWarn = () =>
+  const onWarn = () =>
     toast.warn ('All fields are required!', {
       position: 'top-right',
       autoClose: 2000,
@@ -61,7 +43,7 @@ class App extends React.Component {
       progress: undefined,
     });
 
-  onError = () =>
+  const onError = () =>
     toast.error ('Something went wrong!', {
       position: 'top-right',
       autoClose: 2000,
@@ -72,7 +54,7 @@ class App extends React.Component {
       progress: undefined,
     });
 
-  onRemovedProduct = () =>
+  const onRemovedProduct = () =>
     toast.success ('Product removed!', {
       position: 'top-right',
       autoClose: 2000,
@@ -83,7 +65,7 @@ class App extends React.Component {
       progress: undefined,
     });
 
-    handleLogout = () => {
+  const handleLogout = () => {
       fetch('http://localhost:5000/auth/logout', {
           method: 'GET',
           credentials: 'include',
@@ -92,32 +74,50 @@ class App extends React.Component {
       .then(() => localStorage.clear())
       .then(() => window.location = 'http://localhost:3000')
       .catch(error => console.log(error))
-    }
+  }
 
-  createProduct (e) {
+  const reloadProducts = () => {
+    fetch ('http://localhost:5000/products/', {
+      method: 'GET',
+    })
+    .then (response => response.json ())
+    .then (response => {
+      setProducts(response)
+    })
+    .catch (error => {
+      console.error (error);
+    })
+  }
+
+  const createProduct = (e) => {
     e.preventDefault ();
 
-    const data = new FormData()
-
-    const colors = this.state.colors
-    colors.forEach(el => {
-      data.append(`color`, JSON.stringify(el))
-    })
-
-    const images = this.state.imageFile
-    for (let i = 0; i < images.length; i++) {
-      data.append(`imageFile`, images[i])
+    if (
+      name === '' || 
+      description === '' ||
+      processor === '' ||
+      ram === '' ||
+      storage === '' ||
+      price === '' ||
+      type === ''
+    ) {
+      onWarn()
+      return;
     }
-    
-    data.append("name", this.state.name)
-    data.append("description", this.state.description)
-    data.append("processor", this.state.processor)
-    data.append("ram", this.state.ram)
-    data.append("storage", this.state.storage)
-    data.append("price", this.state.price)
-    data.append("type", this.state.type)
 
-    console.log(this.state.colors)
+    const data = new FormData()
+    
+    data.append("name", name)
+    data.append("description", description)
+    data.append("processor", processor)
+    data.append("ram", ram)
+    data.append("storage", storage)
+    for (const imageAndColor of imagesColors) {
+      data.append('images', imageAndColor.image[0]);
+      data.append('colors', imageAndColor.color);
+    }
+    data.append("price", price)
+    data.append("type", type)
 
     fetch ('http://localhost:5000/products/create', {
       method: 'POST',
@@ -125,124 +125,118 @@ class App extends React.Component {
     })
       .then (response => {
         if (response.status === 201) {
-          this.setState ({
-            name: '',
-            description: '',
-            imageFile: [],
-            price: '',
-            type: '',
-            colors: []
-          });
-          this.onSuccess ();
+          setName('')
+          setDescription('')
+          setProcessor('')
+          setRam('')
+          setStorage('')
+          setPrice('')
+          setType('')
+          onSuccess ();
         } else if (response.status === 500) {
-          this.onError ();
+          onError ();
         }
       })
-      .then(() => this.getProducts())
+      .then(() => reloadProducts())
       .catch (error => console.log (error.response));
+    }
+
+    useEffect(() => {
+        fetch ('http://localhost:5000/products/', {
+          method: 'GET',
+        })
+        .then (response => response.json ())
+        .then (response => {
+          setProducts(response)
+        })
+        .catch (error => {
+          console.error (error);
+        })
+    }, [])
+
+    const onRemove = (id) => {
+        fetch(`http://localhost:5000/products/${id}/delete`, {
+            method: 'POST'
+        })
+    }
+
+  const handleProductName = (e) => {
+    setName(e.target.value)
   }
 
-getProducts () {
-    fetch ('http://localhost:5000/products/', {
-      method: 'GET',
-    })
-      .then (response => response.json ())
-      .then (response => {
-        this.setState ({
-          products: response,
-        });
-      })
-      .catch (error => {
-        console.error (error);
-      });
+  const handleProductDescription = (e) => {
+    setDescription(e.target.value)
   }
 
-onRemove = (id) => {
-    fetch(`http://localhost:5000/products/${id}/delete`, {
-        method: 'POST'
-    }).then(() => this.getProducts())
-}
-
-  componentDidMount() {
-    this.getProducts();
+  const handleProductProcessor = (e) => {
+    setProcessor(e.target.value)
   }
 
-  handleProductName (e) {
-    this.setState ({name: e.target.value});
+  const handleProductRam = (e) => {
+    setRam(e.target.value)
   }
 
-  handleProductDescription (e) {
-    this.setState ({description: e.target.value});
+  const handleProductStorage = (e) => {
+    setStorage(e.target.value)
   }
 
-  handleProductProcessor (e) {
-    this.setState ({processor: e.target.value});
+  const handleProductPrice = (e) => {
+    setPrice(e.target.value)
   }
 
-  handleProductRam (e) {
-    this.setState ({ram: e.target.value});
+  const handleProductType = (e) => {
+    setType(e.target.value)
   }
 
-  handleProductStorage (e) {
-    this.setState ({storage: e.target.value});
-  }
+  const handleInputChangeColor = (e, index) => {
+    const { name, value } = e.target;
+    const list = [...imagesColors];
+    list[index][name] = value;
+    setImagesColors(list);
+  };
 
-  handleProductImage (e) {
-    this.setState ({imageFile: e.target.files});
-  }
+  const handleInputChangeImage = (e, index) => {
+    const {name, files} = e.target;
+    const list = [...imagesColors];
+    list[index][name] = files;
+    setImagesColors(list);
+  };
 
-  handleProductPrice (e) {
-    this.setState ({price: e.target.value});
-  }
+  const handleRemoveClick = index => {
+    const list = [...imagesColors];
+    list.splice(index, 1);
+    setImagesColors(list);
+  };
 
-  handleProductType (e) {
-    this.setState ({type: e.target.value});
-  }
-
-  handleProductColors (colorOption) {
-    this.setState ({colors: colorOption})
-  }
-
-  render () {
-
-    const animatedComponents = makeAnimated();
-
-    const colorsOptions = [
-      {value: '#4f5b66', label: 'Space-Gray'},
-      {value: '#a7adba', label: 'Silver'},
-      {value: '#FFFFFF', label: 'White'},
-      {value: '#F63204', label: 'Red'},
-      {value: '#000000', label: 'Black'},
-      {value: '#0095CB', label: 'Pacific Blue'}
-    ]
+  const handleAddClick = () => {
+    setImagesColors([...imagesColors, { image: {}, color: "" }]);
+  };
 
     return (
       <div className="App">
         <h1 className="employee--Title">Employee</h1>
+        <button className="logout--Button" onClick={() => handleLogout()}>Logout <FiLogOut className="logout--Icon" size="20" color="#EFEFEF" /></button>
         <h2 className="addProduct--Title">Add new product</h2>
-        <button className="logout--Button" onClick={this.handleLogout}>Logout</button>
         <main>
             <div className="employee--Create--Container">
-            <img src={logo} className="login--logo" alt="logo" />
-                <form className="createProduct--form" onSubmit={this.createProduct} encType="multipart/form-data">
+                <form className="createProduct--form" onSubmit={createProduct} encType="multipart/form-data">
                   <input
                     type="text"
                     placeholder="Product Name"
-                    onChange={this.handleProductName}
-                    value={this.state.name}
+                    onChange={handleProductName}
+                    value={name}
                   />
                   <input
                     type="text"
                     placeholder="Product Description"
-                    onChange={this.handleProductDescription}
-                    value={this.state.description}
+                    onChange={handleProductDescription}
+                    value={description}
                   />
                   <div className="product--SpecInputs--Container">
                     <select
                       type="text"
-                      onChange={this.handleProductProcessor}
-                      value={this.state.processor}
-                      defaultValue=""                    
+                      onChange={handleProductProcessor}
+                      value={processor}                    
                     >
                       <option selected value="">Processor</option>
                       <option value="i7">i7</option>
@@ -254,9 +248,8 @@ onRemove = (id) => {
                     </select>
                     <select
                       type="text"
-                      onChange={this.handleProductRam}
-                      value={this.state.ram}
-                      defaultValue=""                    
+                      onChange={handleProductRam}
+                      value={ram}                   
                     >
                       <option selected value="">Ram</option>
                       <option value="12">12</option>
@@ -267,9 +260,8 @@ onRemove = (id) => {
                     </select>
                     <select
                       type="text"
-                      onChange={this.handleProductStorage}
-                      value={this.state.storage}
-                      defaultValue=""                    
+                      onChange={handleProductStorage}
+                      value={storage}                   
                     >
                       <option selected value="">Storage</option>
                       <option value="128GB">128GB</option>
@@ -279,30 +271,62 @@ onRemove = (id) => {
                       <option value="32GB">32GB</option>
                     </select>
                   </div>
-                  <label htmlFor="file" className="file--Input--Container">
-                    <input
-                      type="file"
-                      id="file"
-                      multiple
-                      className="file--Input"
-                      filename="imageFile"
-                      placeholder="Product Image"
-                      onChange={this.handleProductImage}
-                    />
-                    <div className="file--Label--Container">
-                      <FaCloudUploadAlt className="upload--Icon"/> Upload Image
-                    </div>
-                  </label>
+                  {imagesColors.map((x, i) => {
+                    return (
+                      <div className="image--Color--Container" key={i}>
+                        <label htmlFor="file" className="file--Input--Container">
+                          <input
+                            type="file"
+                            id="file"
+                            name="image"
+                            className="file--Input"
+                            filename="imageFile"
+                            placeholder="Product Image"
+                            onChange={e => handleInputChangeImage(e, i)}
+                          />
+                          <div className="file--Label--Container">
+                             <FaCloudUploadAlt className="upload--Icon"/> Upload Image
+                          </div>
+                        </label>
+                        <select
+                          onChange={e => handleInputChangeColor(e, i)}
+                          value={x.color}
+                          name="color"
+                        >
+                          <option selected value="">Color</option>
+                          <option value='#4f5b66'>Space-gray</option>
+                          <option value='#a7adba'>Silver</option>
+                          <option value='#FFFFFF'>White</option>
+                          <option value='#F63204'>Red</option>
+                          <option value='#000000'>Black</option>
+                          <option value='#0095CB'>Pacific-Blue</option>
+                        </select>
+                        <div className="buttons--Container">
+                          {imagesColors.length !== 1 && 
+                            <button className='remove' onClick={() => handleRemoveClick(i)}>
+                              <motion.div whileHover={{scale: 1.1}}>
+                                <IoRemoveCircleSharp size="40" color="#FF6D85" />
+                              </motion.div>
+                            </button>}
+                          {imagesColors.length - 1 === i && 
+                            <motion.div whileHover={{scale: 1.1}}>
+                              <button className='add' onClick={handleAddClick}>
+                                <h3>+ Color Option</h3>
+                              </button>
+                            </motion.div>}
+                        </div>
+                      </div>
+                    );
+                  })}
                   <input
                     type="text"
-                    placeholder="Product Price"
-                    onChange={this.handleProductPrice}
-                    value={this.state.price}
+                    placeholder="Product Price (Exp. 1999)"
+                    onChange={handleProductPrice}
+                    value={price}
                   />
                   <select
-                    onChange={this.handleProductType}
-                    value={this.state.type}
-                    defaultValue=""
+                    onChange={handleProductType}
+                    value={type}
                   >
                     <option selected value="">Type</option>
                     <option value="phone">Phone</option>
@@ -311,16 +335,6 @@ onRemove = (id) => {
                     <option value="computer">Computer</option>
                     <option value="watch">Watch</option>
                   </select>
-                  <Select
-                    className="product--Colors"
-                    name="colors"
-                    placeholder="Colors"
-                    options={colorsOptions}
-                    components={animatedComponents}
-                    isClearable={true}
-                    isMulti={true}
-                    onChange={this.handleProductColors}
-                  />
                   <input
                     type="submit"
                     value="Create"
@@ -339,7 +353,7 @@ onRemove = (id) => {
                       <th>Type</th>
                       <th>Price</th>
                   </tr>
-                  <ProductsData products={this.state.products} remove={this.onRemove} notify={this.onRemovedProduct}/>
+                  <ProductsData products={products} remove={onRemove} notify={onRemovedProduct} reload={reloadProducts}/>
                 </table>
             </div>
         </main>
@@ -347,6 +361,5 @@ onRemove = (id) => {
       </div>
     );
   }
-}
 
 export default App;

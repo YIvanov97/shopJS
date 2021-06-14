@@ -1,17 +1,14 @@
-import React, {useContext, useEffect} from 'react';
+import React, {useContext} from 'react';
 import './styles/navigation.scss'
 import {Link} from 'react-router-dom';
 import {UserContext, API} from './globalParams';
+import { FiLogOut } from "react-icons/fi";
+import { IoEnterOutline } from "react-icons/io5";
+
 
 const Navigation = () => {
 
     const [user] = useContext(UserContext)
-
-    useEffect(() => {
-        if(user.role === 'admin') {
-            window.location = 'http://localhost:4000'
-        }
-    }, [user])
 
     const handleLogout = () => {
         fetch(`${API}/auth/logout`, {
@@ -32,6 +29,9 @@ const Navigation = () => {
             <li>
                 <Link className="link" to="/products">Products</Link>
             </li>
+            <li>
+                <Link className="link" to="/about">About</Link>
+            </li>
             {!user.email ? 
             <>
                 <li>
@@ -50,12 +50,20 @@ const Navigation = () => {
                     <Link className="link" to="/profile">Profile</Link>
                 </li>
                 <li>
-                    <button className="logout--Button" onClick={() => handleLogout()}>Logout</button>
+                    <button className="logout--Button effect effect-1" onClick={() => handleLogout()}>Logout <FiLogOut className="logout--Icon" size="20" color="#EFEFEF" /></button>
                 </li>
             </>
             }
-            
-            
+            {user.role === 'admin' ? 
+                <li>
+                    <a className="employee--Button" href="http://localhost:4000">
+                        Employee
+                        <IoEnterOutline className="employee--Icon" size="25" color="#EFEFEF" />
+                    </a>
+                </li>
+                :
+                <></>
+            }
         </ul>
     );
 }

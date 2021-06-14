@@ -103,11 +103,11 @@ body {
 header {
   display: flex;
   flex-direction: column;
-  margin-left: 100px;
-  margin-top: 50px;
+  margin-left: 3%;
+  margin-top: 4%;
   position: relative;
   z-index: 5;
-  width: 600px;
+  width: 35%;
 }
 
 header h1 {
@@ -134,6 +134,49 @@ header h3 {
   background: -webkit-linear-gradient(180deg, rgba(30, 113, 141, 0.1) 0%, white 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.first--topImage--container {
+  position: absolute;
+  top: 14%;
+  width: 20%;
+  right: 43%;
+}
+
+.first--topImage--container .first--topImage {
+  position: absolute;
+  right: 30%;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.second--topImage--container {
+  position: absolute;
+  top: 17%;
+  width: 16%;
+  right: 45%;
+}
+
+.second--topImage--container .second--topImage {
+  position: absolute;
+  right: 80%;
+  width: 100%;
+  z-index: 2;
+}
+
+.third--topImage--container {
+  position: absolute;
+  top: 33%;
+  width: 16%;
+  right: 49.5%;
+}
+
+.third--topImage--container .third--topImage {
+  position: absolute;
+  right: 100%;
+  width: 70%;
+  z-index: 3;
 }
 
 .products--Table--Container {
@@ -187,10 +230,10 @@ header h3 {
 
 .products--Table--Container .product--SearchForm .search--Button--Container {
   display: flex;
-  flex-direction: row;
+  flex-direction: row-reverse;
   justify-content: center;
   align-items: center;
-  border: 1px solid #EFEFEF;
+  border: 3px solid #EFEFEF;
   border-radius: 20px;
   padding: 10px;
   overflow: hidden;
@@ -205,7 +248,7 @@ header h3 {
 
 .products--Table--Container .product--SearchForm .search--Button--Container input {
   background-color: transparent;
-  color: #293039;
+  color: #EFEFEF;
   font-size: 20px;
   font-family: 'SF-UI-Display-Medium';
   border: none;
@@ -231,11 +274,13 @@ header h3 {
   justify-content: space-around;
   align-items: center;
   text-align: center;
-  height: 500px;
-  width: 400px;
+  height: 85%;
+  width: 80%;
   padding: 0;
+  padding-bottom: 20px;
+  margin-bottom: 50px;
+  border-radius: 10px;
   background-color: #5D97AE;
-  -webkit-box-shadow: 0px 13px 13px 6px rgba(0, 0, 0, 0.137);
   box-shadow: 0px 13px 13px 6px rgba(0, 0, 0, 0.137);
 }
 
@@ -243,23 +288,17 @@ header h3 {
   display: flex;
   background-color: #EFEFEF;
   width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  padding-top: 10px;
 }
 
 .products--Table--Container .products--Section .product--Container .product--TopButton--Container .about--Button {
-  border-top-right-radius: 20px;
-  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 40px;
+  border-top-left-radius: 10px;
   background-color: transparent;
-  border: 2px solid #7D9F9C;
-  font-size: 20px;
-  font-family: 'SF-UI-Display-Bold';
-  padding: 10px;
-  transition: ease-in 0.2s;
-  text-decoration: none;
-  color: #293039;
-}
-
-.products--Table--Container .products--Section .product--Container .product--TopButton--Container .about--Button:hover {
-  cursor: pointer;
+  padding: 15px;
+  color: #979797;
 }
 
 .products--Table--Container .products--Section .product--Container .product--Image--Container {
@@ -269,6 +308,7 @@ header h3 {
   padding-bottom: 10px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
+  box-shadow: inset 0px -10px 10px -5px rgba(0, 0, 0, 0.2);
 }
 
 .products--Table--Container .products--Section .product--Container .product--Image--Container img {
@@ -286,25 +326,42 @@ header h3 {
 
 .products--Table--Container .products--Section .product--Container .product--Colors--Container {
   display: flex;
-  position: relative;
-  z-index: 1;
-  flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
-  width: 40%;
+  height: 30px;
+  width: 150px;
   margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.products--Table--Container .products--Section .product--Container .product--Colors--Container button {
-  border-radius: 50%;
-  height: 20px;
+.products--Table--Container .products--Section .product--Container .product--Colors--Container ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+  height: 30px;
+}
+
+.products--Table--Container .products--Section .product--Container .product--Colors--Container ul li {
+  display: flex;
   width: 20px;
-  border: none;
-  box-shadow: 0px 7px 10px 2px rgba(0, 0, 0, 0.2);
+  height: 20px;
+  margin: 0;
+  cursor: pointer;
 }
 
-.products--Table--Container .products--Section .product--Container .product--Colors--Container button:hover {
+.products--Table--Container .products--Section .product--Container .product--Colors--Container ul li .color--Button {
+  padding: 5px;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+  border: none;
   cursor: pointer;
+  box-shadow: 0px 7px 10px 2px rgba(0, 0, 0, 0.2);
 }
 
 .products--Table--Container .products--Section .product--Container h3 {
@@ -324,6 +381,7 @@ header h3 {
 .products--Table--Container .products--Section .product--Container .product--BottomButtons--Container {
   display: flex;
   flex-direction: row;
+  width: 90%;
   justify-content: space-between;
   align-items: center;
 }
@@ -352,6 +410,46 @@ header h3 {
 
 .products--Table--Container .products--Section .product--Container .product--BottomButtons--Container .addTo--Cart--Button--Container:hover {
   cursor: pointer;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 300px;
+  margin-top: 200px;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #1E718D;
+}
+
+footer ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 200px;
+  width: 200px;
+}
+
+footer ul .footer--List--Header {
+  font-size: 20px;
+  font-family: 'SF-UI-Display-Bold';
+  margin: 15px;
+  margin-left: 0;
+  color: #EFEFEF;
+  text-align: left;
+}
+
+footer ul li {
+  font-size: 16px;
+  text-align: left;
+  font-family: 'SF-UI-Display-Medium';
+  color: #EFEFEF;
+}
+
+footer ul li:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 
 .popup--Added-content {

@@ -22,7 +22,7 @@ const productSchema = new mongoose.Schema ({
         type: 'String',
         required: true
     }, 
-    imageFile: {
+    images: {
         type: [],
         required: true
     },
@@ -38,7 +38,7 @@ const productSchema = new mongoose.Schema ({
         type: [],
         required: false
     },
-    color: {
+    colors: {
         type: [],
         required: true
     }

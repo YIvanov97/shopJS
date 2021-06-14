@@ -1,0 +1,499 @@
+@media (max-width: 1200px) {
+    header {
+        margin-left: 50px;
+
+        h3 {
+            font-size: 25px;
+            margin-bottom: 0;
+        }
+
+        p {
+            font-size: 17px;
+        }
+    }
+
+    .home--Section--Box h1 {
+        font-size: 25px !important;
+    }
+
+    .home--Section--Box p {
+        font-size: 15px !important;
+    }
+
+    .home--Section--Box--Middle {
+        margin-top: 4% !important;
+
+        h1 {
+            font-size: 25px !important;
+        }
+
+        p {
+            font-size: 15px !important;
+        }
+    }
+
+    .catalogue--About--Container h3 {
+        font-size: 20px !important;
+        width: 400px !important;
+    }
+
+    .catalogue--About--Container p {
+        font-size: 15px !important;
+    }
+
+    .preview--First .img--Repeat--Background--First {
+        height: 35%;
+        width: 28%;
+    }
+
+    .preview--First .img--Repeat--Background--Second {
+        height: 30%;
+        width: 28%;
+    }
+
+    .preview--First img {
+        height: 70%;
+        width: 30%;
+    }
+
+    .delivery--About--Container h3 {
+        font-size: 25px !important;
+        width: 40% !important;
+    }
+
+    .delivery--About--Container p {
+        font-size: 15px !important;
+    }
+
+    .preview--Second img {
+        height: 20%;
+        width: 70%;
+        margin-left: 20%;
+    }
+
+    .company--About--Buble {
+        transform: translateY(3vw);
+        
+        h4 {
+            font-size: 17px !important;
+        }
+        
+        p {
+            font-size: 15px !important;
+        }
+    }
+
+}
+
+@media (max-width: 1024px) {
+    header {
+        margin-left: 40px !important;
+
+        h3 {
+            font-size: 20px;
+            margin-bottom: 0;
+        }
+
+        p {
+            font-size: 15px;
+        }
+    }
+
+    .top--Image {
+        width: 100%;
+        top: 77px;
+        right: 0;
+    }
+
+    .home--Section--Boxes--Container--Transparent {
+        top: calc(50% - 400px);
+    
+        .home--Section--Box {
+            width: 30%;
+            height: 40%;
+
+            h1 {
+                font-size: 20px;
+                width: 70%;
+                margin-bottom: 5px;
+            }
+
+            p {
+                font-size: 17px;
+            }
+        }
+
+        .home--Section--Box--Middle {
+            width: 30%;
+            height: 55%;
+            transform: translateY(calc(13vw - 50%)) !important;
+
+            h1 {
+                font-size: 20px;
+                width: 70%;
+            }
+
+            p {
+                font-size: 17px;
+            }
+        }
+    }
+
+    .blob--One {
+        top: 150%;
+        width: 50%;
+        height: 70%;
+    }
+
+    .preview--First {
+        height: 30%;
+        margin-top: 0 auto;
+    
+        .catalogue--About--Container {
+            width: 70%;
+            transform: translateY(calc(5vw));
+
+            h3 {
+                font-size: 20px;
+                width: 100%;
+            }
+
+            p {
+                font-size: 15px;
+            }
+        }
+
+        .img--Repeat--Background--First {
+            width: 30%;
+            height: 30%;
+            right: 90px;
+        }
+
+        .img--Repeat--Background--Second {
+            width: 30%;
+            height: 25%;
+            right: 110px;
+        }
+    
+        img {
+            width: 60%;
+            height: 80%;
+        }
+    }
+
+    .preview--Second {
+        height: 40%;
+
+        .delivery--About--Container h3 {
+            font-size: 20px !important;
+            width: 40% !important;
+        }
+
+        .delivery--About--Container p {
+            font-size: 15px;
+        }
+
+        img {
+            width: 60%;
+            height: 20%;
+            margin-left: 25%;
+        }
+    }
+
+    .company--About--Buble {
+        transform: translateY(5vw);
+
+        h4{
+            width: 80% !important;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .custom-shape-divider-top-1619781151 svg {
+        height: 220px;
+    }
+
+    .custom-shape-divider-top-1619781152 svg {
+        height: 240px;
+    }
+
+    .custom-shape-divider-top-1619781153 svg {
+        height: 260px;
+    }
+
+    header h3 {
+        margin-top: 0 !important;
+        font-size: 17px !important;
+    }
+
+    header p {
+        margin-top: 0;
+    }
+
+    .home--Section--Box h1 {
+        font-size: 17px !important;
+    }
+
+    .home--Section--Box p {
+        font-size: 15px !important;
+    }
+
+    .home--Section--Box--Middle {
+        h1 {
+            font-size: 17px !important;
+        }
+
+        p {
+            font-size: 15px !important;
+        }
+    }
+
+    .blob--One {
+        top: 127%;
+        width: 50%;
+        height: 70%;
+    }
+
+    .home--Section--Preview {
+        height: 800px;
+    }
+
+    .preview--First {
+        height: 20%;
+        margin-top: 0 auto;
+    
+        .catalogue--About--Container {
+            width: 60%;
+            transform: translateY(calc(14vw));
+
+            h3 {
+                font-size: 17px;
+                width: 100% !important;
+
+                .catalogue--Header--Icon {
+                    display: none;
+                }
+            }
+
+            p {
+                font-size: 15px;
+            }
+        }
+
+        .img--Repeat--Background--First {
+            width: 20%;
+            height: 22%;
+            right: 130px;
+        }
+
+        .img--Repeat--Background--Second {
+            width: 20%;
+            height: 17%;
+            right: 140px;
+        }
+    
+        img {
+            width: 80%;
+            height: 110%;
+        }
+    }
+
+    .preview--Second {
+        height: 50%;
+
+        .delivery--About--Container h3 {
+            font-size: 17px !important;
+            width: 50% !important;
+
+            .delivery--Header--Icon {
+                display: none;
+            }
+        }
+
+        .delivery--About--Container p {
+            font-size: 15px;
+        }
+
+        img {
+            width: 50%;
+            height: 20%;
+            margin-left: 28%;
+        }
+    }
+
+    .blob--Two {
+        position: absolute;
+        opacity: 0.6;
+        top: 215%;
+    }
+
+    .company--About--Buble {
+        transform: translateY(13.5vw);
+        width: 85% !important;
+
+        h4{
+            font-size: 17px !important;
+            width: 100% !important;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .custom-shape-divider-top-1619781151, .custom-shape-divider-top-1619781152, .custom-shape-divider-top-1619781153 {
+        display: none;
+    }
+
+    header {
+        display: flex;
+        width: 100% !important;
+        margin-bottom: 100px;
+        height: 100%;
+        margin: 0 auto !important;
+        padding-top: 50px;
+        padding-bottom: 50px;
+        align-items: center !important;
+        text-align: center;
+        justify-content: center !important;
+        background-color: #1E718D;
+    }
+
+    .top--Image {
+        display: none;
+    }
+
+    .home--Section--Boxes--Container--Transparent {
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 auto;
+    }
+
+    .home--Section--Box {
+        transform: translateY(calc(10vw - 50%)) !important;
+        height: 30% !important;
+        width: 80% !important;
+
+        h1 {
+            width: 50% !important;
+        }
+    } 
+
+    .home--Section--Box--Middle {
+        height: 35% !important;
+        width: 80% !important;
+
+        h1 {
+            margin: 0;
+            width: 50% !important;
+        }
+    }
+
+    .home--Section--Preview {
+        height: 1000px;
+        padding-top: 100px;
+        justify-content: space-between !important;
+    }
+
+    .blob--One {
+        top: 143%;
+        width: 50%;
+        height: 70%;
+    }
+
+    .preview--First {
+        height: 40%;
+        margin-top: 0 auto;
+    
+        .catalogue--About--Container {
+            width: 80%;
+            transform: translateY(calc(40vw));
+
+            h3 {
+                font-size: 17px;
+                width: 100% !important;
+
+                .catalogue--Header--Icon {
+                    display: none;
+                }
+            }
+
+            p {
+                font-size: 15px;
+            }
+        }
+
+        .img--Repeat--Background--First {
+            display: none;
+        }
+
+        .img--Repeat--Background--Second {
+            display: none;
+        }
+    
+        img {
+            width: 40%;
+            height: 40%;
+        }
+    }
+
+    .preview--Second {
+        height: 50%;
+
+        .delivery--About--Container {
+            width: 100%;
+        }
+
+        .delivery--About--Container h3 {
+            font-size: 17px !important;
+            width: 50% !important;
+
+            .delivery--Header--Icon {
+                display: none;
+            }
+        }
+
+        .delivery--About--Container p {
+            font-size: 15px;
+        }
+
+        img {
+            width: 60%;
+            height: 20%;
+            margin-left: 25%;
+        }
+    }
+
+    .blob--Two {
+        position: absolute;
+        opacity: 0.6;
+        top: 244%;
+    }
+
+    .company--About--Buble {
+        transform: translateY(28.5vw);
+        width: 90% !important;
+
+        h4{
+            font-size: 12px !important;
+            width: 100% !important;
+        }
+
+        p {
+            font-size: 12px !important;
+        }
+    }
+
+    footer ul {
+        padding: 5px;
+        width: 10% !important;
+    }
+
+    .footer--List--Header {
+        font-size: 15px !important;
+    }
+
+    footer li {
+        font-size: 13px !important;
+    }
+}
