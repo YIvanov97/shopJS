@@ -28,6 +28,16 @@ const Register = () => {
         draggable: true,
         progress: undefined,
         });
+
+    const onError = () => toast.error('User already exist!', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: true,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+        });
     
     const onPasswordMismatch = () => toast.warn('Passwords mismatch!', {
         position: "top-right",
@@ -84,7 +94,11 @@ const Register = () => {
             body: JSON.stringify(user)
         })
         .then((response) => {
-            if (response.status === 201) {
+            console.log(response.status)
+            if(response.status === 401) {
+                onError()
+                return;
+            } else if (response.status === 201) {
                 onSuccess()
                 setTimeout(() => {
                     window.location = '/auth/login'

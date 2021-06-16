@@ -245,6 +245,7 @@ function App() {
                       <option value="S6">S6</option>
                       <option value="M1">M1</option>
                       <option value="A14">A14</option>
+                      <option value="none">none</option>
                     </select>
                     <select
                       type="text"
@@ -257,6 +258,7 @@ function App() {
                       <option value="16">16</option>
                       <option value="32">32</option>
                       <option value="4">4</option>
+                      <option value="none">none</option>
                     </select>
                     <select
                       type="text"
@@ -269,6 +271,7 @@ function App() {
                       <option value="512GB">512GB</option>
                       <option value="1TB">1TB</option>
                       <option value="32GB">32GB</option>
+                      <option value="none">none</option>
                     </select>
                   </div>
                   {imagesColors.map((x, i) => {
@@ -334,6 +337,7 @@ function App() {
                     <option value="laptop">Laptop</option>
                     <option value="computer">Computer</option>
                     <option value="watch">Watch</option>
+                    <option value="headphones">Headphones</option>
                   </select>
                   <input
                     type="submit"

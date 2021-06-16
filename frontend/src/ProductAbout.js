@@ -112,7 +112,7 @@ const ProductAbout = (props) => {
                         <thead>
                             <tr>
                                 <td>CPU</td>
-                                <td>Ram</td>
+                                <td>RAM</td>
                                 <td>Storage</td>
                             </tr>
                         </thead>

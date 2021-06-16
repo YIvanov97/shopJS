@@ -140,6 +140,7 @@ const Products = props => {
             </ul>
         )
     }
+      
 
     const RenderProductImage = (props) => {
         return(

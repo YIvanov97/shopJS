@@ -6,6 +6,12 @@ const { SALT_ROUNDS, SECRET } = require('../config/config');
 
 const register =  async ({name, username, email, password, cart})  => {
 
+    const exist = 'exist';
+
+    if(User.findOne({email, username})) {
+        return exist;
+    }
+
     let salt = await bcrypt.genSalt(SALT_ROUNDS);
     let hash = await bcrypt.hash(password, salt);
 

@@ -49,12 +49,12 @@ const Cart = props => {
                     <tbody>
                         {!localStorage.hasOwnProperty("cart") ? 
                                 <>
-                                {user?.cart?.length > 0 ?
+                                {user.cart.length > 0 ?
                                     <>
-                                        {user.cart.map((product, i) => {
+                                        {user?.cart.map((product, i) => {
                                             return (
                                                 <tr key={i}> 
-                                                    <td><img alt="productimg" src={require(`./styles/images/${product.images}`).default}/></td>
+                                                    <td><img alt="productimg" src={require(`./styles/images/${product?.images}`).default}/></td>
                                                     <td>{product.name}</td>
                                                     <td>{product.processor} / {product.ram}GB / {product.storage}</td>
                                                     <td>{product.price}$</td>
@@ -79,10 +79,10 @@ const Cart = props => {
                                 <>
                                     {cart.length > 0 ?
                                         <>
-                                            {cart.map((product, i) => {
+                                            {cart?.map((product, i) => {
                                                 return (
                                                     <tr key={i}>   
-                                                        <td><img alt="productimg" src={require(`./styles/images/${product.images}`).default}/></td>
+                                                        <td><img alt="productimg" src={require(`./styles/images/${product?.images}`).default}/></td>
                                                         <td>{product.name}</td>
                                                         <td>{product.processor} / {product.ram}GB / {product.storage}</td>
                                                         <td>{product.price}$</td>

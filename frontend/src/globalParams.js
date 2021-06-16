@@ -52,18 +52,8 @@ const UserContextProvider = (props) => {
     }
 
     useEffect(() => {
-
         const cartProduct = {
-            _id: addToCart[1]?._id,
-            name: addToCart[1]?.name,
-            description: addToCart[1]?.description,
-            processor: addToCart[1]?.processor,
-            ram: addToCart[1]?.ram,
-            storage: addToCart[1]?.storage,
-            price: addToCart[1]?.price,
-            type: addToCart[1]?.type,
-            likes: addToCart[1]?.likes,
-            colors: addToCart[1]?.colors,
+            ...addToCart[1],
             images: chosenImage.originalname
         }
 
