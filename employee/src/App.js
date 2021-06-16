@@ -3,10 +3,9 @@ import './styles/app.scss';
 import {toast, ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProductsData from './Product'
-import logo from './styles/images/NWN.png'
 import { FaCloudUploadAlt } from 'react-icons/fa';
 import { FiLogOut } from "react-icons/fi";
-import { IoAddCircleSharp, IoRemoveCircleSharp } from "react-icons/io5";
+import { IoRemoveCircleSharp } from "react-icons/io5";
 import { motion } from "framer-motion"
 
 function App() {
