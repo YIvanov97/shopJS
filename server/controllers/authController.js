@@ -20,6 +20,9 @@ router.post('/register', async (req, res) => {
     
     try {
         let user = await authService.register({name, username, email, password})
+        if(user === 'exist') {
+            return res.statusCode(401)
+        }
         res.status(201).json(user)
     } catch (error) {
         res.status(401).json({ error: error })
