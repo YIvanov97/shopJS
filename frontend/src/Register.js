@@ -94,11 +94,7 @@ const Register = () => {
             body: JSON.stringify(user)
         })
         .then((response) => {
-            console.log(response.status)
-            if(response.status === 401) {
-                onError()
-                return;
-            } else if (response.status === 201) {
+            if (response.status === 201) {
                 onSuccess()
                 setTimeout(() => {
                     window.location = '/auth/login'
