@@ -12,6 +12,7 @@ import { motion } from "framer-motion"
 import ipad from './styles/images/ipaddef4f5b66.png'
 import iphone from './styles/images/iphonedef0095CB.png'
 import iwatch from './styles/images/iwatch0095CB.png'
+import Parallax from 'react-rellax';
 
 const Products = props => {
 
@@ -174,8 +175,12 @@ const Products = props => {
                 </svg>
             </div>
             <header>
-                <h1>Feel the comfort at your workplace</h1>
-                <h3>Feel the comfort in your hands</h3>
+                <Parallax speed={-3}>
+                    <h1>Feel the comfort at your workplace</h1>
+                </Parallax>
+                <Parallax speed={-2}>
+                    <h3>Feel the comfort in your hands</h3>
+                </Parallax>
             </header>
             <motion.div className="first--topImage--container" transition={{duration: 0.3}} initial={{ x: "100%" }} animate={{ x: "calc(50vw - 50%)" }}>
                 <img className="first--topImage" src={ipad} alt="top ipad" />

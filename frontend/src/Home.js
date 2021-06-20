@@ -8,6 +8,7 @@ import { FaGrinStars, FaHubspot, FaRegFileAlt, FaBookOpen, FaOpencart, FaHeadset
 import { VscFeedback } from "react-icons/vsc";
 import { motion, useAnimation } from "framer-motion"
 import { useInView } from "react-intersection-observer";
+import Parallax from 'react-rellax';
 
 function Home() {
 
@@ -139,8 +140,12 @@ function Home() {
                 </svg>
             </div>
                 <header>
+                <Parallax speed={2}>
                     <h3>Technologies of the future</h3>
+                </Parallax>
+                <Parallax speed={3}>
                     <p>Your choice, your place</p>
+                </Parallax>
                 </header>      
                 <main className="home--Body">
                     <div className="top--Image">
